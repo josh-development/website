@@ -1,0 +1,6 @@
+# Ignore a blackhole
+node_modules/
+
+# Build artifacts
+dist/
+build/
