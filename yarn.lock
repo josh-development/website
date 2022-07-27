@@ -787,6 +787,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solidjs/router@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@solidjs/router@npm:0.4.2"
+  peerDependencies:
+    solid-js: ^1.3.5
+  checksum: 582f7d0954c2326d9c96ed8d87b1e706d07006254f4038b2fd454f71c57d92487e9337634992f65442247f0e6723ab4fddf4d01f9f677aeaa41b21722d184fc6
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -4489,6 +4498,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"solid-icons@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "solid-icons@npm:1.0.1"
+  peerDependencies:
+    solid-js: "*"
+  checksum: 4368ab117fb73fb39162e3b92ade6c19f971822cc2ba0738c145438a19520b386b170219a24a4ab9e560ad10ae5061afa1380f1e1bdfc122f7fbabf636bc6007
+  languageName: node
+  linkType: hard
+
 "solid-js@npm:^1.4.8":
   version: 1.4.8
   resolution: "solid-js@npm:1.4.8"
@@ -4506,6 +4524,15 @@ __metadata:
   peerDependencies:
     solid-js: ^1.3
   checksum: 29de3b7a3bb2c18c978476658f1742583e27e628837b857e6458390eb0c77fa20ee8d9510fcf0a2a15c80ba6af85fea415553db3ca335d79884db430024a33b5
+  languageName: node
+  linkType: hard
+
+"solid-transition-group@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "solid-transition-group@npm:0.0.10"
+  peerDependencies:
+    solid-js: ^1.0.0
+  checksum: ad87da0b35222e0764e1b5d47f59a54c106c8de4124362e0957764b3afc5e14b3341e8aa7a5c00bdcef00b6e01ad3eb5521f69ff8e74ba8cad257e728d27e2d9
   languageName: node
   linkType: hard
 
@@ -5076,6 +5103,7 @@ __metadata:
     "@commitlint/config-conventional": ^17.0.3
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/ts-config": ^3.3.4
+    "@solidjs/router": ^0.4.2
     "@types/node": ^17.0.35
     "@typescript-eslint/eslint-plugin": ^5.30.7
     "@typescript-eslint/parser": ^5.30.7
@@ -5089,7 +5117,9 @@ __metadata:
     prettier: ^2.7.1
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
+    solid-icons: ^1.0.1
     solid-js: ^1.4.8
+    solid-transition-group: ^0.0.10
     tailwindcss: ^3.1.6
     typescript: ^4.7.4
     vite: ^3.0.2
