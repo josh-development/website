@@ -84,7 +84,7 @@ export const Navigation = () => {
             <Link href='/'>Josh</Link>
           </h1>
         </div>
-        <div class='hidden sm:flex w-1/3'>
+        <div class='hidden relative sm:inline-block w-1/3'>
           <button
             onclick={() => setShowTagList(!showTagList())}
             class='rounded-md flex ml-auto w-24 text-sm py-1.5 text-black bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center'
@@ -109,7 +109,7 @@ export const Navigation = () => {
           <Transition name='fade' mode='outin'>
             <Switch>
               <Match when={showTagList()}>
-                <ul class='visible ml-auto right-7 2xl:right-[4.9rem] top-7 transition mt-10 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 absolute'>
+                <ul class='visible ml-auto transition mt-3 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 origin-top-right absolute right-0'>
                   {tags().map((tag) => (
                     <li
                       onclick={() => chooseTag(tag.tag)}
