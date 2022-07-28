@@ -72,6 +72,7 @@ await josh.set("foo", "bar");`);
             </Link>
             <a
               target='_blank'
+              rel='noopener'
               href='https://github.com/josh-development/core'
               class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block'
             >

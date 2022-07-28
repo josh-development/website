@@ -60,6 +60,7 @@ export const Navigation = () => {
           {icons.map((icon) => (
             <a
               target='_blank'
+              rel='noopener'
               href={icon.href}
               class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
             >
@@ -157,6 +158,7 @@ export const Navigation = () => {
             <a
               target='_blank'
               href={icon.href}
+              rel='noopener'
               class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
             >
               {icon.icon(36)}
