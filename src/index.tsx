@@ -1,4 +1,4 @@
-import { Router } from '@solidjs/router';
+import { Router } from 'solid-app-router';
 import { render } from 'solid-js/web';
 import { App } from './App';
 import './index.css';

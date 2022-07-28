@@ -11,3 +11,15 @@
 .fade-exit-to {
   opacity: 0;
 }
+
+h1, h2 {
+  font-family: 'Ledger', serif;
+}
+
+h3, h4, h5 {
+  font-family: 'Maven Pro', sans-serif;
+}
+
+html, body, p, span {
+  font-family: 'Varela Round', sans-serif;
+}

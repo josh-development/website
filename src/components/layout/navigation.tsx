@@ -1,5 +1,5 @@
 import { FiChevronDown, FiChevronUp, FiGithub, FiMenu } from 'solid-icons/fi';
-import { createMemo, createSignal, Match, Switch } from 'solid-js';
+import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import npmData from '../../store/npm';
 export const Navigation = () => {
@@ -29,7 +29,7 @@ export const Navigation = () => {
   });
 
   return (
-    <nav class='2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4'>
+    <nav>
       <div class='flex justify-between '>
         <div class='hidden sm:flex flex-row items-center space-x-6'>
           <a
