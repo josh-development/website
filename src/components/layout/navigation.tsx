@@ -1,4 +1,6 @@
+import { Link } from 'solid-app-router';
 import { FiChevronDown, FiChevronUp, FiGithub, FiMenu } from 'solid-icons/fi';
+import { SiDiscord } from 'solid-icons/si';
 import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import npmData from '../../store/npm';
@@ -30,17 +32,27 @@ export const Navigation = () => {
 
   return (
     <nav>
-      <div class='flex justify-between '>
+      <div class='flex justify-between'>
         <div class='hidden sm:flex flex-row items-center space-x-6'>
           <a
+            target='_blank'
             href='https://github.com/josh-development'
             class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
           >
             <FiGithub size={24}></FiGithub>
           </a>
+          <a
+            target='_blank'
+            href='https://discord.evie.dev'
+            class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
+          >
+            <SiDiscord size={24}></SiDiscord>
+          </a>
         </div>
         <div class='flex space-x-3 items-center'>
-          <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>Josh</h1>
+          <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>
+            <Link href='/'>Josh</Link>
+          </h1>
         </div>
         <div class='hidden sm:flex flex-row'>
           <button

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'solid-app-router';
 import { Navigation } from './components/layout/navigation';
 import { LandingPage } from './components/pages/landing';
+import { NotFound } from './components/pages/notfound';
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
         <Navigation></Navigation>
         <Routes>
           <Route path='/' component={LandingPage} />
+          <Route path='*' component={NotFound} />
         </Routes>
       </div>
     </div>

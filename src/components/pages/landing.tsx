@@ -6,15 +6,11 @@ import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
 
 export const LandingPage = () => {
-  const [code, setCode] = createSignal(`const josh = new Josh({ name: 'Josh' });
+  const [code, setCode] = createSignal(`import { Josh } from "@joshdb/core";
+  
+const josh = new Josh({ name: 'Josh' });
 
-await josh.set("website", "cool");
-
-await josh.every("website", "cool");
-
-await josh.setMany([['dan-online', true]]});
-
-await josh.delete("website");`);
+await josh.set("foo", "bar");`);
 
   const [pkg, setPackage] = createSignal('core');
   const [currentPkg, setCurrentPkg] = createSignal('');
@@ -23,7 +19,7 @@ await josh.delete("website");`);
     const current = pkg();
     const next = packages[(packages.indexOf(current) + 1) % packages.length];
 
-    for (let i = 0; i < current.length; i++) {
+    for (const _ of current) {
       setPackage(pkg().slice(0, -1));
       await new Promise((r) => {
         setTimeout(r, 100);
@@ -56,33 +52,31 @@ await josh.delete("website");`);
     <div class='flex w-full h-[80vh] items-center'>
       <div class='w-1/2'>
         <h2 class='text-xl dark:text-gray-400'>
-          <a href={`https://npmjs.org/package/${currentPkg()}`}>@joshdb/{pkg}</a>
+          <a href={`https://npmjs.org/package/${currentPkg()}`}>
+            @joshdb/{pkg} <div class='h-6 -mb-1 inline-block bg-zinc-800 dark:bg-gray-300 animate-pulse w-1'></div>
+          </a>
         </h2>
         <h1 class='text-6xl dark:text-gray-100 my-2'>Databases, reimagined</h1>
-        <p class='dark:text-gray-300 mt-5'>
+        <p class='dark:text-gray-300 my-7'>
           Explore the easiest way to quickly, yet efficiently manage lots of different types of databases, all under one easy to use and powerful api.
           Paired with providers ranging from MongoDB and SQL to JSON, and Middleware such as caching and schema validation, Josh is the easiest way to
           manage your data.
         </p>
         <div class='space-x-2'>
-          <Link href='/docs' class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg mt-4 inline-block'>
+          <Link href='/docs' class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block'>
             <div class='flex'>
               <FiBook class='mt-[0.2rem] mr-2'></FiBook> Documentation
             </div>
           </Link>
-          <a
-            target='_blank'
-            href='https://github.com/josh-development/core'
-            class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg mt-4 inline-block'
-          >
+          <a target='_blank' href='https://github.com/josh-development/core' class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block'>
             <div class='flex'>
               <FiGithub class='mt-[0.2rem] mr-2'></FiGithub> Source
             </div>
           </a>
         </div>
       </div>
-      <div class='w-2/5 px-8'>
-        <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl'>
+      <div class='w-1/2 px-8'>
+        <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 px-10 h-60 pt-14'>
           {code()}
         </Highlight>
         <div></div>
