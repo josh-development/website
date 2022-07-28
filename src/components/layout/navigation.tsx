@@ -146,7 +146,7 @@ export const Navigation = () => {
               end
               activeClass='border-gray-400'
               inactiveClass='border-transparent'
-              class='border-b block my-10 mx-20 transition dark:text-white py-2 text-2xl'
+              class='border-b block my-10 mx-20 transition text-white py-2 text-2xl'
               href={link.href}
             >
               {link.text}
@@ -159,7 +159,7 @@ export const Navigation = () => {
               target='_blank'
               href={icon.href}
               rel='noopener'
-              class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
+              class='text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
             >
               {icon.icon(36)}
             </a>
