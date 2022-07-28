@@ -1,4 +1,4 @@
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <div class='text-center h-[80vh] items-center flex justify-center'>
       <div class='w-96'>
@@ -13,3 +13,5 @@ export const NotFound = () => {
     </div>
   );
 };
+
+export default NotFound;

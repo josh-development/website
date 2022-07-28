@@ -604,6 +604,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dan-online/solid-highlight-ts@npm:^0.1.12":
+  version: 0.1.12
+  resolution: "@dan-online/solid-highlight-ts@npm:0.1.12"
+  dependencies:
+    highlight.js: ^11.5.1
+    solid-js: ^1.4.2
+  peerDependencies:
+    highlight.js: ^11.5.1
+    solid-js: ^1.4.2
+  checksum: 34f5ecd7f7d49404b790b1c4a206386788423b90681a1c0ee3c39baf1c0ef632771aa5b136c4ad9534b3529feec05ec5877ad860201b8c6d3164719d46ba749e
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^1.3.0":
   version: 1.3.0
   resolution: "@eslint/eslintrc@npm:1.3.0"
@@ -4505,19 +4518,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-highlight@npm:^0.1.11":
-  version: 0.1.11
-  resolution: "solid-highlight@npm:0.1.11"
-  dependencies:
-    highlight.js: ^11.5.1
-    solid-js: ^1.4.2
-  peerDependencies:
-    highlight.js: ^11.5.1
-    solid-js: ^1.4.2
-  checksum: cb2ecf5bc2accccbe9bede594ed9fdb7139b0123154a607a352042fe5ad6c0935bb8352fe8ac4e59efed9a2f0d52d7ee22809d8c39e5526712409b1a12cc39c7
-  languageName: node
-  linkType: hard
-
 "solid-icons@npm:^1.0.1":
   version: 1.0.1
   resolution: "solid-icons@npm:1.0.1"
@@ -5121,6 +5121,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.0.3
     "@commitlint/config-conventional": ^17.0.3
+    "@dan-online/solid-highlight-ts": ^0.1.12
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/ts-config": ^3.3.4
     "@types/node": ^17.0.35
@@ -5138,7 +5139,6 @@ __metadata:
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
     solid-app-router: ^0.4.2
-    solid-highlight: ^0.1.11
     solid-icons: ^1.0.1
     solid-js: ^1.4.8
     solid-transition-group: ^0.0.10

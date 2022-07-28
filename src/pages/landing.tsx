@@ -1,4 +1,4 @@
-import Highlight from 'solid-highlight';
+import Highlight from '@dan-online/solid-highlight-ts';
 
 import 'highlight.js/styles/tokyo-night-dark.css';
 import { Link } from 'solid-app-router';
