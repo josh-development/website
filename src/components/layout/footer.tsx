@@ -33,6 +33,7 @@ export const Footer = () => {
             {mems().map((member) => (
               <a href={member.html_url} rel='noopener' target='_blank' class='focus:outline-none w-12 h-12 bg-cover bg-center rounded-md -ml-2'>
                 <img
+                  loading='lazy'
                   src={`${member.avatar_url}&size=48`}
                   alt={member.login}
                   class='h-full w-full bg-white overflow-hidden object-cover rounded-full border-2 border-white shadow'

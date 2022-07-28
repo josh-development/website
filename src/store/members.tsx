@@ -3,7 +3,7 @@ import type { GithubMembers } from './types';
 
 const initialData = localStorage.getItem('githubMembers');
 const fetchGithubMembers = async () => {
-  if (initialData) return [];
+  if (initialData) return JSON.parse(initialData);
   const members = await (await fetch('https://api.github.com/orgs/josh-development/members')).json();
   const coreContributors = await (await fetch('https://api.github.com/repos/josh-development/core/contributors')).json();
   const providerContributors = await (await fetch('https://api.github.com/repos/josh-development/providers/contributors')).json();
