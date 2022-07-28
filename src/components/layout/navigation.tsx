@@ -1,4 +1,4 @@
-import { Link } from 'solid-app-router';
+import { Link, NavLink } from 'solid-app-router';
 import { FiChevronDown, FiChevronUp, FiGithub, FiMenu } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
 import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
@@ -33,7 +33,7 @@ export const Navigation = () => {
   return (
     <nav>
       <div class='flex justify-between'>
-        <div class='hidden sm:flex flex-row items-center space-x-6'>
+        <div class='hidden sm:flex flex-row items-center space-x-6 w-1/3'>
           <a
             target='_blank'
             href='https://github.com/josh-development'
@@ -48,16 +48,22 @@ export const Navigation = () => {
           >
             <SiDiscord size={24}></SiDiscord>
           </a>
+          <NavLink end activeClass='border-gray-400' inactiveClass='border-transparent' class='border-b transition dark:text-white py-2' href='/'>
+            Home
+          </NavLink>
+          <NavLink end activeClass='border-gray-400' inactiveClass='border-transparent' class='border-b transition dark:text-white py-2' href='/docs'>
+            Documentation
+          </NavLink>
         </div>
         <div class='flex space-x-3 items-center'>
           <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>
             <Link href='/'>Josh</Link>
           </h1>
         </div>
-        <div class='hidden sm:flex flex-row'>
+        <div class='hidden sm:flex w-1/3'>
           <button
             onclick={() => setShowTagList(!showTagList())}
-            class='rounded-md flex w-24 text-sm py-1.5 text-black bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center'
+            class='rounded-md flex ml-auto w-24 text-sm py-1.5 text-black bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center'
           >
             <Show when={npm()?._id} fallback={<span>Loading...</span>}>
               <span class='px-4'>{chosenTag}</span>
