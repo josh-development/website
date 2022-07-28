@@ -1,7 +1,7 @@
 import { Route, Routes } from 'solid-app-router';
 import { Navigation } from './components/layout/navigation';
-import { LandingPage } from './components/pages/landing';
-import { NotFound } from './components/pages/notfound';
+import { LandingPage } from './pages/landing';
+import { NotFound } from './pages/notfound';
 
 export function App() {
   return (
