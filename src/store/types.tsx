@@ -56,7 +56,7 @@ export interface NPMData {
         name: string;
         email: string;
       };
-      directories: {};
+      directories: any;
       maintainers: Array<{
         name: string;
         email: string;
