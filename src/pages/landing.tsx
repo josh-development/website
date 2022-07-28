@@ -6,7 +6,7 @@ import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
 
 export const LandingPage = () => {
-  const [code, setCode] = createSignal(`import { Josh } from "@joshdb/core";
+  const [code] = createSignal(`import { Josh } from "@joshdb/core";
   
 const josh = new Josh({ name: "website" });
 
@@ -50,7 +50,7 @@ await josh.set("foo", "bar");`);
 
   return (
     <>
-      <div class='sm:flex w-full h-[80vh] items-center'>
+      <div class='sm:flex w-full sm:max-h-screen min-h-[80vh] items-center'>
         <div class='mt-20 sm:mt-0 sm:w-1/2'>
           <h2 class='text-xl dark:text-gray-400'>
             <a class='flex' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`} rel='noopener'>

@@ -1,4 +1,5 @@
 import { Route, Routes } from 'solid-app-router';
+import { Footer } from './components/layout/footer';
 import { Navigation } from './components/layout/navigation';
 import { LandingPage } from './pages/landing';
 import { NotFound } from './pages/notfound';
@@ -12,6 +13,7 @@ export function App() {
           <Route path='/' component={LandingPage} />
           <Route path='*' component={NotFound} />
         </Routes>
+        <Footer></Footer>
       </div>
     </div>
   );
