@@ -2,7 +2,11 @@
   "extends": "@sapphire/ts-config",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext"
-    
+    "declaration": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "module": "commonjs"
   }
 }
