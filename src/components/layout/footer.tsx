@@ -13,11 +13,11 @@ function shuffleArray(array: any[]) {
   return array;
 }
 
+const [members] = githubMembers;
+
 export const Footer = () => {
-  const [members] = githubMembers;
   const mems = createMemo(() => {
-    const membs = members();
-    if (!membs) return [];
+    const membs = members() || [];
     return shuffleArray(membs).slice(0, 10);
   });
 
