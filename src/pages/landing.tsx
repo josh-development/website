@@ -50,11 +50,11 @@ await josh.set("foo", "bar");`);
 
   return (
     <>
-      <div class='flex w-full h-[80vh] items-center'>
-        <div class='w-1/2'>
+      <div class='sm:flex w-full h-[80vh] items-center'>
+        <div class='mt-20 sm:mt-0 sm:w-1/2'>
           <h2 class='text-xl dark:text-gray-400'>
             <a href={`https://npmjs.org/package/${currentPkg()}`}>
-              @joshdb/{pkg} <div class='h-6 -mb-1 inline-block bg-zinc-800 dark:bg-gray-300 animate-pulse w-1'></div>
+              @joshdb/{pkg} <div class='h-6 -mb-1.5 inline-block bg-zinc-800 dark:bg-gray-300 animate-pulse w-1 -ml-1'></div>
             </a>
           </h2>
           <h1 class='text-6xl dark:text-gray-100 my-2'>Databases, reimagined</h1>
@@ -80,8 +80,8 @@ await josh.set("foo", "bar");`);
             </a>
           </div>
         </div>
-        <div class='w-1/2 px-8'>
-          <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 px-10 h-60 pt-14'>
+        <div class='sm:w-1/2 sm:px-8 mt-8 sm:mt-0'>
+          <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-lg sm:h-60 sm:pt-10'>
             {code()}
           </Highlight>
           <div></div>
