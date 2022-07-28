@@ -53,7 +53,7 @@ await josh.set("foo", "bar");`);
       <div class='sm:flex w-full h-[80vh] items-center'>
         <div class='mt-20 sm:mt-0 sm:w-1/2'>
           <h2 class='text-xl dark:text-gray-400'>
-            <a class='flex' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`}>
+            <a class='flex' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`} rel='noopener'>
               <span>@joshdb/{pkg}</span>
               <span class='h-6 -mb-1.5 bg-zinc-800 dark:bg-gray-300 animate-pulse w-0.5 ml-0.5'></span>
             </a>
