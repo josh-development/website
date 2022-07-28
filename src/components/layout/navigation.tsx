@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'solid-app-router';
-import { FiChevronDown, FiChevronUp, FiGithub, FiMenu } from 'solid-icons/fi';
+import { FiChevronDown, FiChevronUp, FiGithub, FiMenu, FiX } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
 import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
 import { Transition } from 'solid-transition-group';
@@ -7,6 +7,7 @@ import npmData from '../../store/npm';
 export const Navigation = () => {
   const [chosenTag, setChosenTag] = createSignal('latest');
   const [showTagList, setShowTagList] = createSignal(false);
+  const [showMenu, setShowMenu] = createSignal(false);
   const chooseTag = (index: string) => {
     setChosenTag(index);
     setShowTagList(false);
@@ -30,30 +31,52 @@ export const Navigation = () => {
     }, []);
   });
 
+  const icons = [
+    {
+      icon: (size = 24) => <FiGithub size={size} />,
+      href: 'https://github.com/josh-development'
+    },
+    {
+      icon: (size = 24) => <SiDiscord size={size} />,
+      href: 'https://discord.evie.dev'
+    }
+  ];
+
+  const links = [
+    {
+      text: 'Home',
+      href: '/'
+    },
+    {
+      text: 'Documentation',
+      href: '/docs'
+    }
+  ];
+
   return (
     <nav>
       <div class='flex justify-between'>
         <div class='hidden sm:flex flex-row items-center space-x-6 w-1/3'>
-          <a
-            target='_blank'
-            href='https://github.com/josh-development'
-            class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
-          >
-            <FiGithub size={24}></FiGithub>
-          </a>
-          <a
-            target='_blank'
-            href='https://discord.evie.dev'
-            class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
-          >
-            <SiDiscord size={24}></SiDiscord>
-          </a>
-          <NavLink end activeClass='border-gray-400' inactiveClass='border-transparent' class='border-b transition dark:text-white py-2' href='/'>
-            Home
-          </NavLink>
-          <NavLink end activeClass='border-gray-400' inactiveClass='border-transparent' class='border-b transition dark:text-white py-2' href='/docs'>
-            Documentation
-          </NavLink>
+          {icons.map((icon) => (
+            <a
+              target='_blank'
+              href={icon.href}
+              class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
+            >
+              {icon.icon()}
+            </a>
+          ))}
+          {links.map((link) => (
+            <NavLink
+              end
+              activeClass='border-gray-400'
+              inactiveClass='border-transparent'
+              class='border-b transition dark:text-white py-2'
+              href={link.href}
+            >
+              {link.text}
+            </NavLink>
+          ))}
         </div>
         <div class='flex space-x-3 items-center'>
           <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>
@@ -85,7 +108,7 @@ export const Navigation = () => {
           <Transition name='fade' mode='outin'>
             <Switch>
               <Match when={showTagList()}>
-                <ul class='visible transition mt-10 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 absolute'>
+                <ul class='visible ml-auto right-7 2xl:right-[4.9rem] top-7 transition mt-10 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 absolute'>
                   {tags().map((tag) => (
                     <li
                       onclick={() => chooseTag(tag.tag)}
@@ -104,13 +127,42 @@ export const Navigation = () => {
         </div>
 
         <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center sm:hidden cursor-pointer'>
-          <FiMenu size={24} class='dark:text-white text-black'></FiMenu>
+          <FiMenu onClick={() => setShowMenu(true)} size={24} class='dark:text-white text-black'></FiMenu>
         </div>
       </div>
       {/* Todo: mobile nav */}
-      <div class='hidden sm:hidden mt-4 mx-auto'>
-        <div class='flex flex-row items-center justify-center space-x-6'>{/* icons */}</div>
-        <div class='flex flex-col gap-4 mt-4 w-80 mx-auto '>{/* nav */}</div>
+      <div
+        style='z-index:2'
+        class={`transition w-screen h-screen bg-primary mx-auto fixed top-0 left-0 py-6 px-6 ${showMenu() ? 'translate-x-0' : 'translate-x-[100vw]'}`}
+      >
+        <div>
+          <FiX class='ml-auto text-white' onClick={() => setShowMenu(false)} size={32}></FiX>
+        </div>
+        <div class='text-center'>
+          {links.map((link) => (
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              end
+              activeClass='border-gray-400'
+              inactiveClass='border-transparent'
+              class='border-b block my-10 mx-20 transition dark:text-white py-2 text-2xl'
+              href={link.href}
+            >
+              {link.text}
+            </NavLink>
+          ))}
+        </div>
+        <div class='flex justify-center space-x-4 mt-auto'>
+          {icons.map((icon) => (
+            <a
+              target='_blank'
+              href={icon.href}
+              class='dark:text-white p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800'
+            >
+              {icon.icon(36)}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );
