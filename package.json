@@ -4,6 +4,7 @@
   "description": "The website for the Josh project",
   "author": "Évelyne Lachance <eslachance@gmail.com> (https://evie.codes/)",
   "contributors": [
+    "DanCodes <dan@dancodes.online>",
     "Hezekiah Hendry <hezekiah.hendry@gmail.com>"
   ],
   "license": "MIT",
@@ -19,7 +20,12 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "solid-js": "^1.4.8"
+    "@dan-online/solid-highlight-ts": "^0.1.12",
+    "highlight.js": "^11.6.0",
+    "solid-app-router": "^0.4.2",
+    "solid-icons": "^1.0.1",
+    "solid-js": "^1.4.8",
+    "solid-transition-group": "^0.0.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

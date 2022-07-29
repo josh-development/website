@@ -604,6 +604,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dan-online/solid-highlight-ts@npm:^0.1.12":
+  version: 0.1.12
+  resolution: "@dan-online/solid-highlight-ts@npm:0.1.12"
+  dependencies:
+    highlight.js: ^11.5.1
+    solid-js: ^1.4.2
+  peerDependencies:
+    highlight.js: ^11.5.1
+    solid-js: ^1.4.2
+  checksum: 34f5ecd7f7d49404b790b1c4a206386788423b90681a1c0ee3c39baf1c0ef632771aa5b136c4ad9534b3529feec05ec5877ad860201b8c6d3164719d46ba749e
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^1.3.0":
   version: 1.3.0
   resolution: "@eslint/eslintrc@npm:1.3.0"
@@ -2856,6 +2869,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"highlight.js@npm:^11.5.1, highlight.js@npm:^11.6.0":
+  version: 11.6.0
+  resolution: "highlight.js@npm:11.6.0"
+  checksum: 3908eb34a4b442ca1e20c1ae6415ea935fbbcdb2b532a89948d82b0fa4ad41fc5de3802a0de4e88a0bcb7d97d4445579048cd2aab1d105ac47f59dd58a9a98ae
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^2.1.4":
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
@@ -4489,7 +4509,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.4.8":
+"solid-app-router@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "solid-app-router@npm:0.4.2"
+  peerDependencies:
+    solid-js: ^1.3.5
+  checksum: 4dfa8ad1c9f90c82d22a94cd5c8da3cbbf713812b7ba6a3fa7481968fd592203181373586eb24b042d183eb7dc54f737d6dd342bbc870e33ee8f8821a7b91dce
+  languageName: node
+  linkType: hard
+
+"solid-icons@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "solid-icons@npm:1.0.1"
+  peerDependencies:
+    solid-js: "*"
+  checksum: 4368ab117fb73fb39162e3b92ade6c19f971822cc2ba0738c145438a19520b386b170219a24a4ab9e560ad10ae5061afa1380f1e1bdfc122f7fbabf636bc6007
+  languageName: node
+  linkType: hard
+
+"solid-js@npm:^1.4.2, solid-js@npm:^1.4.8":
   version: 1.4.8
   resolution: "solid-js@npm:1.4.8"
   checksum: deb79463dab3af7889fffaa15f1be92be0c0732d46e74bd2848208d974389e967d69462eb940fbfc0cdbdf7d0a3677a7c9517da5fe6e2a25534e077b555d5704
@@ -4506,6 +4544,15 @@ __metadata:
   peerDependencies:
     solid-js: ^1.3
   checksum: 29de3b7a3bb2c18c978476658f1742583e27e628837b857e6458390eb0c77fa20ee8d9510fcf0a2a15c80ba6af85fea415553db3ca335d79884db430024a33b5
+  languageName: node
+  linkType: hard
+
+"solid-transition-group@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "solid-transition-group@npm:0.0.10"
+  peerDependencies:
+    solid-js: ^1.0.0
+  checksum: ad87da0b35222e0764e1b5d47f59a54c106c8de4124362e0957764b3afc5e14b3341e8aa7a5c00bdcef00b6e01ad3eb5521f69ff8e74ba8cad257e728d27e2d9
   languageName: node
   linkType: hard
 
@@ -5074,6 +5121,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.0.3
     "@commitlint/config-conventional": ^17.0.3
+    "@dan-online/solid-highlight-ts": ^0.1.12
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/ts-config": ^3.3.4
     "@types/node": ^17.0.35
@@ -5083,13 +5131,17 @@ __metadata:
     eslint: ^8.20.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
+    highlight.js: ^11.6.0
     husky: ^8.0.1
     lint-staged: ^12.5.0
     postcss: ^8.4.14
     prettier: ^2.7.1
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
+    solid-app-router: ^0.4.2
+    solid-icons: ^1.0.1
     solid-js: ^1.4.8
+    solid-transition-group: ^0.0.10
     tailwindcss: ^3.1.6
     typescript: ^4.7.4
     vite: ^3.0.2
