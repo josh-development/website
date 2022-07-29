@@ -1,8 +1,11 @@
 {
   "name": "website",
   "version": "0.0.0",
-  "description": "My personal portfolio website",
-  "author": "Hezekiah Hendry <hezekiah.hendry@gmail.com>",
+  "description": "The website for the Josh project",
+  "author": "Évelyne Lachance <eslachance@gmail.com> (https://evie.codes/)",
+  "contributors": [
+    "Hezekiah Hendry <hezekiah.hendry@gmail.com>"
+  ],
   "license": "MIT",
   "private": true,
   "type": "module",

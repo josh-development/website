@@ -1,13 +1,13 @@
-# Ignore a blachole and the folder for development
+# Ignore a blackhole
 node_modules/
 .vs/
 
-# Ignore tsc dist folder
-dist/
-
-# Build Artifacts
+# Ignore build artifacts
 dist/
 build/
+docs/
+coverage/
+.turbo/
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot
@@ -22,4 +22,3 @@ gh
 # Ignore Yarn files
 .yarn/install-state.gz
 .yarn/build-state.yml
-.yarn/cache/
