@@ -115,3 +115,271 @@ export type GithubMembers = {
   type: string;
   site_admin: boolean;
 }[];
+
+export type files = {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url: string;
+  git_url: string;
+  download_url?: string;
+  type: string;
+  _links: {
+    self: string;
+    git: string;
+    html: string;
+  };
+}[];
+
+export interface Docs {
+  id: number;
+  name: string;
+  classes: Array<{
+    id: number;
+    name: string;
+    comment: {
+      description: any;
+      blockTags: Array<any>;
+      modifierTags: Array<any>;
+    };
+    source: {
+      line: number;
+      file: string;
+      path: string;
+    };
+    external: boolean;
+    abstract: boolean;
+    extendsType: {
+      kind: string;
+      id: any;
+      name: string;
+      packageName: string;
+      typeArguments: Array<{
+        kind: string;
+        id: number;
+        name: string;
+        packageName: any;
+        typeArguments: Array<{
+          kind: string;
+          id: number;
+          name: string;
+          packageName: any;
+          typeArguments: Array<any>;
+        }>;
+      }>;
+    };
+    implementsType: Array<any>;
+    construct: {
+      id: number;
+      name: string;
+      comment: {
+        description: any;
+        blockTags: Array<any>;
+        modifierTags: Array<any>;
+      };
+      source: {
+        line: number;
+        file: string;
+        path: string;
+      };
+      parameters: Array<{
+        id: number;
+        name: string;
+        type: {
+          kind: string;
+          id?: number;
+          name: string;
+          packageName?: string;
+          typeArguments: Array<{
+            kind: string;
+            id?: number;
+            name: string;
+            packageName?: string;
+            typeArguments: Array<any>;
+          }>;
+        };
+      }>;
+    };
+    properties: Array<{
+      id: number;
+      name: string;
+      comment: {
+        description?: string;
+        blockTags: Array<{
+          name: string;
+          text: string;
+        }>;
+        modifierTags: Array<any>;
+      };
+      source: {
+        line: number;
+        file: string;
+        path: string;
+      };
+      accessibility: string;
+      abstract: boolean;
+      static: boolean;
+      readonly: boolean;
+      optional: boolean;
+      type: {
+        kind: string;
+        id?: number;
+        name?: string;
+        packageName?: string;
+        typeArguments?: Array<{
+          kind: string;
+          id?: number;
+          name: string;
+          packageName?: string;
+          typeArguments: Array<any>;
+        }>;
+        type?: string;
+      };
+    }>;
+    methods: Array<{
+      id: number;
+      name: string;
+      comment: {
+        description: any;
+        blockTags: Array<any>;
+        modifierTags: Array<any>;
+      };
+      source: {
+        line: number;
+        file: string;
+        path: string;
+      };
+      accessibility: string;
+      abstract: boolean;
+      static: boolean;
+      signatures: Array<{
+        id: number;
+        name: string;
+        typeParameters: Array<{
+          id: number;
+          name: string;
+          type?: {
+            kind: string;
+            id: any;
+            name: string;
+            packageName: string;
+            typeArguments: Array<any>;
+          };
+          default?: {
+            kind: string;
+            id: number;
+            name: string;
+            packageName: any;
+            typeArguments: Array<any>;
+          };
+        }>;
+        parameters: Array<{
+          id: number;
+          name: string;
+          type: {
+            kind: string;
+            id?: number;
+            name: string;
+            packageName: string;
+            typeArguments: Array<{
+              kind: string;
+              id: number;
+              name: string;
+              packageName?: string;
+              typeArguments: Array<any>;
+            }>;
+          };
+        }>;
+        returnType: {
+          kind: string;
+          id: any;
+          name?: string;
+          packageName?: string;
+          typeArguments?: Array<{
+            kind: string;
+            id?: number;
+            name: string;
+            packageName?: string;
+            typeArguments: Array<{
+              kind: string;
+              id: number;
+              name: string;
+              packageName?: string;
+              typeArguments: Array<any>;
+            }>;
+          }>;
+          type?: string;
+        };
+      }>;
+    }>;
+  }>;
+  constants: Array<any>;
+  enums: Array<any>;
+  functions: Array<any>;
+  interfaces: Array<any>;
+  namespaces: Array<{
+    id: number;
+    name: string;
+    comment: {
+      description: any;
+      blockTags: Array<any>;
+      modifierTags: Array<any>;
+    };
+    source: {
+      line: number;
+      file: string;
+      path: string;
+    };
+    external: boolean;
+    classes: Array<any>;
+    constants: Array<any>;
+    enums: Array<any>;
+    functions: Array<any>;
+    interfaces: Array<{
+      id: number;
+      name: string;
+      comment: {
+        description: any;
+        blockTags: Array<any>;
+        modifierTags: Array<any>;
+      };
+      source: {
+        line: number;
+        file: string;
+        path: string;
+      };
+      external: boolean;
+      properties: Array<{
+        id: number;
+        name: string;
+        comment: {
+          description: string;
+          blockTags: Array<{
+            name: string;
+            text: string;
+          }>;
+          modifierTags: Array<any>;
+        };
+        source: {
+          line: number;
+          file: string;
+          path: string;
+        };
+        readonly: boolean;
+        type: {
+          kind: string;
+          id?: number;
+          name?: string;
+          packageName: any;
+          typeArguments?: Array<any>;
+          type?: string;
+        };
+      }>;
+    }>;
+    namespaces: Array<any>;
+    typeAliases: Array<any>;
+  }>;
+  typeAliases: Array<any>;
+}
