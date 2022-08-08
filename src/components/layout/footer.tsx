@@ -6,6 +6,7 @@ function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
+
     array[i] = array[j];
     array[j] = temp;
   }
@@ -18,6 +19,7 @@ const [members] = githubMembers;
 export const Footer = () => {
   const mems = createMemo(() => {
     const membs = members() || [];
+
     return shuffleArray(membs).slice(0, 10);
   });
 

@@ -16,12 +16,14 @@ export const Navigation = () => {
   const [npm] = npmData;
   const tags = createMemo(() => {
     const o = npm();
+
     if (npm.loading || !o) return [];
     return Object.keys(o.versions).reduce<{ tag: string; versions: string[] }[]>((prev, curr) => {
       const dotSplit = curr.split('.');
       const dashSplit = curr.split('-');
       const tag = dotSplit.length > 1 && dashSplit.length < 2 ? `${dotSplit[0]}.x` : dashSplit[1].split('.')[0];
       const foundIdx = prev.findIndex((x) => x.tag === tag);
+
       if (foundIdx >= 0) {
         prev[foundIdx].versions.push(curr);
         return prev;
