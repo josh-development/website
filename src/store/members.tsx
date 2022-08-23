@@ -11,7 +11,7 @@ const fetchGithubMembers = async () => {
   const data: GithubMembers = [];
 
   for (const u of [...members, ...coreContributors, ...providerContributors]) {
-    if (!data.find((x) => x.login === u.login) && u.type !== 'Bot') {
+    if (!data.find((x) => x.login === u.login) && u.type !== 'Bot' && u.login.toLowerCase().split('bot').length === 1) {
       data.push(u);
     }
   }

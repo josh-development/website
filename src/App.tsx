@@ -1,10 +1,8 @@
 import { Route, Routes } from 'solid-app-router';
-import { lazy } from 'solid-js';
 import { Footer } from './components/layout/footer';
 import { Navigation } from './components/layout/navigation';
 import { LandingPage } from './pages/landing';
-
-const NotFound = lazy(() => import('./pages/notfound'));
+import NotFound from './pages/notfound';
 
 export function App() {
   return (
