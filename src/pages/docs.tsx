@@ -3,7 +3,7 @@ import { default as javascript, default as typescript } from 'highlight.js/lib/l
 import MarkdownIt from 'markdown-it';
 import { Link, useNavigate, useParams } from 'solid-app-router';
 import { FiChevronDown } from 'solid-icons/fi';
-import { createMemo, createSignal, Show } from 'solid-js';
+import { createMemo, createSignal, onCleanup, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
 import packages from '../store/packages';
 hljs.registerLanguage('typescript', typescript);
@@ -35,6 +35,15 @@ const DocsPage = () => {
     }
 
     return [];
+  });
+
+  const [scrollValue, setScroll] = createSignal(window.scrollY);
+  const updateScroll = () => setScroll(window.scrollY);
+
+  window.addEventListener('scroll', updateScroll);
+
+  onCleanup(() => {
+    window.removeEventListener('scroll', updateScroll);
   });
 
   const choosePackage = async (name: string) => {
@@ -92,7 +101,7 @@ const DocsPage = () => {
         </div>
       </Show>
       <Show when={!pkgs.loading}>
-        <div class='sm:w-72'>
+        <div class='sm:w-72' style={{ transform: `translateY(${scrollValue() > 80 ? scrollValue() - 80 : 0}px)` }}>
           {pkgs().map((pkg) => (
             <div
               class={`transition my-2 rounded hover:bg-gray-100 dark:hover:bg-zinc-800 ${
@@ -133,7 +142,7 @@ const DocsPage = () => {
             </div>
           ))}
         </div>
-        <div class='w-full pb-10'>
+        <div class='w-full'>
           <div class='transition-all' style={{ opacity: params.pkg ? 1 : 0 }}>
             <Show when={selectedPkg()}>
               <Show when={!params.type}>
@@ -211,7 +220,7 @@ const DocsPage = () => {
                               </div>
                             </Show>
                             <div
-                              class='prose prose-pre:my-4 my-3 text-lg tracking-wide'
+                              class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
                               innerHTML={md.render(sig.comment.example.map((x) => x.text).join('\n'))}
                             ></div>
                           </div>
