@@ -1,6 +1,8 @@
 import { Route, Routes } from 'solid-app-router';
+
 import { Footer } from './components/layout/footer';
 import { Navigation } from './components/layout/navigation';
+import DocsPage from './pages/docs';
 import { LandingPage } from './pages/landing';
 import NotFound from './pages/notfound';
 
@@ -11,6 +13,7 @@ export function App() {
         <Navigation></Navigation>
         <Routes>
           <Route path='/' component={LandingPage} />
+          <Route path={['/docs', '/docs/:pkg', '/docs/:pkg/:type']} component={DocsPage} />
           <Route path='*' component={NotFound} />
         </Routes>
         <Footer></Footer>

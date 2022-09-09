@@ -27,7 +27,7 @@ export const Footer = () => {
     <footer class='w-full border-t border-gray-500 pt-5 pb-5 sm:pb-1'>
       <div class='flex'>
         <div>
-          <h1 class='text-4xl dark:text-white'>Josh</h1>
+          <h1 class='text-4xl dark:text-white font-ledger'>Josh</h1>
           <p class='dark:text-gray-300 mt-2'>Copyright &copy; {new Date().getFullYear()} - Josh Team</p>
         </div>
         <div class='ml-auto'>

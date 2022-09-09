@@ -1,8 +1,7 @@
 import { Link, NavLink } from 'solid-app-router';
-import { FiChevronDown, FiChevronUp, FiGithub, FiMenu, FiX } from 'solid-icons/fi';
+import { FiGithub, FiMenu, FiX } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
-import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
-import { Transition } from 'solid-transition-group';
+import { createMemo, createSignal } from 'solid-js';
 import npmData from '../../store/npm';
 export const Navigation = () => {
   const [chosenTag, setChosenTag] = createSignal('latest');
@@ -47,11 +46,13 @@ export const Navigation = () => {
   const links = [
     {
       text: 'Home',
-      href: '/'
+      href: '/',
+      end: true
     },
     {
       text: 'Documentation',
-      href: '/docs'
+      href: '/docs',
+      end: false
     }
   ];
 
@@ -59,6 +60,24 @@ export const Navigation = () => {
     <nav>
       <div class='flex justify-between'>
         <div class='hidden sm:flex flex-row items-center space-x-6 w-1/3'>
+          {links.map((link) => (
+            <NavLink
+              end={link.end}
+              activeClass='border-gray-400'
+              inactiveClass='border-transparent'
+              class='border-b transition dark:text-white py-2'
+              href={link.href}
+            >
+              {link.text}
+            </NavLink>
+          ))}
+        </div>
+        <div class='space-x-3 w-1/3 text-center items-center'>
+          <h1 class='text-2xl leading-6 font-ledger text-gray-800 dark:text-white '>
+            <Link href='/'>Josh</Link>
+          </h1>
+        </div>
+        <div class='hidden sm:flex ml-auto space-x-3'>
           {icons.map((icon) => (
             <a
               target='_blank'
@@ -69,64 +88,6 @@ export const Navigation = () => {
               {icon.icon()}
             </a>
           ))}
-          {links.map((link) => (
-            <NavLink
-              end
-              activeClass='border-gray-400'
-              inactiveClass='border-transparent'
-              class='border-b transition dark:text-white py-2'
-              href={link.href}
-            >
-              {link.text}
-            </NavLink>
-          ))}
-        </div>
-        <div class='flex space-x-3 items-center'>
-          <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>
-            <Link href='/'>Josh</Link>
-          </h1>
-        </div>
-        <div class='hidden relative sm:inline-block w-1/3'>
-          <button
-            onclick={() => setShowTagList(!showTagList())}
-            class='rounded-md flex ml-auto w-24 text-sm py-1.5 text-black bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center'
-          >
-            <Show when={npm()?._id} fallback={<span>Loading...</span>}>
-              <span class='px-4'>{chosenTag}</span>
-            </Show>
-
-            <span class='border-l border-gray-300 h-full px-1.5 pt-0.5'>
-              <Transition name='fade' mode='outin'>
-                <Switch>
-                  <Match when={showTagList()}>
-                    <FiChevronUp size={16}></FiChevronUp>
-                  </Match>
-                  <Match when={!showTagList()}>
-                    <FiChevronDown size={16}></FiChevronDown>
-                  </Match>
-                </Switch>
-              </Transition>
-            </span>
-          </button>
-          <Transition name='fade' mode='outin'>
-            <Switch>
-              <Match when={showTagList()}>
-                <ul class='visible ml-auto transition mt-3 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 origin-top-right absolute right-0'>
-                  {tags().map((tag) => (
-                    <li
-                      onclick={() => chooseTag(tag.tag)}
-                      class='focus:outline-none cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 focus:bg-gray-200 transition hover:bg-gray-100 dark:hover:bg-zinc-900 px-3 flex items-center'
-                    >
-                      {tag.tag}
-                    </li>
-                  ))}
-                </ul>
-              </Match>
-              <Match when={!showTagList()}>
-                <ul></ul>
-              </Match>
-            </Switch>
-          </Transition>
         </div>
 
         <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center sm:hidden cursor-pointer'>

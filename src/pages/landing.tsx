@@ -4,6 +4,7 @@ import 'highlight.js/styles/tokyo-night-dark.css';
 import { Link } from 'solid-app-router';
 import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
+import packages from '../store/packages';
 
 export const LandingPage = () => {
   const [code] = createSignal(`import { Josh } from "@joshdb/core";
@@ -12,36 +13,40 @@ const josh = new Josh({ name: "website" });
 
 await josh.set("foo", "bar");`);
 
+  const [pkgs] = packages;
   const [pkg, setPackage] = createSignal('core');
   const [currentPkg, setCurrentPkg] = createSignal('');
-  const packages = ['mongo', 'redis', 'map', 'json', 'core', 'middleware'];
   const nextPackage = async () => {
     const current = pkg();
-    const next = packages[(packages.indexOf(current) + 1) % packages.length];
+    const ps = pkgs();
 
-    for (const _ of current) {
-      setPackage(pkg().slice(0, -1));
+    if (ps) {
+      const next = ps[(ps.findIndex((x) => x.name === current) + 1) % ps.length];
+
+      for (const _ of current) {
+        setPackage(pkg().slice(0, -1));
+        await new Promise((r) => {
+          setTimeout(r, 100);
+        });
+      }
+
       await new Promise((r) => {
-        setTimeout(r, 100);
+        setTimeout(r, 1000);
       });
+
+      setCurrentPkg(next.name);
+
+      for (let i = 0; i < next.name.length; i++) {
+        setPackage(next.name.slice(0, i + 1));
+        await new Promise((r) => {
+          setTimeout(r, 100);
+        });
+      }
+
+      setTimeout(() => {
+        void nextPackage();
+      }, 3000);
     }
-
-    await new Promise((r) => {
-      setTimeout(r, 500);
-    });
-
-    setCurrentPkg(next);
-
-    for (let i = 0; i < next.length; i++) {
-      setPackage(next.slice(0, i + 1));
-      await new Promise((r) => {
-        setTimeout(r, 100);
-      });
-    }
-
-    setTimeout(() => {
-      void nextPackage();
-    }, 3000);
   };
 
   setTimeout(() => {
@@ -53,12 +58,12 @@ await josh.set("foo", "bar");`);
       <div class='sm:flex w-full sm:max-h-screen min-h-[80vh] items-center'>
         <div class='mt-10 sm:mt-0 sm:w-1/2'>
           <h2 class='text-xl dark:text-gray-400'>
-            <a class='flex' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`} rel='noopener'>
+            <a class='flex font-maven' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`} rel='noopener'>
               <span>@joshdb/{pkg}</span>
-              <span class='h-6 -mb-1.5 bg-zinc-800 dark:bg-gray-300 animate-pulse w-0.5 ml-0.5'></span>
+              <span class='h-6 -mb-1.5 bg-zinc-800 dark:bg-gray-300 animate-cursor w-0.5 ml-0.5'></span>
             </a>
           </h2>
-          <h1 class='text-6xl dark:text-gray-100 my-2'>Databases, reimagined</h1>
+          <h1 class='text-6xl dark:text-gray-100 my-2 font-ledger'>Databases, reimagined</h1>
           <p class='dark:text-gray-300 my-7'>
             Explore the easiest way to quickly, yet efficiently manage lots of different types of databases, all under one easy to use and powerful
             api. Paired with providers ranging from MongoDB and SQL to JSON, and Middleware such as caching and schema validation, Josh is the easiest
@@ -83,7 +88,7 @@ await josh.set("foo", "bar");`);
           </div>
         </div>
         <div class='sm:w-1/2 sm:px-8 mt-8 sm:mt-0'>
-          <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-lg sm:h-60 sm:pt-10'>
+          <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'>
             {code()}
           </Highlight>
           <div></div>
