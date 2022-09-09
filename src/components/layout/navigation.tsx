@@ -72,7 +72,7 @@ export const Navigation = () => {
             </NavLink>
           ))}
         </div>
-        <div class='space-x-3 w-1/3 text-center items-center justify-center flex'>
+        <div class='space-x-3 w-1/3 text-center items-center sm:justify-center flex'>
           <h1 class='text-2xl leading-6 font-ledger text-gray-800 dark:text-white '>
             <Link href='/'>Josh</Link>
           </h1>
