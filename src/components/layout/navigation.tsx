@@ -72,12 +72,12 @@ export const Navigation = () => {
             </NavLink>
           ))}
         </div>
-        <div class='space-x-3 w-1/3 text-center items-center'>
+        <div class='space-x-3 w-1/3 text-center items-center justify-center flex'>
           <h1 class='text-2xl leading-6 font-ledger text-gray-800 dark:text-white '>
             <Link href='/'>Josh</Link>
           </h1>
         </div>
-        <div class='hidden sm:flex ml-auto space-x-3'>
+        <div class='hidden sm:flex ml-auto space-x-3 items-center justify-center'>
           {icons.map((icon) => (
             <a
               target='_blank'
