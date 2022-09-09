@@ -40,7 +40,7 @@ const DocsPage = () => {
   const [scrollValue, setScroll] = createSignal(window.scrollY);
   const updateScroll = () => setScroll(window.scrollY);
 
-  window.addEventListener('scroll', updateScroll);
+  if (window.innerWidth > 640) window.addEventListener('scroll', updateScroll);
 
   onCleanup(() => {
     window.removeEventListener('scroll', updateScroll);
