@@ -57,7 +57,7 @@ const DocsPage = () => {
 
   const ev = () => updateScroll();
 
-  if (window.innerWidth > 640) window.addEventListener('scroll', ev, { passive: true });
+  // if (window.innerWidth > 640) window.addEventListener('scroll', ev, { passive: true });
 
   onCleanup(() => {
     window.removeEventListener('scroll', ev);
@@ -86,6 +86,10 @@ const DocsPage = () => {
     const proj = new ProjectParser({ data: json });
 
     setPackage(proj);
+
+    if (location.hash) {
+      document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   if (params().pkg) {
