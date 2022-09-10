@@ -1,7 +1,7 @@
 import hljs from 'highlight.js/lib/core';
 import { default as javascript, default as typescript } from 'highlight.js/lib/languages/typescript';
 import MarkdownIt from 'markdown-it';
-import { Link, useNavigate, useParams } from 'solid-app-router';
+import { Link, useLocation, useNavigate, useParams } from 'solid-app-router';
 import { FiChevronDown } from 'solid-icons/fi';
 import { createMemo, createSignal, onCleanup, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
@@ -25,25 +25,42 @@ const DocsPage = () => {
     }
   });
 
+  let sideBar: HTMLDivElement | undefined;
   const [pkgs] = packages;
-  const params = useParams();
-  const router = useNavigate();
-  const [selectedPkg, setPackage] = createSignal<ProjectParser>();
-  const toIterate = createMemo(() => {
-    if (params.type === 'methods') {
-      return selectedPkg() ? selectedPkg()!.classes.flatMap((x) => x.methods.map((m) => ({ ...m, from: x }))) : [];
-    }
-
-    return [];
+  const p = useParams() as { type: string | null; pkg: string | null };
+  const params = createMemo(() => {
+    return { type: p.type ? p.type.toLowerCase() : '', pkg: p.pkg ? p.pkg.toLowerCase() : '' };
   });
 
-  const [scrollValue, setScroll] = createSignal(window.scrollY);
-  const updateScroll = () => setScroll(window.scrollY);
+  const location = useLocation();
+  const router = useNavigate();
+  const [selectedPkg, setPackage] = createSignal<ProjectParser>();
+  const [scrollValue, setScroll] = createSignal(window.innerWidth < 640 ? 0 : window.scrollY);
+  const updateScroll = (forced = false, smooth = false) => {
+    if (forced) {
+      setTimeout(() => {
+        updateScroll(false, true);
+      }, 50);
 
-  if (window.innerWidth > 640) window.addEventListener('scroll', updateScroll);
+      return;
+    }
+
+    if (sideBar) {
+      const perc = scrollValue() / document.body.scrollHeight;
+      const max = sideBar.scrollHeight - sideBar.clientHeight;
+
+      sideBar.scrollTo({ top: perc * max, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    setScroll(window.scrollY);
+  };
+
+  const ev = () => updateScroll();
+
+  if (window.innerWidth > 640) window.addEventListener('scroll', ev, { passive: true });
 
   onCleanup(() => {
-    window.removeEventListener('scroll', updateScroll);
+    window.removeEventListener('scroll', ev);
   });
 
   const choosePackage = async (name: string) => {
@@ -71,11 +88,32 @@ const DocsPage = () => {
     setPackage(proj);
   };
 
-  if (params.pkg) {
+  if (params().pkg) {
     if (!selectedPkg()) {
-      void choosePackage(params.pkg);
+      void choosePackage(params().pkg);
     }
   }
+
+  const allMethods = createMemo(() => {
+    return selectedPkg() ? selectedPkg()!.classes.flatMap((x) => x.methods.map((m) => ({ ...m, from: x }))) : [];
+  });
+
+  const folders = createMemo(() => {
+    const all = [];
+
+    for (const pkg of pkgs()) {
+      const folder = pkg.path.split('/')[0];
+      const foundIdx = all.findIndex((x) => x.name === folder);
+
+      if (foundIdx === -1) {
+        all.push({ name: folder, packages: [pkg] });
+      } else {
+        all[foundIdx].packages.push(pkg);
+      }
+    }
+
+    return all;
+  });
 
   return (
     <div class='min-h-[100vh] sm:flex pt-5'>
@@ -101,80 +139,90 @@ const DocsPage = () => {
         </div>
       </Show>
       <Show when={!pkgs.loading}>
-        <div class='sm:w-72' style={{ transform: `translateY(${scrollValue() > 80 ? scrollValue() - 80 : 0}px)` }}>
-          {pkgs().map((pkg) => (
-            <div
-              class={`transition my-2 rounded hover:bg-gray-100 dark:hover:bg-zinc-800 ${
-                params.pkg === pkg.name ? 'dark:bg-zinc-800 bg-gray-100' : ''
-              }`}
-            >
-              <button
-                onClick={() => {
-                  if (params.pkg === pkg.name) {
-                    router('/docs');
-                    setTimeout(() => {
-                      setPackage();
-                    }, 250);
-                  } else {
-                    void choosePackage(pkg.name);
-                    router(`/docs/${pkg.name}`);
-                  }
-                }}
-                class='w-full py-2 px-3'
-              >
-                <div class='flex text-[14px] tracking-widest'>
-                  <p class='dark:text-white font-bold'>{pkg.name}</p>
-                  <span class='ml-auto dark:text-white pt-0.5'>
-                    <FiChevronDown
-                      class='transition'
-                      style={{ transform: params.pkg === pkg.name ? 'rotate(0deg)' : 'rotate(90deg)' }}
-                    ></FiChevronDown>
-                  </span>
-                </div>
-              </button>
-              <div style={{ 'max-height': params.pkg === pkg.name ? '1000px' : '0px' }} class='transition-all overflow-hidden'>
-                <div class='pl-6 pb-3 dark:text-zinc-300 text-[13px] tracking-widest'>
-                  <Link href={`/docs/${pkg.name}/methods`}>
-                    <h3>Methods</h3>
-                  </Link>
-                </div>
+        <div class='sm:w-72 max-h-[80vh]' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
+          <h1 class='dark:text-primary font-bold text-xl mb-2 font-ledger'>Documentation</h1>
+          {folders().map((folder) => (
+            <div>
+              <Show when={folder.packages.length > 1}>
+                <h1 class='pl-3 dark:text-primary'>{folder.name}</h1>
+              </Show>
+              <div class={folder.packages.length > 1 ? 'pl-4' : ''}>
+                {folder.packages.map((pkg) => (
+                  <div
+                    class={`transition my-2 rounded hover:bg-gray-100 dark:hover:bg-zinc-800 ${
+                      params().pkg === pkg.name ? 'dark:bg-zinc-800 bg-gray-100' : ''
+                    }`}
+                  >
+                    <button
+                      onClick={() => {
+                        if (params().pkg === pkg.name) {
+                          router('/docs');
+                          setTimeout(() => {
+                            setPackage();
+                          }, 250);
+                        } else {
+                          void choosePackage(pkg.name);
+                          router(`/docs/${pkg.name}`);
+                        }
+                      }}
+                      class='w-full py-2 px-3'
+                    >
+                      <div class='flex text-[14px] tracking-widest'>
+                        <p class={folder.packages.length < 2 ? 'dark:text-primary' : 'dark:text-white'}>{pkg.name}</p>
+                        <span class='ml-auto dark:text-white pt-1'>
+                          <FiChevronDown
+                            class='transition'
+                            style={{ transform: params().pkg === pkg.name ? 'rotate(0deg)' : 'rotate(90deg)' }}
+                          ></FiChevronDown>
+                        </span>
+                      </div>
+                    </button>
+                    <div style={{ 'max-height': params().pkg === pkg.name ? '1000px' : '0px' }} class='transition-all overflow-hidden'>
+                      <div class='pl-6 pb-3 dark:text-zinc-300 text-[13px] tracking-widest space-y-2 grid'>
+                        <Link href={`/docs/${pkg.name}`}>
+                          <h3>README</h3>
+                        </Link>
+                        <Link href={`/docs/${pkg.name}/methods`}>
+                          <h3>Methods</h3>
+                        </Link>
+                        <Link href={`/docs/${pkg.name}/interfaces`}>
+                          <h3>Interfaces</h3>
+                        </Link>
+                        <Link href={`/docs/${pkg.name}/classes`}>
+                          <h3>Classes</h3>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
         <div class='w-full'>
-          <div class='transition-all' style={{ opacity: params.pkg ? 1 : 0 }}>
+          <div class='transition-all' style={{ opacity: params().pkg ? 1 : 0 }}>
             <Show when={selectedPkg()}>
-              <Show when={!params.type}>
+              <Show when={params().type.length === 0}>
                 <div
-                  class='prose sm:pl-10 sm:pr-40 max-w-full prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
+                  class='prose sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-base prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
                   innerHTML={md.render(selectedPkg()!.readme || '')}
                 ></div>
               </Show>
-              <Show when={params.type}>
-                <div class='pt-4 sm:pt-0 sm:px-10'>
-                  <h1 class='dark:text-white text-4xl font-ledger'>{params.type[0].toUpperCase() + params.type.slice(1)}</h1>
+              <Show when={params().type === 'methods'}>
+                <div class='pt-4 sm:pt-0 sm:px-5'>
+                  <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
                   <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
-                  <div class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-4 gap-y-2 my-4'>
-                    {toIterate().map((method) => (
-                      <Link
-                        class='text-lg hover:opacity-70 transition dark:text-white break-words'
-                        href={`/docs/${params.pkg}/${params.type}#${method.name}`}
-                      >
-                        <h1>
-                          {method.from.name}.{method.name}
-                        </h1>
-                      </Link>
-                    ))}
-                  </div>
-                  <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
-                  {toIterate().map((method) => (
+                  {(selectedPkg() ? allMethods() : []).map((method) => (
                     <div id={method.name}>
                       <div class='my-4'>
                         {method.signatures.map((sig) => (
                           <div>
-                            <Link class='hover:opacity-70 transition' href={`/docs/${params.pkg}/${params.type}#${method.name}`}>
-                              <h1 class='text-2xl dark:text-white'>
+                            <Link
+                              onClick={() => updateScroll(true)}
+                              class='hover:opacity-70 transition'
+                              href={`/docs/${params().pkg}/${params().type}#${method.name}`}
+                            >
+                              <h1 class='sm:text-lg md:text-2xl dark:text-white break-words'>
                                 <code>
                                   <span class='text-primary'>{`${method.accessibility} `}</span>
                                   {method.from.name}.{sig.name}
@@ -232,6 +280,177 @@ const DocsPage = () => {
                   ))}
                 </div>
               </Show>
+              <Show when={params().type === 'interfaces'}>
+                <div class='pt-4 sm:pt-0 sm:px-10'>
+                  <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
+                  <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
+                  {(selectedPkg() ? selectedPkg()!.interfaces : []).map((intf) => (
+                    <div id={intf.name}>
+                      <div class='my-4'>
+                        <div>
+                          <Link
+                            onClick={() => updateScroll(true)}
+                            class='hover:opacity-70 transition'
+                            href={`/docs/${params().pkg}/${params().type}#${intf.name}`}
+                          >
+                            <h1 class='text-2xl dark:text-white'>
+                              <code>{intf.name}</code>
+                            </h1>
+                          </Link>
+
+                          <div class='dark:text-zinc-200 my-4' innerHTML={md.render(intf.comment.description || '')}></div>
+
+                          <Show when={intf.properties}>
+                            <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
+                              <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                  <tr>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Property
+                                    </th>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Type
+                                    </th>
+                                    <Show when={intf.properties.find((x) => x.comment.description)}>
+                                      <th scope='col' class='py-3 px-6'>
+                                        Description
+                                      </th>
+                                    </Show>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {intf.properties.map((prop) => (
+                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                      <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                                        {prop.name}
+                                      </th>
+                                      <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
+                                      <Show when={prop.comment.description}>
+                                        <td class='py-4 px-6 break-words'>{prop.comment.description}</td>
+                                      </Show>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </Show>
+                          <div
+                            class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
+                            innerHTML={md.render(intf.comment.example.map((x) => x.text).join('\n'))}
+                          ></div>
+                        </div>
+                      </div>
+
+                      <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
+                    </div>
+                  ))}
+                </div>
+              </Show>
+              <Show when={params().type === 'classes'}>
+                <div class='pt-4 sm:pt-0 sm:px-10'>
+                  <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
+                  <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
+                  {(selectedPkg() ? selectedPkg()!.classes : []).map((cls) => (
+                    <div id={cls.name}>
+                      <div class='my-4'>
+                        <div>
+                          <Link
+                            onClick={() => updateScroll(true)}
+                            class='hover:opacity-70 transition'
+                            href={`/docs/${params().pkg}/${params().type}#${cls.name}`}
+                          >
+                            <h1 class='text-2xl dark:text-white'>
+                              <code>{cls.name}</code>
+                            </h1>
+                          </Link>
+
+                          <div class='dark:text-zinc-200 my-4' innerHTML={md.render(cls.comment.description || '')}></div>
+
+                          <Show when={cls.construct.parameters}>
+                            <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
+                              <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                  <tr>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Parameter
+                                    </th>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Type
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {cls.construct.parameters.map((prop) => (
+                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                      <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                                        {prop.name}
+                                      </th>
+                                      <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </Show>
+                          <Show when={cls.properties}>
+                            <div class='overflow-x-auto mt-4 relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
+                              <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                  <tr>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Property
+                                    </th>
+                                    <th scope='col' class='py-3 px-6'>
+                                      Type
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {cls.properties.map((prop) => (
+                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                      <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                                        {prop.name}
+                                      </th>
+                                      <td class='py-4 px-6 break-words'>{prop.type ? prop.type.toString() : 'N/A'}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </Show>
+                          <div
+                            class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
+                            innerHTML={md.render(cls.comment.example.map((x) => x.text).join('\n'))}
+                          ></div>
+                        </div>
+                      </div>
+
+                      <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
+                    </div>
+                  ))}
+                </div>
+              </Show>
+            </Show>
+          </div>
+        </div>
+        <div class='hidden sm:block sm:w-80 max-h-[75vh]' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
+          <h1 class='dark:text-primary font-bold text-xl mb-2 font-ledger'>Contents</h1>
+          <div class='overflow-y-scroll h-full' ref={sideBar}>
+            <Show when={params().type === 'methods'}>
+              {allMethods().map((method) => (
+                <div class='pt-2 pr-4'>
+                  <div class={`transition px-2 border-l ${location.hash.slice(1) === method.name ? 'border-primary' : 'dark:border-zinc-800'}`}>
+                    <Link
+                      onClick={() => updateScroll(true)}
+                      class='dark:text-gray-300'
+                      href={`/docs/${params().pkg}/${params().type}#${method.name}`}
+                    >
+                      {method.name}
+                    </Link>
+                  </div>
+                  <hr class='dark:border-zinc-800 mt-4 mb-2'></hr>
+                </div>
+              ))}
             </Show>
           </div>
         </div>
