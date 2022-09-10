@@ -140,7 +140,7 @@ const DocsPage = () => {
       </Show>
       <Show when={!pkgs.loading}>
         <div class='sm:w-72 max-h-[80vh]' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
-          <h1 class='dark:text-primary font-bold text-xl mb-2 font-ledger'>Documentation</h1>
+          <h1 class='text-primary font-bold text-xl mb-2 font-ledger'>Documentation</h1>
           {folders().map((folder) => (
             <div>
               <Show when={folder.packages.length > 1}>
@@ -149,8 +149,8 @@ const DocsPage = () => {
               <div class={folder.packages.length > 1 ? 'pl-4' : ''}>
                 {folder.packages.map((pkg) => (
                   <div
-                    class={`transition my-2 rounded hover:bg-gray-100 dark:hover:bg-zinc-800 ${
-                      params().pkg === pkg.name ? 'dark:bg-zinc-800 bg-gray-100' : ''
+                    class={`transition my-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 ${
+                      params().pkg === pkg.name ? 'dark:bg-zinc-800 bg-zinc-100' : ''
                     }`}
                   >
                     <button
@@ -204,7 +204,7 @@ const DocsPage = () => {
             <Show when={selectedPkg()}>
               <Show when={params().type.length === 0}>
                 <div
-                  class='prose sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-base prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
+                  class='prose prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-base prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
                   innerHTML={md.render(selectedPkg()!.readme || '')}
                 ></div>
               </Show>
@@ -241,7 +241,7 @@ const DocsPage = () => {
                             <Show when={sig.parameters.length > 0}>
                               <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
                                 <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                                  <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                  <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
                                     <tr>
                                       <th scope='col' class='py-3 px-6'>
                                         Parameter
@@ -249,14 +249,11 @@ const DocsPage = () => {
                                       <th scope='col' class='py-3 px-6'>
                                         Type
                                       </th>
-                                      {/* <th scope='col' class='py-3 px-6'>
-                                    Description
-                                  </th> */}
                                     </tr>
                                   </thead>
                                   <tbody>
                                     {sig.parameters.map((param) => (
-                                      <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                      <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
                                         <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                                           {param.name}
                                         </th>
@@ -268,7 +265,7 @@ const DocsPage = () => {
                               </div>
                             </Show>
                             <div
-                              class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
+                              class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide prose-invert'
                               innerHTML={md.render(sig.comment.example.map((x) => x.text).join('\n'))}
                             ></div>
                           </div>
@@ -303,7 +300,7 @@ const DocsPage = () => {
                           <Show when={intf.properties}>
                             <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
                               <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
                                   <tr>
                                     <th scope='col' class='py-3 px-6'>
                                       Property
@@ -320,7 +317,7 @@ const DocsPage = () => {
                                 </thead>
                                 <tbody>
                                   {intf.properties.map((prop) => (
-                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                    <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
                                       <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                                         {prop.name}
                                       </th>
@@ -335,7 +332,7 @@ const DocsPage = () => {
                             </div>
                           </Show>
                           <div
-                            class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
+                            class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
                             innerHTML={md.render(intf.comment.example.map((x) => x.text).join('\n'))}
                           ></div>
                         </div>
@@ -369,7 +366,7 @@ const DocsPage = () => {
                           <Show when={cls.construct.parameters}>
                             <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
                               <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
                                   <tr>
                                     <th scope='col' class='py-3 px-6'>
                                       Parameter
@@ -381,7 +378,7 @@ const DocsPage = () => {
                                 </thead>
                                 <tbody>
                                   {cls.construct.parameters.map((prop) => (
-                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                    <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
                                       <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                                         {prop.name}
                                       </th>
@@ -395,7 +392,7 @@ const DocsPage = () => {
                           <Show when={cls.properties}>
                             <div class='overflow-x-auto mt-4 relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
                               <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                                <thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
                                   <tr>
                                     <th scope='col' class='py-3 px-6'>
                                       Property
@@ -407,7 +404,7 @@ const DocsPage = () => {
                                 </thead>
                                 <tbody>
                                   {cls.properties.map((prop) => (
-                                    <tr class='border-b dark:bg-gray-800 dark:border-gray-700'>
+                                    <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
                                       <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                                         {prop.name}
                                       </th>
@@ -419,7 +416,7 @@ const DocsPage = () => {
                             </div>
                           </Show>
                           <div
-                            class='prose font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
+                            class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
                             innerHTML={md.render(cls.comment.example.map((x) => x.text).join('\n'))}
                           ></div>
                         </div>
@@ -434,25 +431,27 @@ const DocsPage = () => {
           </div>
         </div>
         <div class='hidden sm:block sm:w-80 max-h-[75vh]' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
-          <h1 class='dark:text-primary font-bold text-xl mb-2 font-ledger'>Contents</h1>
-          <div class='overflow-y-scroll h-full' ref={sideBar}>
-            <Show when={params().type === 'methods'}>
-              {allMethods().map((method) => (
-                <div class='pt-2 pr-4'>
-                  <div class={`transition px-2 border-l ${location.hash.slice(1) === method.name ? 'border-primary' : 'dark:border-zinc-800'}`}>
-                    <Link
-                      onClick={() => updateScroll(true)}
-                      class='dark:text-gray-300'
-                      href={`/docs/${params().pkg}/${params().type}#${method.name}`}
-                    >
-                      {method.name}
-                    </Link>
+          <Show when={params().type.length > 0}>
+            <h1 class='text-primary font-bold text-xl mb-2 font-ledger'>Contents</h1>
+            <div class='overflow-y-scroll h-full' ref={sideBar}>
+              <Show when={params().type === 'methods'}>
+                {allMethods().map((method) => (
+                  <div class='pt-2 pr-4'>
+                    <div class={`transition px-2 border-l ${location.hash.slice(1) === method.name ? 'border-primary' : 'dark:border-zinc-800'}`}>
+                      <Link
+                        onClick={() => updateScroll(true)}
+                        class='dark:text-gray-300'
+                        href={`/docs/${params().pkg}/${params().type}#${method.name}`}
+                      >
+                        {method.name}
+                      </Link>
+                    </div>
+                    <hr class='dark:border-zinc-800 mt-4 mb-2'></hr>
                   </div>
-                  <hr class='dark:border-zinc-800 mt-4 mb-2'></hr>
-                </div>
-              ))}
-            </Show>
-          </div>
+                ))}
+              </Show>
+            </div>
+          </Show>
         </div>
       </Show>
     </div>
