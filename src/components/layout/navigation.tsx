@@ -1,36 +1,13 @@
 import { Link, NavLink } from 'solid-app-router';
-import { FiGithub, FiMenu, FiX } from 'solid-icons/fi';
+import { FiGithub, FiMenu, FiMoon, FiSun, FiX } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
-import { createMemo, createSignal } from 'solid-js';
-import npmData from '../../store/npm';
+import { createSignal, Show } from 'solid-js';
 export const Navigation = () => {
-  const [chosenTag, setChosenTag] = createSignal('latest');
-  const [showTagList, setShowTagList] = createSignal(false);
   const [showMenu, setShowMenu] = createSignal(false);
-  const chooseTag = (index: string) => {
-    setChosenTag(index);
-    setShowTagList(false);
+  const [darkMode, setIfDark] = createSignal(true);
+  const updateMode = () => {
+    setIfDark(document.body.classList.contains('dark'));
   };
-
-  const [npm] = npmData;
-  const tags = createMemo(() => {
-    const o = npm();
-
-    if (npm.loading || !o) return [];
-    return Object.keys(o.versions).reduce<{ tag: string; versions: string[] }[]>((prev, curr) => {
-      const dotSplit = curr.split('.');
-      const dashSplit = curr.split('-');
-      const tag = dotSplit.length > 1 && dashSplit.length < 2 ? `${dotSplit[0]}.x` : dashSplit[1].split('.')[0];
-      const foundIdx = prev.findIndex((x) => x.tag === tag);
-
-      if (foundIdx >= 0) {
-        prev[foundIdx].versions.push(curr);
-        return prev;
-      }
-
-      return [...prev, { tag, versions: [curr] }];
-    }, []);
-  });
 
   const icons = [
     {
@@ -88,6 +65,20 @@ export const Navigation = () => {
               {icon.icon()}
             </a>
           ))}
+          <button
+            onClick={() => {
+              document.body.classList.toggle('dark');
+              updateMode();
+            }}
+            class='dark:text-white border-l dark:border-zinc-700 pl-4 p-1 focus:outline-none focus:ring-none focus:ring-offset-2 focus:ring-gray-800'
+          >
+            <Show when={!darkMode()}>
+              <FiMoon size={24}></FiMoon>
+            </Show>
+            <Show when={darkMode()}>
+              <FiSun size={24}></FiSun>
+            </Show>
+          </button>
         </div>
 
         <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center sm:hidden cursor-pointer'>

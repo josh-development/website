@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   content: ['index.html', 'src/**/*.tsx'],
   important: true,
   plugins: [require('@tailwindcss/typography')],

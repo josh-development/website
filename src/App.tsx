@@ -8,7 +8,7 @@ import NotFound from './pages/notfound';
 
 export function App() {
   return (
-    <div class='dark:bg-zinc-900 '>
+    <div class='dark:bg-zinc-900 transition'>
       <div class='min-h-screen 2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4'>
         <Navigation></Navigation>
         <Routes>
