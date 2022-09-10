@@ -15,7 +15,7 @@ await josh.set("foo", "bar");`);
 
   const [pkgs] = packages;
   const [pkg, setPackage] = createSignal('core');
-  const [currentPkg, setCurrentPkg] = createSignal('');
+  const [currentPkg, setCurrentPkg] = createSignal('core');
   const nextPackage = async () => {
     const current = pkg();
     const ps = pkgs();
@@ -58,7 +58,7 @@ await josh.set("foo", "bar");`);
       <div class='sm:flex w-full sm:max-h-screen min-h-[80vh] items-center'>
         <div class='mt-10 sm:mt-0 sm:w-1/2'>
           <h2 class='text-xl dark:text-gray-400'>
-            <a class='flex font-maven' target='_blank' href={`https://npmjs.org/package/${currentPkg()}`} rel='noopener'>
+            <a class='flex font-maven' target='_blank' href={`https://npmjs.org/package/@joshdb/${currentPkg()}`} rel='noopener'>
               <span>@joshdb/{pkg}</span>
               <span class='h-6 -mb-1.5 bg-zinc-800 dark:bg-gray-300 animate-cursor w-0.5 ml-0.5'></span>
             </a>
