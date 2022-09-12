@@ -1,4 +1,10 @@
-import {md} from "../utils/mdit.ts"
+import { CodeBlock } from "./CodeBlock.tsx";
+
+export const initCode = `import { Josh } from "@joshdb/core"; 
+/* OR */
+const Josh = require("@joshdb/core");`
+
+export const basicUsageCode = `const db = new Josh({ name: "test" });`
 
 # Getting started
 
@@ -11,27 +17,13 @@ yarn add @joshdb/core
 ```
 
 ## Import
-<>
-<div innerHTML={md.render(`\`\`\`ts
-import { Josh } from "@joshdb/core"; 
-/* OR */
-const Josh = require("@joshdb/core");
-\`\`\``)}></div>
-</>
+
+<CodeBlock lang="ts" code={initCode}/>
 {/* Why like this? Well this uses the same markdown-it styling and prevents installation of external dependencies that just increase bloat */}
 
 ## Basic Usage
 
-<>
-<div innerHTML={md.render(`\`\`\`ts
-const josh = new Josh({ name: "josh" });
-
-const convolutedHelloWorld = async () => {
-  await josh.set("hello", "world");
-  console.log("hello", await josh.get("hello")); // hello world
-};
-\`\`\``)}></div>
-</>
+<CodeBlock lang="ts" code={basicUsageCode}/>
 
 
 JOSH itself is written in typescript and builds to `cjs` and `esm` formats, so you can use it in any project.

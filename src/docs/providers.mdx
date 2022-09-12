@@ -1,4 +1,13 @@
-import {md} from "../utils/mdit.ts"
+import { CodeBlock } from "./CodeBlock.tsx";
+
+export const sqliteExampleCode = `const Josh = require("@joshdb/core");
+const SQLiteProvider = require("@joshdb/sqlite");
+
+const database = new Josh({
+  name: "test",
+  provider: new SQLiteProvider()
+});`
+
 
 # Providers
 
@@ -24,14 +33,4 @@ To use a provider, simply require it, construct it, and give it to Josh!
 
 For example, again with the sqlite module:
 
-<>
-<div innerHTML={md.render(`\`\`\`javascript
-const Josh = require("@joshdb/core");
-const SQLiteProvider = require("@joshdb/sqlite");
-
-const database = new Josh({
-  name: "test",
-  provider: new SQLiteProvider()
-});
-\`\`\``)}></div>
-</>
+<CodeBlock lang="js" code={sqliteExampleCode} />
