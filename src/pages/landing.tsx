@@ -1,17 +1,16 @@
-import Highlight from '@dan-online/solid-highlight-ts';
-
 import 'highlight.js/styles/tokyo-night-dark.css';
 import { Link } from 'solid-app-router';
 import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
 import packages from '../store/packages';
+import { md } from '../utils/mdit';
 
 export const LandingPage = () => {
-  const [code] = createSignal(`import { Josh } from "@joshdb/core";
+  const [code] = createSignal(`\`\`\`ts\nimport { Josh } from "@joshdb/core";
   
 const josh = new Josh({ name: "website" });
 
-await josh.set("foo", "bar");`);
+await josh.set("foo", "bar");\n\`\`\``);
 
   const [pkgs] = packages;
   const [pkg, setPackage] = createSignal('core');
@@ -88,9 +87,10 @@ await josh.set("foo", "bar");`);
           </div>
         </div>
         <div class='sm:w-1/2 sm:px-8 mt-8 sm:mt-0'>
-          <Highlight autoDetect={false} language={'ts'} class='rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'>
-            {code()}
-          </Highlight>
+          <div
+            innerHTML={md.render(code())}
+            class='bg-zinc-800 px-8 sm:px-0 text-white rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'
+          ></div>
           <div></div>
         </div>
       </div>

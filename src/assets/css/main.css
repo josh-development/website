@@ -56,6 +56,20 @@ h1, h2, h3, p, span {
     "Apple Color Emoji",
     "Segoe UI Emoji";
 }
+.prose-ledger h1 {
+  font-family: 'Ledger', serif
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::before, .prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: '';
+}
+.prose p code {
+  background:rgba(0, 0, 0, .1);
+  padding: 2px 4px;
+  border-radius:3px;
+}
+.dark p code {
+  background: rgba(0, 0, 0, .3);
+}
 .animate-cursor {
   animation: blink 1s step-end infinite;
 }
