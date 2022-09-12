@@ -3,7 +3,9 @@ import { default as javascript, default as typescript } from 'highlight.js/lib/l
 import MarkdownIt from 'markdown-it';
 
 hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('ts', typescript);
 hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('js', javascript);
 
 export const md = new MarkdownIt({
   html: true,

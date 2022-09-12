@@ -3,6 +3,7 @@ import { FiChevronDown } from 'solid-icons/fi';
 import { createMemo, createSignal, onCleanup, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
 import GettingStarted from '../docs/getting-started.mdx';
+import Providers from '../docs/providers.mdx';
 import packages from '../store/packages';
 import { md } from '../utils/mdit';
 
@@ -239,7 +240,7 @@ const DocsPage = () => {
             <Show when={selectedPkg()}>
               <Show when={params().type.length === 0}>
                 <div
-                  class='prose prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-base prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
+                  class='prose prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-mono prose-h1:font-normal prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'
                   innerHTML={md.render(selectedPkg()!.readme || '')}
                 ></div>
               </Show>
@@ -464,8 +465,9 @@ const DocsPage = () => {
               </Show>
             </Show>
             <Show when={params().category}>
-              <div class='prose prose-ledger prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-base prose-h1:font-bold prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'>
+              <div class='prose prose-ledger prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-[15px] prose-code:text-mono prose-h1:font-bold prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'>
                 {params().category === 'getting-started' && !params().page && <GettingStarted />}
+                {params().category === 'getting-started' && params().page === 'providers' && <Providers />}
               </div>
             </Show>
           </div>
