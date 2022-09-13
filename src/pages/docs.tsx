@@ -6,8 +6,9 @@ import { NavigationDocs } from '../components/docs/Navigation';
 import { DocsClasses, DocsInterfaces, DocsMethods, DocsReadme } from '../components/docs/packages';
 import { DocsSideBar } from '../components/docs/SideBar';
 import type { ExtraClassMethod } from '../components/types';
-import GettingStarted from '../docs/getting-started.mdx';
-import Providers from '../docs/providers.mdx';
+import GettingStarted from '../docs/welcome/getting-started.mdx';
+import Home from '../docs/welcome/home.mdx';
+import Providers from '../docs/welcome/providers.mdx';
 import packages from '../store/packages';
 
 const DocsPage = () => {
@@ -119,11 +120,16 @@ const DocsPage = () => {
   const docs = [
     {
       name: 'Welcome',
-      category: 'getting-started',
+      category: 'welcome',
       pages: [
         {
-          name: 'Getting Started',
+          name: 'Josh',
           page: '',
+          component: <Home />
+        },
+        {
+          name: 'Getting Started',
+          page: 'getting-started',
           component: <GettingStarted />
         },
         {
@@ -149,7 +155,7 @@ const DocsPage = () => {
           onChoosePackage={choosePackage}
           onSetPackage={setPackage}
           params={params}
-          scrollValue={scrollValue()}
+          scrollValue={scrollValue}
         />
         <div class='w-full overflow-x-scroll'>
           <div>

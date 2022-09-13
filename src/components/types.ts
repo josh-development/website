@@ -54,7 +54,7 @@ export interface NavigationProps {
       component: JSX.Element;
     }[];
   }[];
-  scrollValue: number;
+  scrollValue: Accessor<number>;
   onSetPackage: (pkg?: string) => void;
   onChoosePackage: (pkg: string) => void;
 }

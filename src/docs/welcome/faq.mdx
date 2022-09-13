@@ -1,0 +1,46 @@
+---
+description: Frequently Asked Questions about JOSH and its providers
+---
+
+# FAQ
+
+## Is JOSH better than [Enmap](https://enmap.evie.dev)?
+
+This depends on your use-case, but generally, yes. Enmap is a great library, but it's not as flexible as JOSH. JOSH has the benefit of more advanced features such as providers and middleware. It's also more performant, and has a lot more features.
+
+## When should I consider migrating away from JOSH?
+
+There's a few indications that maybe you'd want to move away from this system.
+
+Firstly, if you require modelling ("models") or types for your data, as in, very specific limitations on what data can be stored. This is implemented with [schema](/docs/schema) but it's not as advanced as other libraries.
+
+If you find that you're often pulling data from JOSH and manually manipulating it, or if you're making extensive use of the serializer/deserializer feature, maybe it's time to move.
+
+## How do I migrate from Enmap?
+
+It's not a simple process, but it's not too difficult. You'll need to create a new JOSH instance, and then copy the data from Enmap to JOSH. More tools to make this easier are coming in the future
+
+## How do I migrate from Quick.db?
+
+A simple script that loads both `quick.db` and `josh` can be used to migrate data. This is a simple example, but it should give you an idea of how to do it.
+
+```js
+const Josh = require('@joshdb/core');
+const SQLiteProvider = require('@joshdb/sqlite');
+const QuickDB = require('quick.db');
+
+const db = new QuickDB();
+
+const josh = new Josh({
+  name: 'josh',
+  provider: new SQLiteProvider()
+});
+
+async () => {
+  const allDocs = await db.all();
+  for (const { id, value } of allDocs) {
+    await josh.set(id, value);
+  }
+  console.log('Migrated', allDocs.length, 'documents!');
+};
+```

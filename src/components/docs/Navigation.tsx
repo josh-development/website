@@ -21,7 +21,7 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
   });
 
   return (
-    <div class='sm:w-72 sm:max-h-[80vh] will-change-transform' style={{ transform: `translateY(${scrollValue > 20 ? scrollValue - 20 : 0}px)` }}>
+    <div class='sm:w-72 sm:max-h-[80vh] will-change-transform' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
       <h1 class='text-primary font-bold text-xl font-ledger'>Documentation</h1>
 
       <div>
@@ -52,7 +52,10 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
                 </span>
               </div>
             </button>
-            <div style={{ 'max-height': params().category === category.category ? '512px' : '0px' }} class='transition-all overflow-hidden'>
+            <div
+              style={{ 'max-height': params().category === category.category ? category.pages.length * 30 + 'px' : '0px' }}
+              class='transition-all overflow-hidden'
+            >
               <div class='pl-6 pb-3 dark:text-zinc-300 text-[13px] tracking-widest space-y-2 grid'>
                 {category.pages.map((page) => (
                   <Link href={`/docs/guide/${category.category}/${page.page}`}>
