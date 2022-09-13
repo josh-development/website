@@ -1,4 +1,4 @@
-import type { Accessor } from 'solid-js';
+import type { Accessor, JSX } from 'solid-js';
 import type { ClassMethodParser, ClassParser, ProjectParser } from 'typedoc-json-parser';
 import type { foundPackage } from '../store/packages';
 
@@ -45,6 +45,15 @@ export interface NavigationProps {
       packages: foundPackage[];
     }[]
   >;
+  docs: {
+    name: string;
+    category: string;
+    pages: {
+      name: string;
+      page: string;
+      component: JSX.Element;
+    }[];
+  }[];
   scrollValue: number;
   onSetPackage: (pkg?: string) => void;
   onChoosePackage: (pkg: string) => void;

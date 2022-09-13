@@ -116,6 +116,25 @@ const DocsPage = () => {
     return all;
   });
 
+  const docs = [
+    {
+      name: 'Welcome',
+      category: 'getting-started',
+      pages: [
+        {
+          name: 'Getting Started',
+          page: '',
+          component: <GettingStarted />
+        },
+        {
+          name: 'Providers',
+          page: 'providers',
+          component: <Providers />
+        }
+      ]
+    }
+  ];
+
   return (
     <div class='min-h-[100vh] sm:flex pt-5'>
       <Show when={pkgs.loading}>
@@ -123,6 +142,7 @@ const DocsPage = () => {
       </Show>
       <Show when={!pkgs.loading}>
         <NavigationDocs
+          docs={docs}
           allMethods={allMethods}
           selectedPkg={selectedPkg}
           folders={folders}
@@ -149,8 +169,19 @@ const DocsPage = () => {
             </Show>
             <Show when={params().category}>
               <div class='prose prose-ledger prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-[15px] prose-code:text-mono prose-h1:font-bold prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'>
-                {params().category === 'getting-started' && !params().page && <GettingStarted />}
-                {params().category === 'getting-started' && params().page === 'providers' && <Providers />}
+                {docs.map((category) => {
+                  if (category.category === params().category) {
+                    return category.pages.map((page) => {
+                      if (page.page === params().page) {
+                        return page.component;
+                      }
+
+                      return <></>;
+                    });
+                  }
+
+                  return <></>;
+                })}
               </div>
             </Show>
           </div>
