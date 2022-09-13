@@ -2,15 +2,15 @@ import type { InitializedResourceReturn } from 'solid-js';
 import { createResource } from 'solid-js';
 import type { files } from './types';
 
-interface found {
+export interface foundPackage {
   url: string;
   name: string;
   path: string;
 }
 
-const recursiveMainJson = async (data: files): Promise<found[]> => {
+const recursiveMainJson = async (data: files): Promise<foundPackage[]> => {
   const main = data.find((x) => x.name === 'main.json');
-  const final: found[] = [];
+  const final: foundPackage[] = [];
 
   if (main) {
     final.push({ url: main.download_url!, name: main.path.split('/')[main.path.split('/').length - 2], path: main.path });
@@ -37,6 +37,6 @@ const fetchPackageData = async () => {
   return mapped;
 };
 
-export default createResource<found[], true>(fetchPackageData, {
+export default createResource<foundPackage[], true>(fetchPackageData, {
   initialValue: initialData ? JSON.parse(initialData as string) : []
-}) as InitializedResourceReturn<found[], true>;
+}) as InitializedResourceReturn<foundPackage[], true>;

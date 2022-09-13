@@ -1,10 +1,10 @@
-import { CodeBlock } from "./CodeBlock.tsx";
+import { CodeBlock } from './CodeBlock.tsx';
 
 export const initCode = `import { Josh } from "@joshdb/core"; 
 /* OR */
-const Josh = require("@joshdb/core");`
+const Josh = require("@joshdb/core");`;
 
-export const basicUsageCode = `const db = new Josh({ name: "test" });`
+export const basicUsageCode = `const db = new Josh({ name: "test" });`;
 
 # Getting started
 
@@ -18,13 +18,12 @@ yarn add @joshdb/core
 
 ## Import
 
-<CodeBlock lang="ts" code={initCode}/>
+<CodeBlock lang='ts' code={initCode} />
 {/* Why like this? Well this uses the same markdown-it styling and prevents installation of external dependencies that just increase bloat */}
 
 ## Basic Usage
 
-<CodeBlock lang="ts" code={basicUsageCode}/>
-
+<CodeBlock lang='ts' code={basicUsageCode} />
 
 JOSH itself is written in typescript and builds to `cjs` and `esm` formats, so you can use it in any project.
 
@@ -37,4 +36,3 @@ However, JOSH cannot function without a [Provider](providers), which provides th
 ### What's next?
 
 See the Providers page and choose one!
-
