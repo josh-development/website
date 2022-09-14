@@ -9,6 +9,5 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "module": "commonjs",
-
   },
 }

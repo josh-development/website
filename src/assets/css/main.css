@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .fade-enter-active,
 .fade-exit-active {
   transition: opacity 0.2s;
@@ -30,45 +29,53 @@ body *::-webkit-scrollbar {
 
 body *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: rgb(69 151 90);
 }
 .font-maven {
   font-family: 'Maven Pro', sans-serif;
 }
 
-html, body, p, span {
+html,
+body,
+p,
+span {
   font-family: 'Maven Pro', sans-serif;
 }
-h1, h2, h3, p, span {
+h1,
+h2,
+h3,
+p,
+span {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased !important;
   -moz-font-smoothing: antialiased !important;
   text-rendering: optimizelegibility !important;
 }
-.prose, .prose * {
-  font-family: -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Helvetica,
-    Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+.prose,
+.prose * {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
-.prose-ledger h1 {
+/* .prose-ledger * h1 {
   font-family: 'Ledger', serif
-}
-.prose :where(code):not(:where([class~="not-prose"] *))::before, .prose :where(code):not(:where([class~="not-prose"] *))::after {
+} */
+.prose :where(code):not(:where([class~='not-prose'] *))::before,
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
   content: '';
 }
+.prose code,
+.prose pre,
+.prose pre span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
+}
 .prose p code {
-  background:rgba(0, 0, 0, .1);
+  background: rgba(0, 0, 0, 0.1);
   padding: 2px 4px;
-  border-radius:3px;
+  font-weight: 400;
+  border-radius: 3px;
 }
 .dark p code {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
 }
 .animate-cursor {
   animation: blink 1s step-end infinite;

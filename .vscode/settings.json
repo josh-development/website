@@ -8,7 +8,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "css"
   ],
   "editor.tabSize": 2,
   "editor.useTabStops": false,
@@ -20,7 +21,7 @@
     "source.organizeImports": true
   },
   "files.associations": {
-    "*.mdx": "mdx"
+    "*.mdx": "markdown"
   },
   "files.eol": "\n",
   "typescript.tsdk": "node_modules/typescript/lib"

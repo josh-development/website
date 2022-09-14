@@ -9,14 +9,14 @@ export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }:
       <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
       <hr class='dark:border-zinc-700 mb-4 mt-6'></hr>
       {(selectedPkg() ? allMethods() : []).map((method) => (
-        <div id={method.name}>
+        <div id={`${method.from.name}-${method.name}`}>
           <div class='my-4'>
             {method.signatures.map((sig) => (
               <div>
                 <Link
                   onClick={() => onUpdateScroll(true)}
                   class='hover:opacity-70 transition'
-                  href={`/docs/${params().pkg}/${params().type}#${method.name}`}
+                  href={`/docs/${params().pkg}/${params().type}#${method.from.name}-${method.name}`}
                 >
                   <h1 class='sm:text-lg md:text-2xl dark:text-white break-words'>
                     <code>

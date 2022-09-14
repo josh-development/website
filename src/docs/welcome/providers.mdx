@@ -1,22 +1,28 @@
 import { CodeBlock } from "../CodeBlock.tsx";
-
+import { Link } from "solid-app-router";
 export const sqliteExampleCode = `const Josh = require("@joshdb/core");
 const SQLiteProvider = require("@joshdb/sqlite");
 
 const database = new Josh({
-name: "test",
-provider: new SQLiteProvider()
+    name: "test",
+    provider: new SQLiteProvider()
 });`
 
 # Providers
 
 ## What is a Provider?
 
-A Provider is a layer of communication between JOSH, and a database. Each provider has a precise set of instructions it can receive from JOSH, where each instruction tells it what to do in the database.
+A Provider is a layer of communication between JOSH, and a database. Each provider has a payload it can receive from JOSH, where each payload tells it what to do in the database. The provider will then apply the most optimal method to do this in the database, and return the result to JOSH.
 
 ## What Providers are available?
 
-At the moment, only a few providers are available at all. As time develops, more will be added. Please see the menu on the left to see available providers!
+At the moment, only a few providers are available, they are as follows:
+
+<ul>
+  {(props.providers || []).map(provider => (
+    <li> <Link href={`/docs/${provider.name}`}>{provider.name}</Link> </li>
+  ))}
+</ul>
 
 ## Can I add my own Provider?
 

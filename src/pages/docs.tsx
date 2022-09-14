@@ -1,14 +1,16 @@
-import { useLocation, useParams } from 'solid-app-router';
-import { createMemo, createSignal, onCleanup, Show } from 'solid-js';
+import { useLocation, useNavigate, useParams } from 'solid-app-router';
+import { createEffect, createMemo, createSignal, onCleanup, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
 import { DocsLoading } from '../components/docs/Loading';
 import { NavigationDocs } from '../components/docs/Navigation';
-import { DocsClasses, DocsInterfaces, DocsMethods, DocsReadme } from '../components/docs/packages';
+import { DocsClasses, DocsEnums, DocsInterfaces, DocsMethods, DocsReadme } from '../components/docs/packages';
 import { DocsSideBar } from '../components/docs/SideBar';
 import type { ExtraClassMethod } from '../components/types';
+import DevelopmentIntro from '../docs/development/intro.mdx';
+import WelcomFaq from '../docs/welcome/faq.mdx';
 import GettingStarted from '../docs/welcome/getting-started.mdx';
-import Home from '../docs/welcome/home.mdx';
-import Providers from '../docs/welcome/providers.mdx';
+import WelcomeHome from '../docs/welcome/home.mdx';
+import WelcomeProviders from '../docs/welcome/providers.mdx';
 import packages from '../store/packages';
 
 const DocsPage = () => {
@@ -59,7 +61,7 @@ const DocsPage = () => {
     if (pkgs.loading) {
       setTimeout(() => {
         void choosePackage(name);
-      }, 100);
+      }, 50);
 
       return;
     }
@@ -76,24 +78,37 @@ const DocsPage = () => {
       }
     }
 
-    if (!json) {
-      json = await fetch(found!.url).then((r) => r.json());
-      localStorage.setItem(`docs-${name}`, JSON.stringify({ docs: json, date: new Date() }));
-    }
+    if (found) {
+      if (!json) {
+        json = await fetch(found.url).then((r) => r.json());
+        localStorage.setItem(`docs-${name}`, JSON.stringify({ docs: json, date: new Date() }));
+      }
 
-    const proj = new ProjectParser({ data: json! });
+      const proj = new ProjectParser({ data: json! });
 
-    setPackage(proj);
+      setPackage(proj);
 
-    if (location.hash) {
-      document.getElementById(location.hash.slice(1))?.scrollIntoView();
+      if (location.hash) {
+        document.getElementById(location.hash.slice(1))?.scrollIntoView();
+      }
     }
   };
+
+  createEffect(() => {
+    if (params().pkg) void choosePackage(params().pkg);
+    else setPackage();
+  }, [location.pathname]);
 
   if (params().pkg) {
     if (!selectedPkg()) {
       void choosePackage(params().pkg);
     }
+  }
+
+  const navigateTo = useNavigate();
+
+  if (!params().pkg && !params().category) {
+    navigateTo('/docs/guide/welcome');
   }
 
   const allMethods = createMemo<ExtraClassMethod[]>(() => {
@@ -125,7 +140,7 @@ const DocsPage = () => {
         {
           name: 'Josh',
           page: '',
-          component: <Home />
+          component: <WelcomeHome />
         },
         {
           name: 'Getting Started',
@@ -135,7 +150,23 @@ const DocsPage = () => {
         {
           name: 'Providers',
           page: 'providers',
-          component: <Providers />
+          component: <WelcomeProviders providers={folders().find((x) => x.name === 'providers')?.packages || []} />
+        },
+        {
+          name: 'FAQ',
+          page: 'faq',
+          component: <WelcomFaq />
+        }
+      ]
+    },
+    {
+      name: 'Development',
+      category: 'development',
+      pages: [
+        {
+          name: 'Intro',
+          page: '',
+          component: <DevelopmentIntro />
         }
       ]
     }
@@ -172,9 +203,12 @@ const DocsPage = () => {
               <Show when={params().type === 'classes'}>
                 <DocsClasses params={params} onUpdateScroll={updateScroll} selectedPkg={selectedPkg} />
               </Show>
+              <Show when={params().type === 'enums'}>
+                <DocsEnums params={params} onUpdateScroll={updateScroll} selectedPkg={selectedPkg} />
+              </Show>
             </Show>
             <Show when={params().category}>
-              <div class='prose prose-ledger prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-[15px] prose-code:text-mono prose-h1:font-bold prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'>
+              <div class='prose prose-a:text-primary prose-pre:bg-zinc-800 sm:pl-10 mb-20 sm:pr-40 max-w-full prose-code:text-[15px] prose-h1:font-bold prose-img:my-1 prose-img:inline prose-hr:my-3 prose-h2:mt-2 dark:prose-invert'>
                 {docs.map((category) => {
                   if (category.category === params().category) {
                     return category.pages.map((page) => {

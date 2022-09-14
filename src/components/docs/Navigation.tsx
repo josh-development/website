@@ -17,11 +17,22 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
     if (selectedPkg() && selectedPkg()!.classes.length > 0) {
       i++;
     }
+    if (selectedPkg() && selectedPkg()!.enums.length > 0) {
+      i++;
+    }
+    // if (selectedPkg() && selectedPkg()!.namespaces.length > 0) {
+    //   i++;
+    // }
     return 27.5 * i + 12;
   });
 
   return (
-    <div class='sm:w-72 sm:max-h-[80vh] will-change-transform' style={{ transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)` }}>
+    <div
+      class='sm:w-72 sm:max-h-[75vh] sm:overflow-y-scroll will-change-transform'
+      style={{
+        transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)`
+      }}
+    >
       <h1 class='text-primary font-bold text-xl font-ledger'>Documentation</h1>
 
       <div>
@@ -124,6 +135,16 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
                         <h3 class={params().pkg === pkg.name && params().type === 'classes' ? 'font-bold' : ''}>Classes</h3>
                       </Link>
                     </Show>
+                    <Show when={selectedPkg() && selectedPkg()!.enums.length > 0}>
+                      <Link href={`/docs/${pkg.name}/enums`}>
+                        <h3 class={params().pkg === pkg.name && params().type === 'enums' ? 'font-bold' : ''}>Enums</h3>
+                      </Link>
+                    </Show>
+                    {/* <Show when={selectedPkg() && selectedPkg()!.namespaces.length > 0}>
+                      <Link href={`/docs/${pkg.name}/namespaces`}>
+                        <h3 class={params().pkg === pkg.name && params().type === 'namespaces' ? 'font-bold' : ''}>Namespaces</h3>
+                      </Link>
+                    </Show> */}
                   </div>
                 </div>
               </div>

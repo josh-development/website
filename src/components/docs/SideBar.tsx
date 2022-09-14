@@ -24,13 +24,17 @@ export const DocsSideBar = ({
           <Show when={params().type === 'methods'}>
             {allMethods().map((method) => (
               <div class='pt-2 pr-4'>
-                <div class={`transition px-2 border-l ${location.hash.slice(1) === method.name ? 'border-primary' : 'dark:border-zinc-800'}`}>
+                <div
+                  class={`transition px-2 border-l ${
+                    location.hash.slice(1) === `${method.from.name}-${method.name}` ? 'border-primary' : 'dark:border-zinc-800'
+                  }`}
+                >
                   <Link
                     onClick={() => onUpdateScroll(true)}
-                    class='dark:text-gray-300'
-                    href={`/docs/${params().pkg}/${params().type}#${method.name}`}
+                    class='dark:text-gray-300 break-words'
+                    href={`/docs/${params().pkg}/${params().type}#${method.from.name}-${method.name}`}
                   >
-                    {method.name}
+                    {`${method.from.name}.${method.name}`}
                   </Link>
                 </div>
                 <hr class='dark:border-zinc-800 mt-4 mb-2'></hr>

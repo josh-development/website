@@ -31,7 +31,9 @@ JOSH itself is written in typescript and builds to `cjs` and `esm` formats, so y
 
 ### Provider Dependency
 
-However, JOSH cannot function without a [Provider](providers), which provides the communication layer between @joshdb/core and the database you're storing data in. Every provider may have its own specific pre-requisites and sub-dependency, so please take care to read the page for the provider you intend to use.
+However, JOSH cannot function without a [provider](providers), which provides the communication layer between @joshdb/core and the database you're storing data in. Every provider may have its own specific pre-requisites and sub-dependency, so please take care to read the page for the provider you intend to use.
+
+By default Josh will use the [@joshdb/map](/docs/map) provider, which stores data in memory. This is highly fast but not persistent
 
 ### What's next?
 

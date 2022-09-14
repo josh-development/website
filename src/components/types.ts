@@ -26,6 +26,11 @@ export interface InterfacesProps {
   onUpdateScroll: onUpdateScroll;
   params: params;
 }
+export interface EnumsProps {
+  selectedPkg: selectedPkg;
+  onUpdateScroll: onUpdateScroll;
+  params: params;
+}
 export interface MethodsProps {
   params: params;
   allMethods: Accessor<ExtraClassMethod[]>;

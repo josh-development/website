@@ -1,6 +1,22 @@
----
-description: Frequently Asked Questions about JOSH and its providers
----
+import { CodeBlock } from '../CodeBlock.tsx';
+export const code = `const Josh = require('@joshdb/core');
+const SQLiteProvider = require('@joshdb/sqlite');
+const QuickDB = require('quick.db');
+
+const db = new QuickDB();
+
+const josh = new Josh({
+    name: 'josh',
+    provider: new SQLiteProvider()
+});
+
+(async () => {
+    const allDocs = await db.all();
+    for (const { id, value } of allDocs) {
+        await josh.set(id, value);
+    }
+    console.log('Migrated', allDocs.length, 'documents!');
+})();`
 
 # FAQ
 
@@ -22,25 +38,6 @@ It's not a simple process, but it's not too difficult. You'll need to create a n
 
 ## How do I migrate from Quick.db?
 
-A simple script that loads both `quick.db` and `josh` can be used to migrate data. This is a simple example, but it should give you an idea of how to do it.
+A simple script that loads both `quick.db` and `josh` can be used to migrate data. This is an example with SQLite, but it should give you an idea of how to do it.
 
-```js
-const Josh = require('@joshdb/core');
-const SQLiteProvider = require('@joshdb/sqlite');
-const QuickDB = require('quick.db');
-
-const db = new QuickDB();
-
-const josh = new Josh({
-  name: 'josh',
-  provider: new SQLiteProvider()
-});
-
-async () => {
-  const allDocs = await db.all();
-  for (const { id, value } of allDocs) {
-    await josh.set(id, value);
-  }
-  console.log('Migrated', allDocs.length, 'documents!');
-};
-```
+<CodeBlock code={code} lang='js' />
