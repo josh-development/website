@@ -1,0 +1,9 @@
+# Creating a Provider
+
+So, you want to create your own provider? We're too slow to make them, aren't we? Well, you're in luck! This guide will teach you how to create your own provider, and how to use it in your Josh instance.
+
+For examples of how these methods might work, please look at [existing providers](https://github.com/josh-development/providers), specifically [map](https://github.com/josh-development/providers/tree/main/packages/map) as it is usually the most consistent. If you can make those methods more efficient or performant using core features of your database then by all means, feel free to do so! But, they must return the data in the format described in the code.
+
+## Payloads
+
+So you're probably wondering what the hell `payloads` are. Well the way Josh provides consistent communication with a provider, middleware and more, is by using a `payload` object. This object contains all the information needed to perform an action, and is passed to the provider. The provider then returns a `payload` object with the result of the action, usually in the `data` property. Check out [Payload](/docs/provider/interfaces#Payload) for more info and [JoshProvider methods](/docs/provider/methods#JoshProvider-autoKey)

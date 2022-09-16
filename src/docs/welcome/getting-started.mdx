@@ -1,0 +1,40 @@
+import { CodeBlock } from '../CodeBlock.tsx';
+
+export const initCode = `import { Josh } from "@joshdb/core"; 
+/* OR */
+const Josh = require("@joshdb/core");`;
+
+export const basicUsageCode = `const db = new Josh({ name: "test" });`;
+
+# Getting started
+
+JOSH is installed very simply through `yarn` or `npm`:
+
+```
+npm i @joshdb/core
+* OR *
+yarn add @joshdb/core
+```
+
+## Import
+
+<CodeBlock lang='ts' code={initCode} />
+{/* Why like this? Well this uses the same markdown-it styling and prevents installation of external dependencies that just increase bloat */}
+
+## Basic Usage
+
+<CodeBlock lang='ts' code={basicUsageCode} />
+
+JOSH itself is written in typescript and builds to `cjs` and `esm` formats, so you can use it in any project.
+
+> We have removed the `umd` builds in order to support `esm` and any usage of Josh in browser will require a bundler such as `webpack` or `rollup`.
+
+### Provider Dependency
+
+However, JOSH cannot function without a [provider](providers), which provides the communication layer between @joshdb/core and the database you're storing data in. Every provider may have its own specific pre-requisites and sub-dependency, so please take care to read the page for the provider you intend to use.
+
+By default Josh will use the [@joshdb/map](/docs/map) provider, which stores data in memory. This is highly fast but not persistent
+
+### What's next?
+
+See the Providers page and choose one!

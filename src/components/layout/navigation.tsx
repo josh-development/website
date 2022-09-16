@@ -1,37 +1,13 @@
 import { Link, NavLink } from 'solid-app-router';
-import { FiChevronDown, FiChevronUp, FiGithub, FiMenu, FiX } from 'solid-icons/fi';
+import { FiGithub, FiMenu, FiMoon, FiSun, FiX } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
-import { createMemo, createSignal, Match, Show, Switch } from 'solid-js';
-import { Transition } from 'solid-transition-group';
-import npmData from '../../store/npm';
+import { createSignal, Show } from 'solid-js';
 export const Navigation = () => {
-  const [chosenTag, setChosenTag] = createSignal('latest');
-  const [showTagList, setShowTagList] = createSignal(false);
   const [showMenu, setShowMenu] = createSignal(false);
-  const chooseTag = (index: string) => {
-    setChosenTag(index);
-    setShowTagList(false);
+  const [darkMode, setIfDark] = createSignal(true);
+  const updateMode = () => {
+    setIfDark(document.body.classList.contains('dark'));
   };
-
-  const [npm] = npmData;
-  const tags = createMemo(() => {
-    const o = npm();
-
-    if (npm.loading || !o) return [];
-    return Object.keys(o.versions).reduce<{ tag: string; versions: string[] }[]>((prev, curr) => {
-      const dotSplit = curr.split('.');
-      const dashSplit = curr.split('-');
-      const tag = dotSplit.length > 1 && dashSplit.length < 2 ? `${dotSplit[0]}.x` : dashSplit[1].split('.')[0];
-      const foundIdx = prev.findIndex((x) => x.tag === tag);
-
-      if (foundIdx >= 0) {
-        prev[foundIdx].versions.push(curr);
-        return prev;
-      }
-
-      return [...prev, { tag, versions: [curr] }];
-    }, []);
-  });
 
   const icons = [
     {
@@ -47,11 +23,13 @@ export const Navigation = () => {
   const links = [
     {
       text: 'Home',
-      href: '/'
+      href: '/',
+      end: true
     },
     {
       text: 'Documentation',
-      href: '/docs'
+      href: '/docs',
+      end: false
     }
   ];
 
@@ -59,6 +37,24 @@ export const Navigation = () => {
     <nav>
       <div class='flex justify-between'>
         <div class='hidden sm:flex flex-row items-center space-x-6 w-1/3'>
+          {links.map((link) => (
+            <NavLink
+              end={link.end}
+              activeClass='border-gray-400'
+              inactiveClass='border-transparent'
+              class='border-b transition dark:text-white py-2'
+              href={link.href}
+            >
+              {link.text}
+            </NavLink>
+          ))}
+        </div>
+        <div class='space-x-3 w-1/3 text-center items-center sm:justify-center flex'>
+          <h1 class='text-2xl leading-6 font-ledger text-gray-800 dark:text-white '>
+            <Link href='/'>Josh</Link>
+          </h1>
+        </div>
+        <div class='hidden sm:flex ml-auto space-x-3 items-center justify-center'>
           {icons.map((icon) => (
             <a
               target='_blank'
@@ -69,64 +65,20 @@ export const Navigation = () => {
               {icon.icon()}
             </a>
           ))}
-          {links.map((link) => (
-            <NavLink
-              end
-              activeClass='border-gray-400'
-              inactiveClass='border-transparent'
-              class='border-b transition dark:text-white py-2'
-              href={link.href}
-            >
-              {link.text}
-            </NavLink>
-          ))}
-        </div>
-        <div class='flex space-x-3 items-center'>
-          <h1 class='text-2xl leading-6 text-gray-800 dark:text-white '>
-            <Link href='/'>Josh</Link>
-          </h1>
-        </div>
-        <div class='hidden relative sm:inline-block w-1/3'>
           <button
-            onclick={() => setShowTagList(!showTagList())}
-            class='rounded-md flex ml-auto w-24 text-sm py-1.5 text-black bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center'
+            onClick={() => {
+              document.body.classList.toggle('dark');
+              updateMode();
+            }}
+            class='dark:text-white border-l dark:border-zinc-700 pl-4 p-1 focus:outline-none focus:ring-none focus:ring-offset-2 focus:ring-gray-800'
           >
-            <Show when={npm()?._id} fallback={<span>Loading...</span>}>
-              <span class='px-4'>{chosenTag}</span>
+            <Show when={!darkMode()}>
+              <FiMoon size={24}></FiMoon>
             </Show>
-
-            <span class='border-l border-gray-300 h-full px-1.5 pt-0.5'>
-              <Transition name='fade' mode='outin'>
-                <Switch>
-                  <Match when={showTagList()}>
-                    <FiChevronUp size={16}></FiChevronUp>
-                  </Match>
-                  <Match when={!showTagList()}>
-                    <FiChevronDown size={16}></FiChevronDown>
-                  </Match>
-                </Switch>
-              </Transition>
-            </span>
+            <Show when={darkMode()}>
+              <FiSun size={24}></FiSun>
+            </Show>
           </button>
-          <Transition name='fade' mode='outin'>
-            <Switch>
-              <Match when={showTagList()}>
-                <ul class='visible ml-auto transition mt-3 bg-white dark:bg-zinc-800 shadow rounded py-1 w-24 origin-top-right absolute right-0'>
-                  {tags().map((tag) => (
-                    <li
-                      onclick={() => chooseTag(tag.tag)}
-                      class='focus:outline-none cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 focus:bg-gray-200 transition hover:bg-gray-100 dark:hover:bg-zinc-900 px-3 flex items-center'
-                    >
-                      {tag.tag}
-                    </li>
-                  ))}
-                </ul>
-              </Match>
-              <Match when={!showTagList()}>
-                <ul></ul>
-              </Match>
-            </Switch>
-          </Transition>
         </div>
 
         <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center sm:hidden cursor-pointer'>

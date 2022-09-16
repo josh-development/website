@@ -8,6 +8,6 @@
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+  },
 }

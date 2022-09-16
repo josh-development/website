@@ -1,5 +1,16 @@
 {
-  "eslint.validate": ["typescript"],
+   "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "markdown",
+    "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "css"
+  ],
   "editor.tabSize": 2,
   "editor.useTabStops": false,
   "editor.insertSpaces": true,
