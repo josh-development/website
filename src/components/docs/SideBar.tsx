@@ -1,4 +1,4 @@
-import { Link } from 'solid-app-router';
+import { Link } from '@solidjs/router';
 import { Accessor, Show } from 'solid-js';
 import type { DocsPageParams, ExtraClassMethod } from '../types';
 

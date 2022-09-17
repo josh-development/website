@@ -1,4 +1,5 @@
-import { useLocation, useNavigate, useParams } from 'solid-app-router';
+import { Title } from '@solidjs/meta';
+import { useLocation, useNavigate, useParams } from '@solidjs/router';
 import { createEffect, createMemo, createSignal, onCleanup, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
 import { DocsLoading } from '../components/docs/Loading';
@@ -174,6 +175,7 @@ const DocsPage = () => {
 
   return (
     <div class='min-h-[100vh] sm:flex pt-5'>
+      <Title>JOSH | Docs</Title>
       <Show when={pkgs.loading}>
         <DocsLoading />
       </Show>
@@ -191,6 +193,9 @@ const DocsPage = () => {
         <div class='w-full overflow-x-scroll'>
           <div>
             <Show when={selectedPkg()}>
+              <Title>
+                JOSH | {selectedPkg()!.name} | {params().type.length > 0 ? params().type : 'README'}
+              </Title>
               <Show when={params().type.length === 0}>
                 <DocsReadme selectedPkg={selectedPkg} />
               </Show>

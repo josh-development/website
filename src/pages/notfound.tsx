@@ -1,6 +1,9 @@
+import { Title } from '@solidjs/meta';
+
 const NotFound = () => {
   return (
     <div class='text-center h-[80vh] items-center flex justify-center'>
+      <Title>JOSH | 404</Title>
       <div class='w-96'>
         <h1 class='text-8xl dark:text-white text-gray-400 dark:text-gray-200 my-2'>404</h1>
         <p class='text-gray-400'>

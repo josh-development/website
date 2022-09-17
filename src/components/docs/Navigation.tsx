@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'solid-app-router';
+import { Link, useNavigate } from '@solidjs/router';
 import { FiChevronDown } from 'solid-icons/fi';
 import { createMemo, Show } from 'solid-js';
 import type { NavigationProps } from '../types';

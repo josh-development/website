@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'solid-app-router';
+import { Link, NavLink } from '@solidjs/router';
 import { FiGithub, FiMenu, FiMoon, FiSun, FiX } from 'solid-icons/fi';
 import { SiDiscord } from 'solid-icons/si';
 import { createSignal, Show } from 'solid-js';

@@ -1,4 +1,4 @@
-import { Link } from 'solid-app-router';
+import { Link } from '@solidjs/router';
 import { Show } from 'solid-js';
 import { md } from '../../../utils/mdit';
 import type { EnumsProps } from '../../types';

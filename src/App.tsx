@@ -1,4 +1,4 @@
-import { Route, Routes } from 'solid-app-router';
+import { Route, Routes } from '@solidjs/router';
 
 import { Footer } from './components/layout/footer';
 import { Navigation } from './components/layout/navigation';
