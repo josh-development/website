@@ -5652,12 +5652,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.5.5":
-  version: 1.5.5
-  resolution: "solid-js@npm:1.5.5"
+"solid-js@npm:^1.5.6":
+  version: 1.5.6
+  resolution: "solid-js@npm:1.5.6"
   dependencies:
     csstype: ^3.1.0
-  checksum: 2ede2032263afccc878333621f76a7aa5fbd7587a063db64c9fa40b61640f4cd5b2c56a1568f80c01afcc7673e7ee78d5dcbaf7e29d0c9045261f894bebadfb6
+  checksum: 73c07e717cb4f5e2926e4a73fb99c78d814ad13882b9e756334d4f33187d507aa88a04cad530e8d83bc22b2177b98d74e06bd92e92f487e28278ce50eb83b7dc
   languageName: node
   linkType: hard
 
@@ -6418,9 +6418,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-solid@npm:^2.3.3":
-  version: 2.3.3
-  resolution: "vite-plugin-solid@npm:2.3.3"
+"vite-plugin-solid@npm:^2.3.6":
+  version: 2.3.6
+  resolution: "vite-plugin-solid@npm:2.3.6"
   dependencies:
     "@babel/core": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
@@ -6430,13 +6430,13 @@ __metadata:
   peerDependencies:
     solid-js: ^1.3.17
     vite: ^3.0.0
-  checksum: 7e02ee6e276d73ceca22c362c0fea0c44d37d074efead997caa2e0ef98e5e689240c9d97361e93b99e7734380d1d735abd6470834e174062698bfcb389e2abbb
+  checksum: 3391cf5b75130363251868c7e4a29f83dbabebff226745e310f2edf35460512797f203905a9683761686c73e5f3b3c7b9fc6331efe0f532ad19cdd4712cbe2fd
   languageName: node
   linkType: hard
 
-"vite@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "vite@npm:3.1.2"
+"vite@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "vite@npm:3.1.3"
   dependencies:
     esbuild: ^0.15.6
     fsevents: ~2.3.2
@@ -6462,7 +6462,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 90f645853f53efaddfa216eaf42ed93afe6b43f849889a7716ef9c04623b9ae244f391ed17ed0c41189422060cad5e78eb17583ac5a3759988f54b7412e18cb7
+  checksum: af13c9820c292792f02d0a25fd46d8557e627b93f95bc05b5f7f1261e9565e9e69fda2df0c0898f248edb811ebcac5400a85a81625ef29749f50b18273439d91
   languageName: node
   linkType: hard
 
@@ -6510,15 +6510,15 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^3.0.2
     solid-icons: ^1.0.1
-    solid-js: ^1.5.5
+    solid-js: ^1.5.6
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.11
     tailwindcss: ^3.1.8
     typedoc-json-parser: ^4.0.0
     typescript: ^4.8.3
-    vite: ^3.1.2
-    vite-plugin-solid: ^2.3.3
+    vite: ^3.1.3
+    vite-plugin-solid: ^2.3.6
   languageName: unknown
   linkType: soft
 
