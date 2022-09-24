@@ -1,13 +1,13 @@
-import 'highlight.js/styles/tokyo-night-dark.css';
 import { Link } from '@solidjs/router';
+import 'highlight.js/styles/tokyo-night-dark.css';
 import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
 import packages from '../store/packages';
 import { md } from '../utils/mdit';
 
-export const LandingPage = () => {
+const Home = () => {
   const [code] = createSignal(`\`\`\`ts\nimport { Josh } from "@joshdb/core";
-  
+
 const josh = new Josh({ name: "website" });
 
 await josh.set("foo", "bar");\n\`\`\``);
@@ -97,3 +97,5 @@ await josh.set("foo", "bar");\n\`\`\``);
     </>
   );
 };
+
+export default Home;

@@ -1,9 +1,8 @@
+import { Meta, MetaProvider, Title } from '@solidjs/meta';
 import { Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from './App';
 import './assets/css/main.css';
-
-import { Meta, MetaProvider, Title } from '@solidjs/meta';
 
 render(
   () => (

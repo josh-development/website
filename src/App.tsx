@@ -1,25 +1,19 @@
-import { Route, Routes } from '@solidjs/router';
-
+import { useRoutes } from '@solidjs/router';
 import { Footer } from './components/layout/footer';
 import { Navigation } from './components/layout/navigation';
-import DocsPage from './pages/docs';
-import { LandingPage } from './pages/landing';
-import NotFound from './pages/notfound';
+import { routes } from './routes';
 
 export function App() {
+  const Routes = useRoutes(routes);
+
   return (
     <div class='dark:bg-zinc-900 transition'>
       <div class='min-h-screen 2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4'>
-        <Navigation></Navigation>
-        <Routes>
-          <Route path='/' component={LandingPage} />
-          <Route
-            path={['/docs', '/docs/guide', '/docs/guide/:category', '/docs/guide/:category/:page', '/docs/:pkg', '/docs/:pkg/:type']}
-            component={DocsPage}
-          />
-          <Route path='*' component={NotFound} />
-        </Routes>
-        <Footer></Footer>
+        <Navigation />
+
+        <Routes />
+
+        <Footer />
       </div>
     </div>
   );

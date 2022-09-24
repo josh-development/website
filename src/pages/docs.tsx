@@ -14,7 +14,7 @@ import WelcomeHome from '../docs/welcome/home.mdx';
 import WelcomeProviders from '../docs/welcome/providers.mdx';
 import packages from '../store/packages';
 
-const DocsPage = () => {
+const Docs = () => {
   const [pkgs] = packages;
   const p = useParams() as { type: string | null; pkg: string | null; page: string | null; category: string | null };
   const params = createMemo(() => {
@@ -237,4 +237,4 @@ const DocsPage = () => {
   );
 };
 
-export default DocsPage;
+export default Docs;
