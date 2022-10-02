@@ -29,11 +29,11 @@
     "markdown-it": "^13.0.1",
     "remark-gfm": "^3.0.1",
     "solid-icons": "^1.0.1",
-    "solid-js": "^1.5.6",
+    "solid-js": "^1.5.7",
     "solid-jsx": "^0.9.1",
     "solid-markdown": "^1.2.0",
     "solid-transition-group": "^0.0.11",
-    "typedoc-json-parser": "^5.0.0"
+    "typedoc-json-parser": "^5.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
