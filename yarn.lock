@@ -755,9 +755,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/rollup@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "@mdx-js/rollup@npm:2.1.4"
+"@mdx-js/rollup@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@mdx-js/rollup@npm:2.1.5"
   dependencies:
     "@mdx-js/mdx": ^2.0.0
     "@rollup/pluginutils": ^4.0.0
@@ -765,7 +765,7 @@ __metadata:
     vfile: ^5.0.0
   peerDependencies:
     rollup: ">=2"
-  checksum: aad38e86704f3bdbfe160d815370bb26df3165e0317fe1223d35b559aec0caccbc46624b2643360cec483b381e1f489d9d5f9bcd1d261d4d03045b7a9f3ccb33
+  checksum: 895c88fac76f75284dbf183f3349f6eb431fba9ee21f0655d5ecee528d9a06c175ddf12ae2d3482085a78c64574c171b6dc9d0b291a35abf6929d79018331be1
   languageName: node
   linkType: hard
 
@@ -6762,7 +6762,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.1.2
     "@commitlint/config-conventional": ^17.1.0
-    "@mdx-js/rollup": ^2.1.4
+    "@mdx-js/rollup": ^2.1.5
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/ts-config": ^3.3.4
     "@solidjs/meta": ^0.28.0
