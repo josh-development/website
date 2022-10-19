@@ -25,38 +25,36 @@ export const DocsInterfaces = ({ selectedPkg, onUpdateScroll, params }: Interfac
               <div class='dark:text-zinc-200 my-4' innerHTML={md.render(intf.comment.description || '')}></div>
 
               <Show when={intf.properties}>
-                <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
-                  <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                    <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
-                      <tr>
+                <table class='text-sm text-left text-gray-500 dark:text-gray-400'>
+                  <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
+                    <tr>
+                      <th scope='col' class='py-3 px-6'>
+                        Property
+                      </th>
+                      <th scope='col' class='py-3 px-6'>
+                        Type
+                      </th>
+                      <Show when={intf.properties.find((x) => x.comment.description)}>
                         <th scope='col' class='py-3 px-6'>
-                          Property
+                          Description
                         </th>
-                        <th scope='col' class='py-3 px-6'>
-                          Type
+                      </Show>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {intf.properties.map((prop) => (
+                      <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
+                        <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                          {prop.name}
                         </th>
-                        <Show when={intf.properties.find((x) => x.comment.description)}>
-                          <th scope='col' class='py-3 px-6'>
-                            Description
-                          </th>
+                        <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
+                        <Show when={prop.comment.description}>
+                          <td class='py-4 px-6 break-words'>{prop.comment.description}</td>
                         </Show>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {intf.properties.map((prop) => (
-                        <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
-                          <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
-                            {prop.name}
-                          </th>
-                          <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
-                          <Show when={prop.comment.description}>
-                            <td class='py-4 px-6 break-words'>{prop.comment.description}</td>
-                          </Show>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </Show>
               <div
                 class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide'

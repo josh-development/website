@@ -25,56 +25,52 @@ export const DocsClasses = ({ onUpdateScroll, selectedPkg, params }: ClassesProp
               <div class='dark:text-zinc-200 my-4' innerHTML={md.render(cls.comment.description || '')}></div>
 
               <Show when={cls.construct.parameters}>
-                <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
-                  <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                    <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
-                      <tr>
-                        <th scope='col' class='py-3 px-6'>
-                          Parameter
+                <table class='text-sm text-left text-gray-500 dark:text-gray-400'>
+                  <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
+                    <tr>
+                      <th scope='col' class='py-3 px-6'>
+                        Parameter
+                      </th>
+                      <th scope='col' class='py-3 px-6'>
+                        Type
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cls.construct.parameters.map((prop) => (
+                      <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
+                        <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                          {prop.name}
                         </th>
-                        <th scope='col' class='py-3 px-6'>
-                          Type
-                        </th>
+                        <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {cls.construct.parameters.map((prop) => (
-                        <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
-                          <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
-                            {prop.name}
-                          </th>
-                          <td class='py-4 px-6 break-words'>{prop.type.toString()}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </Show>
               <Show when={cls.properties}>
-                <div class='overflow-x-auto mt-4 relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
-                  <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                    <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
-                      <tr>
-                        <th scope='col' class='py-3 px-6'>
-                          Property
+                <table class='text-sm mt-4 text-left text-gray-500 dark:text-gray-400'>
+                  <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
+                    <tr>
+                      <th scope='col' class='py-3 px-6'>
+                        Property
+                      </th>
+                      <th scope='col' class='py-3 px-6'>
+                        Type
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cls.properties.map((prop) => (
+                      <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
+                        <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                          {prop.name}
                         </th>
-                        <th scope='col' class='py-3 px-6'>
-                          Type
-                        </th>
+                        <td class='py-4 px-6 break-words'>{prop.type ? prop.type.toString() : 'N/A'}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {cls.properties.map((prop) => (
-                        <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
-                          <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
-                            {prop.name}
-                          </th>
-                          <td class='py-4 px-6 break-words'>{prop.type ? prop.type.toString() : 'N/A'}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </Show>
               <div
                 class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide'
