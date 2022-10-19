@@ -2,6 +2,8 @@ import hljs from 'highlight.js/lib/core';
 import { default as javascript, default as typescript } from 'highlight.js/lib/languages/typescript';
 import MarkdownIt from 'markdown-it';
 
+import 'highlight.js/styles/tokyo-night-dark.css';
+
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 hljs.registerLanguage('javascript', javascript);

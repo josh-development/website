@@ -9,16 +9,7 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Home'))
   },
   {
-    path: [
-      '/docs',
-      '/docs/guide',
-      '/docs/guide/:category',
-      '/docs/guide/:category/:page',
-      '/docs/',
-      '/docs/:pkg',
-      '/docs/:pkg/:version',
-      '/docs/:pkg/:version/:page'
-    ],
+    path: ['/docs', '/docs/guide', '/docs/guide/:category', '/docs/guide/:category/:page', '/docs/', '/docs/:pkg', '/docs/:pkg/:type'],
     component: Docs
   },
   {
