@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@mdx-js/rollup": "^2.3.0",
+    "@sapphire/fetch": "^2.4.1",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.0",
     "@tailwindcss/typography": "^0.5.9",
