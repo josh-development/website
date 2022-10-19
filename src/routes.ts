@@ -1,5 +1,7 @@
 import type { RouteDefinition } from '@solidjs/router';
 import { lazy } from 'solid-js';
+import Docs from './pages/Docs';
+import NotFound from './pages/NotFound';
 
 export const routes: RouteDefinition[] = [
   {
@@ -9,17 +11,18 @@ export const routes: RouteDefinition[] = [
   {
     path: [
       '/docs',
-      '/docs/Guide',
-      '/docs/Guide/:category',
-      '/docs/Guide/:category/:page',
-      '/docs/Documentation',
-      '/docs/Documentation/:name',
-      '/docs/Documentation/:name/:version'
+      '/docs/guide',
+      '/docs/guide/:category',
+      '/docs/guide/:category/:page',
+      '/docs/',
+      '/docs/:pkg',
+      '/docs/:pkg/:version',
+      '/docs/:pkg/:version/:page'
     ],
-    component: lazy(() => import('./pages/Docs'))
+    component: Docs
   },
   {
     path: '*',
-    component: lazy(() => import('./pages/NotFound'))
+    component: NotFound
   }
 ];
