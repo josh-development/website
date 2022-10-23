@@ -5909,21 +5909,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-icons@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "solid-icons@npm:1.0.1"
+"solid-icons@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "solid-icons@npm:1.0.2"
   peerDependencies:
     solid-js: "*"
-  checksum: 4368ab117fb73fb39162e3b92ade6c19f971822cc2ba0738c145438a19520b386b170219a24a4ab9e560ad10ae5061afa1380f1e1bdfc122f7fbabf636bc6007
+  checksum: ae74f0bec450e74d703c4846f7598ffb4939715c056b03c252ebf3ae983880c613d0836d2a066eba779170511bb9aa368958563b0ed0e549e6428df5f9e0e4c3
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.5.7":
-  version: 1.5.7
-  resolution: "solid-js@npm:1.5.7"
+"solid-js@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "solid-js@npm:1.6.0"
   dependencies:
     csstype: ^3.1.0
-  checksum: 3b8ddd0f35b5744fb532ea6f88fb846b15eff466056bf1394c93da4d27a6df6bd97042704eb06eca80d32dd8bac15349e4eee229439cfeb8aaa419429a43efdb
+  checksum: a1d655242b1bae82ebdd457deaa99e3874351ecf2447ccf1d3b09c5d862c9eb1b123e244dbe73e107a4ff08452e5857970189f8d2c401debda868b383027a069
   languageName: node
   linkType: hard
 
@@ -6412,9 +6412,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-json-parser@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "typedoc-json-parser@npm:6.0.0"
+"typedoc-json-parser@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "typedoc-json-parser@npm:6.0.2"
   dependencies:
     "@favware/colorette-spinner": ^1.0.1
     "@sapphire/node-utilities": ^1.0.0
@@ -6422,16 +6422,16 @@ __metadata:
     commander: ^9.4.1
     js-yaml: ^4.1.0
     tslib: ^2.4.0
-    typedoc: ^0.23.15
+    typedoc: ^0.23.16
   bin:
     typedoc-json-parser: ./dist/bin/index.js
-  checksum: 495bba44d013059c860d7968e2eea17a4a411495d675607ed674bf3572d94e6c8f66e41f3b4a3f640555f4247bd9e63d71d86d99578023636e293303b2286819
+  checksum: 4e8a5e84729d14dc98f24181d90d44d914f92ef119e0ce005b62d051a15c7bef096fd2badff99f7215511bc854a8d13807163ef6f06d294490e80fd9f63e693d
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.15":
-  version: 0.23.15
-  resolution: "typedoc@npm:0.23.15"
+"typedoc@npm:^0.23.16":
+  version: 0.23.17
+  resolution: "typedoc@npm:0.23.17"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.19
@@ -6441,7 +6441,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x
   bin:
     typedoc: bin/typedoc
-  checksum: 2313bcda09755332e15e40fb2e72ac8d72447abfcd60f7c555d3a232ad1fe3596afd87ddcfbdf17eb081fc65f1cbf43b02e05adf38e6ade55f64d475da4271d7
+  checksum: 9bfcfa762205f42645a5c545cf75399346663209e1f91f3e630880a6f48a5676a2efab23305df7aca69c6fe19bd4b1c42470bf39b95a369811f6eb4d5a8549e8
   languageName: node
   linkType: hard
 
@@ -6811,13 +6811,13 @@ __metadata:
     pretty-quick: ^3.1.3
     remark-gfm: ^3.0.1
     rimraf: ^3.0.2
-    solid-icons: ^1.0.1
-    solid-js: ^1.5.7
+    solid-icons: ^1.0.2
+    solid-js: ^1.6.0
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.11
     tailwindcss: ^3.2.1
-    typedoc-json-parser: ^6.0.0
+    typedoc-json-parser: ^6.0.2
     typescript: ^4.8.4
     vite: ^3.1.8
     vite-plugin-solid: ^2.3.10
