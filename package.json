@@ -33,7 +33,7 @@
     "solid-jsx": "^0.9.1",
     "solid-markdown": "^1.2.0",
     "solid-transition-group": "^0.0.11",
-    "typedoc-json-parser": "^6.0.2"
+    "typedoc-json-parser": "^7.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
