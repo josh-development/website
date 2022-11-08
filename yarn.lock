@@ -876,9 +876,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/typography@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "@tailwindcss/typography@npm:0.5.7"
+"@tailwindcss/typography@npm:^0.5.8":
+  version: 0.5.8
+  resolution: "@tailwindcss/typography@npm:0.5.8"
   dependencies:
     lodash.castarray: ^4.4.0
     lodash.isplainobject: ^4.0.6
@@ -886,7 +886,7 @@ __metadata:
     postcss-selector-parser: 6.0.10
   peerDependencies:
     tailwindcss: "*"
-  checksum: 27686a455d13367c6ee4473e0579f1fc0e9de1de4606845101f8943eb94c5d00a18fecac60111028b9cb2f3253ea16a9a6f889d3711214b5baaa153f021fbc47
+  checksum: afe172c75ddf086f840b10f95e562bb210dde5612fccfcfd3c4cee688c57ca5b79569b3c2cb75687b34b1b7f9ad194b14e9fbb09a741cd69198bb92b5ac3838f
   languageName: node
   linkType: hard
 
@@ -5913,21 +5913,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-icons@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "solid-icons@npm:1.0.3"
-  dependencies:
-    solid-js: <=1.5.7
-  checksum: 4e6836c9d70fb9d87168aeb381e7a1745440220c54c4c0fb3e5453c07a7e88be94381e5b8ddcbba0da57c28e7a71cf80fcaf3e423d38657474b2bda34b5ed812
-  languageName: node
-  linkType: hard
-
-"solid-js@npm:<=1.5.7":
-  version: 1.5.7
-  resolution: "solid-js@npm:1.5.7"
-  dependencies:
-    csstype: ^3.1.0
-  checksum: 3b8ddd0f35b5744fb532ea6f88fb846b15eff466056bf1394c93da4d27a6df6bd97042704eb06eca80d32dd8bac15349e4eee229439cfeb8aaa419429a43efdb
+"solid-icons@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "solid-icons@npm:1.0.4"
+  peerDependencies:
+    solid-js: "*"
+  checksum: ad9e5f44d0522d54a517ea1cc6ff5b61e7833e1e482e000bb7f070f6e0fec9b7f1be9141841187c407be98b4658cfc7bac6b86044097691dd0ccc4e36eab242a
   languageName: node
   linkType: hard
 
@@ -5982,12 +5973,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-transition-group@npm:^0.0.11":
-  version: 0.0.11
-  resolution: "solid-transition-group@npm:0.0.11"
+"solid-transition-group@npm:^0.0.12":
+  version: 0.0.12
+  resolution: "solid-transition-group@npm:0.0.12"
   peerDependencies:
     solid-js: ^1.0.0
-  checksum: 9773bea5053994e7b0f952dc4c075dc3b52a7306cbc81ffb80915e0b4111539ae4dc604b18e19ebaa51bd5c7c99eebd11626d8c0ee082f817836ebf8c3b4a0d7
+  checksum: 53e723fd297ec1152c812c4a02f72f08e8dc7c2dcbd1bc5220e9b8ce69d49f7ff37eea15bd0707e1944aa7de25916e0184d90a7db342ba613e74784fff9b6eb7
   languageName: node
   linkType: hard
 
@@ -6822,7 +6813,7 @@ __metadata:
     "@sapphire/ts-config": ^3.3.4
     "@solidjs/meta": ^0.28.2
     "@solidjs/router": ^0.5.0
-    "@tailwindcss/typography": ^0.5.7
+    "@tailwindcss/typography": ^0.5.8
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.11.9
     "@typescript-eslint/eslint-plugin": ^5.42.0
@@ -6840,11 +6831,11 @@ __metadata:
     pretty-quick: ^3.1.3
     remark-gfm: ^3.0.1
     rimraf: ^3.0.2
-    solid-icons: ^1.0.3
+    solid-icons: ^1.0.4
     solid-js: ^1.6.1
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
-    solid-transition-group: ^0.0.11
+    solid-transition-group: ^0.0.12
     tailwindcss: ^3.2.2
     typedoc-json-parser: ^7.0.1
     typescript: ^4.8.4
