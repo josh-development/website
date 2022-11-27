@@ -873,12 +873,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@solidjs/router@npm:0.5.0"
+"@solidjs/router@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@solidjs/router@npm:0.5.1"
   peerDependencies:
     solid-js: ^1.5.3
-  checksum: f066bf3d44e3fd93e3dcb910c08e98da9013c7b1f6922f2b4d458a07ff6c060d856f76b94ba984c19e2d5a57077b36df246401dcd9e433f28550d62b743b07e4
+  checksum: 522018eb8d9ce90309ef96b996637391f49404722e26499a266ed632cf1b9c158b6ec858d104e32c646b4c67da3c3865fef9c5dd8e5dcddd1fde96b767fbe915
   languageName: node
   linkType: hard
 
@@ -3336,10 +3336,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^11.6.0":
-  version: 11.6.0
-  resolution: "highlight.js@npm:11.6.0"
-  checksum: 3908eb34a4b442ca1e20c1ae6415ea935fbbcdb2b532a89948d82b0fa4ad41fc5de3802a0de4e88a0bcb7d97d4445579048cd2aab1d105ac47f59dd58a9a98ae
+"highlight.js@npm:^11.7.0":
+  version: 11.7.0
+  resolution: "highlight.js@npm:11.7.0"
+  checksum: 19e3fb8b56f4b361b057a8523b989dfeb6479bbd1e29cec3fac6fa5c78d09927d5fa61b7dba6631fdb57cfdca9b3084aa4da49405ceaf4a67f67beae2ed5b77d
   languageName: node
   linkType: hard
 
@@ -6422,10 +6422,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
+"tslib@npm:^2.1.0, tslib@npm:^2.3.1":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "tslib@npm:2.4.1"
+  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
   languageName: node
   linkType: hard
 
@@ -6484,36 +6491,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-json-parser@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "typedoc-json-parser@npm:7.0.1"
+"typedoc-json-parser@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "typedoc-json-parser@npm:7.0.2"
   dependencies:
     "@favware/colorette-spinner": ^1.0.1
     "@sapphire/node-utilities": ^1.0.0
     colorette: ^2.0.19
     commander: ^9.4.1
     js-yaml: ^4.1.0
-    tslib: ^2.4.0
-    typedoc: ^0.23.18
+    tslib: ^2.4.1
+    typedoc: ^0.23.20
   bin:
     typedoc-json-parser: ./dist/bin/index.js
-  checksum: 8177c48bfe06dd2d64e41aeb93c886ac4db8fd6c8581e45b333178e043b47b3a97785dc1b3c9ad69932ead5a2d9f64999b30e9fff67e3420b8230d5df97117d9
+  checksum: 5b34af785d8bb5843859f0a11a8891b0083fe8b31b2a6105c22ec8ed4a0d5297d10b0c8440418f63dbe654a8e06e6d761960556ffa237d09944aa7a4f029001c
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.18":
-  version: 0.23.19
-  resolution: "typedoc@npm:0.23.19"
+"typedoc@npm:^0.23.20":
+  version: 0.23.21
+  resolution: "typedoc@npm:0.23.21"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.19
     minimatch: ^5.1.0
     shiki: ^0.11.1
   peerDependencies:
-    typescript: 4.6.x || 4.7.x || 4.8.x
+    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
   bin:
     typedoc: bin/typedoc
-  checksum: 4659dce4e8550a3f0d4739b6c9c583d8f2afba9c37e2fe38325e3cff781a50daf57afe10cbcc27f11b56da0623d502628e0713c55f30eae619c4427d18ce1064
+  checksum: 931520b21ae25ba8ea86111ea7c66f474468bb83cbe1d04c0ea19490f130ea44ba58b7ee4d12f7f02368cfe053ed1fa291c8843c466c8af383ef956de177360d
   languageName: node
   linkType: hard
 
@@ -6883,7 +6890,7 @@ __metadata:
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/ts-config": ^3.3.4
     "@solidjs/meta": ^0.28.2
-    "@solidjs/router": ^0.5.0
+    "@solidjs/router": ^0.5.1
     "@tailwindcss/typography": ^0.5.8
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.11.9
@@ -6893,7 +6900,7 @@ __metadata:
     eslint: ^8.28.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
-    highlight.js: ^11.6.0
+    highlight.js: ^11.7.0
     husky: ^8.0.2
     lint-staged: ^13.0.4
     markdown-it: ^13.0.1
@@ -6908,7 +6915,7 @@ __metadata:
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.12
     tailwindcss: ^3.2.4
-    typedoc-json-parser: ^7.0.1
+    typedoc-json-parser: ^7.0.2
     typescript: ^4.9.3
     vite: ^3.2.4
     vite-plugin-solid: ^2.4.0
