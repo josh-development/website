@@ -901,17 +901,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/rollup@npm:^2.1.5":
-  version: 2.1.5
-  resolution: "@mdx-js/rollup@npm:2.1.5"
+"@mdx-js/rollup@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@mdx-js/rollup@npm:2.2.1"
   dependencies:
     "@mdx-js/mdx": ^2.0.0
-    "@rollup/pluginutils": ^4.0.0
+    "@rollup/pluginutils": ^5.0.0
     source-map: ^0.7.0
     vfile: ^5.0.0
   peerDependencies:
     rollup: ">=2"
-  checksum: 895c88fac76f75284dbf183f3349f6eb431fba9ee21f0655d5ecee528d9a06c175ddf12ae2d3482085a78c64574c171b6dc9d0b291a35abf6929d79018331be1
+  checksum: a8390b5fd9800333ef6d860e4624fe04a6bc686d1fe968450ac6cefe48fd3d44b31bedc56bb7ba8e2b2ab2c07e82c16c713149264b3e43dd1b8492fc1932bfb4
   languageName: node
   linkType: hard
 
@@ -962,13 +962,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^4.0.0":
-  version: 4.2.1
-  resolution: "@rollup/pluginutils@npm:4.2.1"
+"@rollup/pluginutils@npm:^5.0.0":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
   dependencies:
-    estree-walker: ^2.0.1
-    picomatch: ^2.2.2
-  checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^2.3.1
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: edea15e543bebc7dcac3b0ac8bc7b8e8e6dbd46e2864dbe5dd28072de1fbd5b0e10d545a610c0edaa178e8a7ac432e2a2a52e547ece1308471412caba47db8ce
   languageName: node
   linkType: hard
 
@@ -2859,7 +2865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1":
+"estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -5327,7 +5333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.3.1":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
@@ -5990,12 +5996,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "solid-js@npm:1.6.4"
+"solid-js@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "solid-js@npm:1.6.5"
   dependencies:
     csstype: ^3.1.0
-  checksum: 6d3d97832f615b187ed3b016aa5aa0b7a6550780f9a5f54f7d6d5bc0a0ab26b0b99ad6e22e1dd598d78492a5658df6ec58916b5d0c7a3a9dcd33e4db88415d0a
+  checksum: c05b44ec19ac87d58130c86f2271b01dc453ec873fdd657d8796c3a39d6a07dfd4d0d76b8fd428d74326f4a866cb373d8431b10b849d6a00274d33ae58736af8
   languageName: node
   linkType: hard
 
@@ -6886,7 +6892,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.3.0
     "@commitlint/config-conventional": ^17.3.0
-    "@mdx-js/rollup": ^2.1.5
+    "@mdx-js/rollup": ^2.2.1
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/ts-config": ^3.3.4
     "@solidjs/meta": ^0.28.2
@@ -6910,7 +6916,7 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^3.0.2
     solid-icons: ^1.0.4
-    solid-js: ^1.6.4
+    solid-js: ^1.6.5
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.12
