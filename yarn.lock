@@ -1019,12 +1019,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@solidjs/router@npm:0.5.1"
+"@solidjs/router@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@solidjs/router@npm:0.6.0"
   peerDependencies:
     solid-js: ^1.5.3
-  checksum: 522018eb8d9ce90309ef96b996637391f49404722e26499a266ed632cf1b9c158b6ec858d104e32c646b4c67da3c3865fef9c5dd8e5dcddd1fde96b767fbe915
+  checksum: 5114c89ddd4c15144954cc374040fd4bfed52dd873d924c45dc52cae8ba35cde8bb562f0b45adbde66447c63356c2bb7ddc6270fc65b9fa0f15aeaf5173797ff
   languageName: node
   linkType: hard
 
@@ -5996,12 +5996,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.6.5":
-  version: 1.6.5
-  resolution: "solid-js@npm:1.6.5"
+"solid-js@npm:^1.6.6":
+  version: 1.6.6
+  resolution: "solid-js@npm:1.6.6"
   dependencies:
     csstype: ^3.1.0
-  checksum: c05b44ec19ac87d58130c86f2271b01dc453ec873fdd657d8796c3a39d6a07dfd4d0d76b8fd428d74326f4a866cb373d8431b10b849d6a00274d33ae58736af8
+  checksum: 7b206d30936b3616d7382594fe34e82fec6f448346a44b7ccd9621bde11868ffb6eb7b50669fafa783398b9f79eb238467665ea42ebd5673774d427cdca79dc2
   languageName: node
   linkType: hard
 
@@ -6896,7 +6896,7 @@ __metadata:
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/ts-config": ^3.3.4
     "@solidjs/meta": ^0.28.2
-    "@solidjs/router": ^0.5.1
+    "@solidjs/router": ^0.6.0
     "@tailwindcss/typography": ^0.5.8
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.11.9
@@ -6916,7 +6916,7 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^3.0.2
     solid-icons: ^1.0.4
-    solid-js: ^1.6.5
+    solid-js: ^1.6.6
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.12
