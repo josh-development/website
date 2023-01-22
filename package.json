@@ -22,7 +22,7 @@
   "dependencies": {
     "@mdx-js/rollup": "^2.2.1",
     "@solidjs/meta": "^0.28.2",
-    "@solidjs/router": "^0.6.0",
+    "@solidjs/router": "^0.7.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/markdown-it": "^12.2.3",
     "highlight.js": "^11.7.0",

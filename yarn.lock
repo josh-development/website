@@ -1119,12 +1119,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "@solidjs/router@npm:0.6.0"
+"@solidjs/router@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@solidjs/router@npm:0.7.0"
   peerDependencies:
     solid-js: ^1.5.3
-  checksum: 5114c89ddd4c15144954cc374040fd4bfed52dd873d924c45dc52cae8ba35cde8bb562f0b45adbde66447c63356c2bb7ddc6270fc65b9fa0f15aeaf5173797ff
+  checksum: 1e53e127f400a8da39eb637fac3a2aaf1b43eb4dc442182ba516d11a4aad08df86119ce4f97dfd8ee7c86511d8627065d7990fb0eaa7d4c025c2c98c7af0405a
   languageName: node
   linkType: hard
 
@@ -7167,7 +7167,7 @@ __metadata:
     "@joshdb/ts-config": 1.1.0-next.89c3b7b.0
     "@mdx-js/rollup": ^2.2.1
     "@solidjs/meta": ^0.28.2
-    "@solidjs/router": ^0.6.0
+    "@solidjs/router": ^0.7.0
     "@tailwindcss/typography": ^0.5.9
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.11.18
