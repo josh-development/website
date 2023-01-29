@@ -6339,12 +6339,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-transition-group@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "solid-transition-group@npm:0.0.12"
+"solid-transition-group@npm:^0.0.13":
+  version: 0.0.13
+  resolution: "solid-transition-group@npm:0.0.13"
   peerDependencies:
-    solid-js: ^1.0.0
-  checksum: 53e723fd297ec1152c812c4a02f72f08e8dc7c2dcbd1bc5220e9b8ce69d49f7ff37eea15bd0707e1944aa7de25916e0184d90a7db342ba613e74784fff9b6eb7
+    solid-js: ^1.5.0
+  checksum: 5ec659cd835ba6397e2665b39ca77a942eccaa7339030cb45b4720ed2c18d0fab5224c7a73d3d434d7881caa2c5a506978b2e277e95bc7e952d8ee4612cc9bb5
   languageName: node
   linkType: hard
 
@@ -7190,7 +7190,7 @@ __metadata:
     solid-js: ^1.6.9
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
-    solid-transition-group: ^0.0.12
+    solid-transition-group: ^0.0.13
     tailwindcss: ^3.2.4
     typedoc-json-parser: ^7.1.0
     typescript: ^4.9.4
