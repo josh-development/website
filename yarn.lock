@@ -1001,9 +1001,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/rollup@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@mdx-js/rollup@npm:2.2.1"
+"@mdx-js/rollup@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@mdx-js/rollup@npm:2.3.0"
   dependencies:
     "@mdx-js/mdx": ^2.0.0
     "@rollup/pluginutils": ^5.0.0
@@ -1011,7 +1011,7 @@ __metadata:
     vfile: ^5.0.0
   peerDependencies:
     rollup: ">=2"
-  checksum: a8390b5fd9800333ef6d860e4624fe04a6bc686d1fe968450ac6cefe48fd3d44b31bedc56bb7ba8e2b2ab2c07e82c16c713149264b3e43dd1b8492fc1932bfb4
+  checksum: a15f8d83572b94c16d77d9b3ee348a5c0ced52d1b4249e449b8199b0ddf36b15ea7e61389cdde2d2f65f800d277bc5d6b8f8fdbda4cde72571965df28320c6d6
   languageName: node
   linkType: hard
 
@@ -6295,12 +6295,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.6.10":
-  version: 1.6.10
-  resolution: "solid-js@npm:1.6.10"
+"solid-js@npm:^1.6.11":
+  version: 1.6.11
+  resolution: "solid-js@npm:1.6.11"
   dependencies:
     csstype: ^3.1.0
-  checksum: dd4c706d4f1809ea1a5dcea178fa314b01867eecf34ed4b92a5ef73f2b1d09f4a6754c2313d7288c30e8fc9cf2c37d85d8869b7e57ddc6b2d8dea96ceb550298
+  checksum: 5db4ee742934e05072804fd9eb0a02b6471a0d36adb5d7bd6eaf178d440f6a39adb5c769b7583eeed02423558221c7d94e21a9bf8b280fa7e0a4a31af5980199
   languageName: node
   linkType: hard
 
@@ -7192,7 +7192,7 @@ __metadata:
     "@commitlint/config-conventional": ^17.4.2
     "@joshdb/eslint-config": 1.1.0-next.89c3b7b.0
     "@joshdb/ts-config": 1.1.0-next.89c3b7b.0
-    "@mdx-js/rollup": ^2.2.1
+    "@mdx-js/rollup": ^2.3.0
     "@solidjs/meta": ^0.28.2
     "@solidjs/router": ^0.7.0
     "@tailwindcss/typography": ^0.5.9
@@ -7214,7 +7214,7 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^4.1.2
     solid-icons: ^1.0.4
-    solid-js: ^1.6.10
+    solid-js: ^1.6.11
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.0
     solid-transition-group: ^0.0.13
