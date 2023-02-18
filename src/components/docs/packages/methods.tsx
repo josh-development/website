@@ -50,9 +50,6 @@ export const DocsMethods = ({ params, allMethods, selectedPkg }: MethodsProps) =
                             {param.name}
                           </th>
                           <td class='py-4 px-6'>
-                            {/* {param.type instanceof ReferenceTypeParser ? 'h' : param.type.constructor.name + JSON.stringify(param)} */}
-                            {/* <Show when={param.}>
-                              </Show> */}
                             <Show when={param.type instanceof ReferenceTypeParser && (param.type.packageName?.split('joshdb').length || 0) > 1}
                               fallback={param.type.toString()}>
                               <Link
