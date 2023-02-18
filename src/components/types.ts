@@ -14,28 +14,23 @@ export interface ExtraClassMethod extends ClassMethodParser {
 
 type selectedPkg = Accessor<ProjectParser | undefined>;
 type params = Accessor<DocsPageParams>;
-type onUpdateScroll = (value: boolean) => void;
 
 export interface ClassesProps {
   selectedPkg: selectedPkg;
   params: params;
-  onUpdateScroll: onUpdateScroll;
 }
 export interface InterfacesProps {
   selectedPkg: selectedPkg;
-  onUpdateScroll: onUpdateScroll;
   params: params;
 }
 export interface EnumsProps {
   selectedPkg: selectedPkg;
-  onUpdateScroll: onUpdateScroll;
   params: params;
 }
 export interface MethodsProps {
   params: params;
   allMethods: Accessor<ExtraClassMethod[]>;
   selectedPkg: selectedPkg;
-  onUpdateScroll: onUpdateScroll;
 }
 export interface ReadmeProps {
   selectedPkg: selectedPkg;
@@ -59,7 +54,6 @@ export interface NavigationProps {
       component: JSX.Element;
     }[];
   }[];
-  scrollValue: Accessor<number>;
   onSetPackage: (pkg?: string) => void;
   onChoosePackage: (pkg: string) => void;
 }

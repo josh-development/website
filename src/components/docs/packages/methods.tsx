@@ -1,9 +1,10 @@
 import { Link } from '@solidjs/router';
 import { Show } from 'solid-js';
+import { ReferenceTypeParser } from 'typedoc-json-parser';
 import { md } from '../../../utils/mdit';
 import type { MethodsProps } from '../../types';
 
-export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }: MethodsProps) => {
+export const DocsMethods = ({ params, allMethods, selectedPkg }: MethodsProps) => {
   return (
     <div class='pt-4 sm:pt-0 sm:px-5'>
       <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
@@ -14,11 +15,10 @@ export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }:
             {method.signatures.map((sig) => (
               <div>
                 <Link
-                  onClick={() => onUpdateScroll(true)}
                   class='hover:opacity-70 transition'
                   href={`/docs/${params().pkg}/${params().type}#${method.from.name}-${method.name}`}
                 >
-                  <h1 class='sm:text-lg md:text-2xl dark:text-white break-words'>
+                  <h1 class='sm:text-lg md:text-2xl dark:text-white break-all'>
                     <code>
                       <span class='text-primary'>{`${method.accessibility} `}</span>
                       {method.from.name}.{sig.name}
@@ -49,7 +49,20 @@ export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }:
                           <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                             {param.name}
                           </th>
-                          <td class='py-4 px-6'>{param.type.toString()}</td>
+                          <td class='py-4 px-6'>
+                            {/* {param.type instanceof ReferenceTypeParser ? 'h' : param.type.constructor.name + JSON.stringify(param)} */}
+                            {/* <Show when={param.}>
+                              </Show> */}
+                            <Show when={param.type instanceof ReferenceTypeParser && (param.type.packageName?.split('joshdb').length || 0) > 1}
+                              fallback={param.type.toString()}>
+                              <Link
+                                class='hover:opacity-70 transition text-primary'
+                                href={`/docs/${(param.type as ReferenceTypeParser).packageName?.split("/")[1]}/search?id=${(param.type as ReferenceTypeParser).id}`}
+                              >
+                                {(param.type as ReferenceTypeParser).name}
+                              </Link>
+                            </Show>
+                          </td>
                         </tr>
                       ))}
                     </tbody>

@@ -69,7 +69,7 @@ await josh.set("foo", "bar");\n\`\`\``);
             way to manage your data.
           </p>
           <div class='space-x-2'>
-            <Link href='/docs' class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block bg-primary text-white'>
+            <Link href='/docs' class='shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block bg-primary text-white'>
               <div class='flex'>
                 <FiBook class='mt-[0.2rem] mr-2'></FiBook> Documentation
               </div>

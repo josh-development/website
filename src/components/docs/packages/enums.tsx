@@ -3,7 +3,7 @@ import { Show } from 'solid-js';
 import { md } from '../../../utils/mdit';
 import type { EnumsProps } from '../../types';
 
-export const DocsEnums = ({ selectedPkg, onUpdateScroll, params }: EnumsProps) => {
+export const DocsEnums = ({ selectedPkg, params }: EnumsProps) => {
   return (
     <div class='pt-4 sm:pt-0 sm:px-10'>
       <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
@@ -13,7 +13,6 @@ export const DocsEnums = ({ selectedPkg, onUpdateScroll, params }: EnumsProps) =
           <div class='my-4'>
             <div>
               <Link
-                onClick={() => onUpdateScroll(true)}
                 class='hover:opacity-70 transition'
                 href={`/docs/${params().pkg}/${params().type}#${enu.name}`}
               >

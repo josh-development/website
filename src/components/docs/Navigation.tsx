@@ -3,7 +3,7 @@ import { FiChevronDown } from 'solid-icons/fi';
 import { createMemo, Show } from 'solid-js';
 import type { NavigationProps } from '../types';
 
-export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders, scrollValue, selectedPkg, allMethods, docs }: NavigationProps) => {
+export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders, selectedPkg, allMethods, docs }: NavigationProps) => {
   const navigateTo = useNavigate();
 
   const maxH = createMemo(() => {
@@ -29,18 +29,14 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
   return (
     <div
       class='sm:w-72 sm:max-h-[75vh] sm:overflow-y-scroll will-change-transform'
-      style={{
-        transform: `translateY(${scrollValue() > 20 ? scrollValue() - 20 : 0}px)`
-      }}
     >
       <h1 class='text-primary font-bold text-xl font-ledger'>Documentation</h1>
 
       <div>
         {docs.map((category) => (
           <div
-            class={`transition my-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 ${
-              params().category === category.category ? 'dark:bg-zinc-800 bg-zinc-100' : ''
-            }`}
+            class={`transition my-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 ${params().category === category.category ? 'dark:bg-zinc-800 bg-zinc-100' : ''
+              }`}
           >
             <button
               onClick={() => {
@@ -87,9 +83,8 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
           <div class={folder.packages.length > 1 ? 'pl-4' : ''}>
             {folder.packages.map((pkg) => (
               <div
-                class={`transition my-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 ${
-                  params().pkg === pkg.name ? 'dark:bg-zinc-800 bg-zinc-100' : ''
-                }`}
+                class={`transition my-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 ${params().pkg === pkg.name ? 'dark:bg-zinc-800 bg-zinc-100' : ''
+                  }`}
               >
                 <button
                   onClick={() => {
