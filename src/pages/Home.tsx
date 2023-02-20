@@ -6,11 +6,11 @@ import packages from '../store/packages';
 import { md } from '../utils/mdit';
 
 const Home = () => {
-  const [code] = createSignal(`\`\`\`ts\nimport { Josh } from "@joshdb/core";
+  const code = `\`\`\`ts\nimport { Josh } from "@joshdb/core";
 
 const josh = new Josh({ name: "website" });
 
-await josh.set("foo", "bar");\n\`\`\``);
+await josh.set("foo", "bar");\n\`\`\``;
 
   const [pkgs] = packages;
   const [pkg, setPackage] = createSignal('core');
@@ -88,7 +88,7 @@ await josh.set("foo", "bar");\n\`\`\``);
         </div>
         <div class='sm:w-1/2 sm:px-8 mt-8 sm:mt-0'>
           <div
-            innerHTML={md.render(code())}
+            innerHTML={md.render(code)}
             class='bg-zinc-800 px-8 sm:px-0 text-white rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'
           ></div>
           <div></div>
