@@ -3,6 +3,7 @@ import { Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from './App';
 import './assets/css/main.css';
+
 const Main = () => (
   <MetaProvider>
     <Title>JOSH | Home</Title>

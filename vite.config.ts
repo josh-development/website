@@ -2,6 +2,7 @@ import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
+
 export default defineConfig({
   build: {
     target: 'ESNext',
@@ -16,7 +17,7 @@ export default defineConfig({
       }
     }
   },
-  plugins: [mdx({ jsxImportSource: 'solid-jsx', remarkPlugins: [remarkGfm] }), solid()],
+  plugins: [solid(), mdx({ jsxImportSource: 'solid-jsx', remarkPlugins: [remarkGfm] })],
   server: {
     strictPort: true
   }

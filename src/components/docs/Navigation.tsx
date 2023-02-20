@@ -28,7 +28,7 @@ export const NavigationDocs = ({ params, onSetPackage, onChoosePackage, folders,
 
   return (
     <div
-      class='sm:w-72 sm:max-h-[75vh] sm:overflow-y-scroll will-change-transform'
+      class='sm:w-72 pb-10 will-change-transform'
     >
       <h1 class='text-primary font-bold text-xl font-ledger'>Documentation</h1>
 
