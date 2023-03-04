@@ -1,11 +1,11 @@
 import { Title } from '@solidjs/meta';
 import { useLocation, useNavigate, useParams } from '@solidjs/router';
-import { createEffect, createMemo, createSignal, onCleanup, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, Show } from 'solid-js';
 import { ProjectParser } from 'typedoc-json-parser';
+import { DocsContents } from '../components/docs/Contents';
 import { DocsLoading } from '../components/docs/Loading';
 import { NavigationDocs } from '../components/docs/Navigation';
 import { DocsClasses, DocsEnums, DocsInterfaces, DocsMethods, DocsReadme } from '../components/docs/packages';
-import { DocsSideBar } from '../components/docs/SideBar';
 import type { ExtraClassMethod } from '../components/types';
 import DevelopmentIntro from '../docs/development/intro.mdx';
 import WelcomFaq from '../docs/welcome/faq.mdx';
@@ -14,7 +14,7 @@ import WelcomeHome from '../docs/welcome/home.mdx';
 import WelcomeProviders from '../docs/welcome/providers.mdx';
 import packages from '../store/packages';
 
-const DocsPage = () => {
+const Docs = () => {
   const [pkgs] = packages;
   const p = useParams() as { type: string | null; pkg: string | null; page: string | null; category: string | null };
   const params = createMemo(() => {
@@ -28,36 +28,6 @@ const DocsPage = () => {
 
   const location = useLocation();
   const [selectedPkg, setPackage] = createSignal<ProjectParser>();
-  const [scrollValue, setScroll] = createSignal(window.innerWidth < 640 ? 0 : window.scrollY);
-  const updateScroll = (forced = false, smooth = false) => {
-    if (forced) {
-      setTimeout(() => {
-        updateScroll(false, true);
-      }, 50);
-
-      return;
-    }
-
-    setScroll(window.scrollY);
-
-    const sideBar = document.getElementById('sidebar');
-
-    if (sideBar) {
-      const perc = scrollValue() / document.body.scrollHeight;
-      const max = sideBar.scrollHeight - sideBar.clientHeight;
-
-      sideBar.scrollTo({ top: perc * max, behavior: smooth ? 'smooth' : 'auto' });
-    }
-  };
-
-  const ev = () => updateScroll();
-
-  if (window.innerWidth > 640) window.addEventListener('scroll', ev, { passive: true });
-
-  onCleanup(() => {
-    window.removeEventListener('scroll', ev);
-  });
-
   const choosePackage = async (name: string) => {
     if (pkgs.loading) {
       setTimeout(() => {
@@ -69,10 +39,10 @@ const DocsPage = () => {
 
     const found = pkgs().find((x) => x.name === name);
     const stored = localStorage.getItem(`docs-${name}`);
-    let json: ProjectParser.JSON | undefined;
+    let json: ProjectParser.Json | undefined;
 
     if (stored) {
-      const parsed: { docs: ProjectParser.JSON; date: Date } = JSON.parse(stored);
+      const parsed: { docs: ProjectParser.Json; date: Date } = JSON.parse(stored);
 
       if (new Date().getTime() - new Date(parsed.date).getTime() < 1000 * 60 * 10) {
         json = parsed.docs;
@@ -91,6 +61,10 @@ const DocsPage = () => {
 
       if (location.hash) {
         document.getElementById(location.hash.slice(1))?.scrollIntoView();
+      }
+
+      if (params().type === 'search') {
+        const found = selectedPkg()!.find(parseInt(location.query.id, 10));
       }
     }
   };
@@ -188,7 +162,6 @@ const DocsPage = () => {
           onChoosePackage={choosePackage}
           onSetPackage={setPackage}
           params={params}
-          scrollValue={scrollValue}
         />
         <div class='w-full overflow-x-scroll'>
           <div>
@@ -200,16 +173,16 @@ const DocsPage = () => {
                 <DocsReadme selectedPkg={selectedPkg} />
               </Show>
               <Show when={params().type === 'methods'}>
-                <DocsMethods params={params} onUpdateScroll={updateScroll} allMethods={allMethods} selectedPkg={selectedPkg} />
+                <DocsMethods params={params} allMethods={allMethods} selectedPkg={selectedPkg} />
               </Show>
               <Show when={params().type === 'interfaces'}>
-                <DocsInterfaces params={params} onUpdateScroll={updateScroll} selectedPkg={selectedPkg} />
+                <DocsInterfaces params={params} selectedPkg={selectedPkg} />
               </Show>
               <Show when={params().type === 'classes'}>
-                <DocsClasses params={params} onUpdateScroll={updateScroll} selectedPkg={selectedPkg} />
+                <DocsClasses params={params} selectedPkg={selectedPkg} />
               </Show>
               <Show when={params().type === 'enums'}>
-                <DocsEnums params={params} onUpdateScroll={updateScroll} selectedPkg={selectedPkg} />
+                <DocsEnums params={params} selectedPkg={selectedPkg} />
               </Show>
             </Show>
             <Show when={params().category}>
@@ -231,10 +204,10 @@ const DocsPage = () => {
             </Show>
           </div>
         </div>
-        <DocsSideBar params={params} onUpdateScroll={updateScroll} allMethods={allMethods} scrollValue={scrollValue} />
+        <DocsContents params={params} allMethods={allMethods} />
       </Show>
     </div>
   );
 };
 
-export default DocsPage;
+export default Docs;

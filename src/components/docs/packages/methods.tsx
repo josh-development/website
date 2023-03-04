@@ -1,9 +1,10 @@
 import { Link } from '@solidjs/router';
 import { Show } from 'solid-js';
+import { ReferenceTypeParser } from 'typedoc-json-parser';
 import { md } from '../../../utils/mdit';
 import type { MethodsProps } from '../../types';
 
-export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }: MethodsProps) => {
+export const DocsMethods = ({ params, allMethods, selectedPkg }: MethodsProps) => {
   return (
     <div class='pt-4 sm:pt-0 sm:px-5'>
       <h1 class='dark:text-white text-4xl font-ledger'>{params().type[0].toUpperCase() + params().type.slice(1)}</h1>
@@ -14,11 +15,10 @@ export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }:
             {method.signatures.map((sig) => (
               <div>
                 <Link
-                  onClick={() => onUpdateScroll(true)}
                   class='hover:opacity-70 transition'
                   href={`/docs/${params().pkg}/${params().type}#${method.from.name}-${method.name}`}
                 >
-                  <h1 class='sm:text-lg md:text-2xl dark:text-white break-words'>
+                  <h1 class='sm:text-lg md:text-2xl dark:text-white break-all'>
                     <code>
                       <span class='text-primary'>{`${method.accessibility} `}</span>
                       {method.from.name}.{sig.name}
@@ -32,30 +32,38 @@ export const DocsMethods = ({ params, allMethods, selectedPkg, onUpdateScroll }:
 
                 <div class='dark:text-zinc-200 my-4' innerHTML={md.render(sig.comment.description || '')}></div>
                 <Show when={sig.parameters.length > 0}>
-                  <div class='overflow-x-auto relative w-full sm:w-3/5 border-2 dark:border-0 sm:rounded-lg'>
-                    <table class='text-sm w-full text-left text-gray-500 dark:text-gray-400'>
-                      <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
-                        <tr>
-                          <th scope='col' class='py-3 px-6'>
-                            Parameter
+                  <table class='text-sm text-left text-gray-500 dark:text-gray-400'>
+                    <thead class='text-xs text-gray-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-gray-400'>
+                      <tr>
+                        <th scope='col' class='py-3 px-6'>
+                          Parameter
+                        </th>
+                        <th scope='col' class='py-3 px-6'>
+                          Type
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sig.parameters.map((param) => (
+                        <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
+                          <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+                            {param.name}
                           </th>
-                          <th scope='col' class='py-3 px-6'>
-                            Type
-                          </th>
+                          <td class='py-4 px-6'>
+                            <Show when={param.type instanceof ReferenceTypeParser && (param.type.packageName?.split('joshdb').length || 0) > 1}
+                              fallback={param.type.toString()}>
+                              <Link
+                                class='hover:opacity-70 transition text-primary'
+                                href={`/docs/${(param.type as ReferenceTypeParser).packageName?.split("/")[1]}/search?id=${(param.type as ReferenceTypeParser).id}`}
+                              >
+                                {(param.type as ReferenceTypeParser).name}
+                              </Link>
+                            </Show>
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {sig.parameters.map((param) => (
-                          <tr class='border-b dark:bg-zinc-800 dark:border-gray-700'>
-                            <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
-                              {param.name}
-                            </th>
-                            <td class='py-4 px-6'>{param.type.toString()}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                      ))}
+                    </tbody>
+                  </table>
                 </Show>
                 <div
                   class='prose prose-pre:bg-zinc-800 font-mono prose-pre:my-4 my-3 text-lg tracking-wide prose-invert'

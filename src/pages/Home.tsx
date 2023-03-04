@@ -1,16 +1,16 @@
-import 'highlight.js/styles/tokyo-night-dark.css';
 import { Link } from '@solidjs/router';
+
 import { FiBook, FiGithub } from 'solid-icons/fi';
 import { createSignal } from 'solid-js';
 import packages from '../store/packages';
 import { md } from '../utils/mdit';
 
-export const LandingPage = () => {
-  const [code] = createSignal(`\`\`\`ts\nimport { Josh } from "@joshdb/core";
-  
+const Home = () => {
+  const code = `\`\`\`ts\nimport { Josh } from "@joshdb/core";
+
 const josh = new Josh({ name: "website" });
 
-await josh.set("foo", "bar");\n\`\`\``);
+await josh.set("foo", "bar");\n\`\`\``;
 
   const [pkgs] = packages;
   const [pkg, setPackage] = createSignal('core');
@@ -69,7 +69,7 @@ await josh.set("foo", "bar");\n\`\`\``);
             way to manage your data.
           </p>
           <div class='space-x-2'>
-            <Link href='/docs' class='bg-white shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block bg-primary text-white'>
+            <Link href='/docs' class='shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block bg-primary text-white'>
               <div class='flex'>
                 <FiBook class='mt-[0.2rem] mr-2'></FiBook> Documentation
               </div>
@@ -88,8 +88,8 @@ await josh.set("foo", "bar");\n\`\`\``);
         </div>
         <div class='sm:w-1/2 sm:px-8 mt-8 sm:mt-0'>
           <div
-            innerHTML={md.render(code())}
-            class='bg-zinc-800 px-8 sm:px-0 text-white rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'
+            innerHTML={md.render(code)}
+            class='bg-zinc-800 overflow-x-scroll px-8 sm:px-0 text-white rounded-lg shadow-xl py-8 sm:px-10 text-sm sm:text-md xl:text-lg sm:py-10'
           ></div>
           <div></div>
         </div>
@@ -97,3 +97,5 @@ await josh.set("foo", "bar");\n\`\`\``);
     </>
   );
 };
+
+export default Home;
