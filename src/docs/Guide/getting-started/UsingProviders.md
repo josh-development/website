@@ -1,0 +1,20 @@
+# Using Providers
+
+What is a provider? A provider is simply a layer between [`Josh`](https://github.com/josh-development/core/blob/main/src/lib/structures/Josh.ts) and a database or any other backend you use to store your data.
+
+Each provider receives a payload from every method you use in your instance and returns a modified version of it.
+
+## Getting Started
+
+Providers can be installed separately from Josh using your package manager (e.g. npm).
+
+In the example below we will use the `@joshdb/sqlite` package, which is our in-house SQLite provider.
+
+```javascript
+import { Josh } from '@joshdb/core';
+import { SQLiteProvider } from '@joshdb/sqlite';
+
+const josh = new Josh({ name: 'users', provider: new SQLiteProvider() });
+
+await josh.init();
+```
