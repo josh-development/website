@@ -1,3 +1,22 @@
+import { CodeBlock } from '../CodeBlock.tsx';
+export const quickStart = `import { Josh } from '@joshdb/core';
+
+const josh = new Josh({ name: 'users' });
+
+await josh.init();`;
+export const typescript = `import { Josh } from '@joshdb/core';
+
+interface User {
+  id: string;
+  username: string;
+}
+
+const josh = new Josh<User>({ name: 'users' });
+
+await josh.init();
+
+await josh.get("123"); // User | null`
+
 # Introduction
 
 Welcome to Josh, we're glad you have decided to follow our guide to the wonders of simple database integration!
@@ -18,28 +37,10 @@ The below snippet will create a [`Josh`](https://github.com/josh-development/cor
 
 **Please note, all the code snippets below will be using [ECMAScript Modules (ESM)](https://nodejs.org/api/esm.html#introduction) over CommonJS**
 
-```javascript
-import { Josh } from '@joshdb/core';
-
-const josh = new Josh({ name: 'users' });
-
-await josh.init();
-```
+<CodeBlock lang="ts" code={quickStart} />
 
 ## Using TypeScript
 
 Josh is written in TypeScript so support for it comes by default. An example of creating an instance of [`Josh`](https://github.com/josh-development/core/blob/main/src/lib/structures/Josh.ts) with TypeScript is below.
 
-```typescript
-import { Josh } from '@joshdb/core';
-
-interface User {
-  id: string;
-
-  username: string;
-}
-
-const josh = new Josh<User>({ name: 'users' });
-
-await josh.init();
-```
+<CodeBlock lang="ts" code={typescript} />

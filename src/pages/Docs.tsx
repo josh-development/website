@@ -7,12 +7,8 @@ import { DocsLoading } from '../components/docs/Loading';
 import { NavigationDocs } from '../components/docs/Navigation';
 import { DocsClasses, DocsEnums, DocsInterfaces, DocsMethods, DocsReadme } from '../components/docs/packages';
 import type { ExtraClassMethod } from '../components/types';
-import DevelopmentIntro from '../docs/development/intro.mdx';
-import WelcomFaq from '../docs/welcome/faq.mdx';
-import GettingStarted from '../docs/welcome/getting-started.mdx';
-import WelcomeHome from '../docs/welcome/home.mdx';
-import WelcomeProviders from '../docs/welcome/providers.mdx';
 import packages from '../store/packages';
+import { getDocs } from '../utils/docs';
 
 const Docs = () => {
   const [pkgs] = packages;
@@ -64,7 +60,7 @@ const Docs = () => {
       }
 
       if (params().type === 'search') {
-        const found = selectedPkg()!.find(parseInt(location.query.id, 10));
+        // const found = selectedPkg()!.find(parseInt(location.query.id, 10));
       }
     }
   };
@@ -107,45 +103,7 @@ const Docs = () => {
     return all;
   });
 
-  const docs = [
-    {
-      name: 'Welcome',
-      category: 'welcome',
-      pages: [
-        {
-          name: 'Josh',
-          page: '',
-          component: <WelcomeHome />
-        },
-        {
-          name: 'Getting Started',
-          page: 'getting-started',
-          component: <GettingStarted />
-        },
-        {
-          name: 'Providers',
-          page: 'providers',
-          component: <WelcomeProviders providers={folders().find((x) => x.name === 'providers')?.packages || []} />
-        },
-        {
-          name: 'FAQ',
-          page: 'faq',
-          component: <WelcomFaq />
-        }
-      ]
-    },
-    {
-      name: 'Development',
-      category: 'development',
-      pages: [
-        {
-          name: 'Intro',
-          page: '',
-          component: <DevelopmentIntro />
-        }
-      ]
-    }
-  ];
+  const docs = getDocs(folders);
 
   return (
     <div class='min-h-[100vh] sm:flex pt-5'>

@@ -27,3 +27,5 @@ CHANGELOG.md
 
 # Ignore toml files
 *.toml
+
+*.mdx
