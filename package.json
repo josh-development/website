@@ -22,7 +22,7 @@
   "dependencies": {
     "@mdx-js/rollup": "^2.3.0",
     "@solidjs/meta": "^0.28.2",
-    "@solidjs/router": "^0.8.0",
+    "@solidjs/router": "^0.8.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/markdown-it": "^12.2.3",
     "highlight.js": "^11.7.0",
@@ -31,8 +31,8 @@
     "solid-icons": "^1.0.4",
     "solid-js": "^1.6.15",
     "solid-jsx": "^0.9.1",
-    "solid-markdown": "^1.2.0",
-    "solid-transition-group": "^0.1.1",
+    "solid-markdown": "^1.2.1",
+    "solid-transition-group": "^0.2.2",
     "typedoc-json-parser": "^7.2.0"
   },
   "devDependencies": {

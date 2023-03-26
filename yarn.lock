@@ -1194,32 +1194,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solid-primitives/refs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@solid-primitives/refs@npm:1.0.0"
+"@solid-primitives/refs@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@solid-primitives/refs@npm:1.0.1"
   dependencies:
-    "@solid-primitives/utils": ^5.4.0
+    "@solid-primitives/utils": ^5.5.1
   peerDependencies:
-    solid-js: ^1.6.0
-  checksum: 10f43bfa972d22241e338d7f9fa157b72d92a4fa8a53c93dd6e45110b2eda8b92ca01f1e2f3cb708391b565eb2fb61e2a350295fb9532212802bbfa725d33351
+    solid-js: ^1.6.12
+  checksum: b2c830674c9785eeb969e38bad5f0c4ebb2a387d2fb6d4dfbff6f604a26b17adc9ad8d776cb1dcbded393946996a45536fe4a59cf09d49dc17d4d9d19ec7c330
   languageName: node
   linkType: hard
 
-"@solid-primitives/transition-group@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@solid-primitives/transition-group@npm:1.0.0"
+"@solid-primitives/transition-group@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@solid-primitives/transition-group@npm:1.0.1"
   peerDependencies:
-    solid-js: ^1.6.0
-  checksum: 241e375520466023b3cb52c70fba8f824766aa076ed9fcbe9b19431617659dfa84206e99dbf855c6b0268e37c94b6f751afbe395fc278876b52e1254c4cdea9e
+    solid-js: ^1.6.12
+  checksum: 680526f5c49e8fe840cf519e4923c04ae6acfffff22ffe35fd0bd847afd83490c047ace67ce471ca7b03319b129c36722bfdb54848a60052e5de3a1a34598bd6
   languageName: node
   linkType: hard
 
-"@solid-primitives/utils@npm:^5.4.0":
-  version: 5.5.0
-  resolution: "@solid-primitives/utils@npm:5.5.0"
+"@solid-primitives/utils@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "@solid-primitives/utils@npm:5.5.1"
   peerDependencies:
-    solid-js: ^1.6.0
-  checksum: be4f349fa1c1c6c519ff9d7bc59cbe70bd7ef3b06986b56ba6e73885bdd2fc144c5d8f8f693a72825075c763376eef57a9733649664e46a84aaa41dd52b89fdd
+    solid-js: ^1.6.12
+  checksum: 6db37f179832e71f289bf3212623c97f0befe0c112a0c661f01df8d75a69e86d320dd3298409a31a66ecacc7dbaa480bf48977373bcb726ad7faf73765d66dc8
   languageName: node
   linkType: hard
 
@@ -1232,12 +1232,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "@solidjs/router@npm:0.8.0"
+"@solidjs/router@npm:^0.8.2":
+  version: 0.8.2
+  resolution: "@solidjs/router@npm:0.8.2"
   peerDependencies:
     solid-js: ^1.5.3
-  checksum: 417f9af33d151c0a2969efa1fc74bd4063517402706c79eb228e582d123992641d87d942b582a115ca40f969bc0d3ec55e049a0da5eec94ad0ce02ad67995e45
+  checksum: 641552d5a32e870c85a2ec2257583c0fcfd283a05927daa847ca13ad99a41584ad089477f7caec465630b010fe7bdfbd564a77571fd74044bf330184ca0a6f57
   languageName: node
   linkType: hard
 
@@ -6576,9 +6576,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-markdown@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "solid-markdown@npm:1.2.0"
+"solid-markdown@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "solid-markdown@npm:1.2.1"
   dependencies:
     comma-separated-tokens: ^2.0.2
     property-information: ^6.1.1
@@ -6592,7 +6592,7 @@ __metadata:
     vfile: ^5.3.2
   peerDependencies:
     solid-js: ^1.2.0
-  checksum: c1be6c85a845a91004d229615a9d42dca2e99193f2fb2471567b9c0256730b906e39870fa496bc4f28717a8d0bbb6b915bb762674b4e6d02105488d9befa9a72
+  checksum: 0aceeff5e12b635dfd963729f89b2fe58693b81b66232a627b6c64cfabd4a4dec000a68cfd7d2dde862655120775adb4defbe7f8e15ffcefffed27e281475fed
   languageName: node
   linkType: hard
 
@@ -6609,15 +6609,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-transition-group@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "solid-transition-group@npm:0.1.1"
+"solid-transition-group@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "solid-transition-group@npm:0.2.2"
   dependencies:
-    "@solid-primitives/refs": ^1.0.0
-    "@solid-primitives/transition-group": ^1.0.0
+    "@solid-primitives/refs": ^1.0.1
+    "@solid-primitives/transition-group": ^1.0.1
   peerDependencies:
-    solid-js: ^1.5.0
-  checksum: 7ce2c866f2a935dd03ca954337cc7bb22dd6b38620d58c69d63d2a9eda6cc3367bcbc3020b18f97a14940d35df3366a1b770c0a262cd04b5c2ecf6aa65021f26
+    solid-js: ^1.6.12
+  checksum: f68058f0708cac26ccbfb8ae5af85aaa84096d6ad81aec9d1e58aa956e5ad8ef13274a682a92da3333808c49472153b0e3794dc6645392765ebf217dff54afcb
   languageName: node
   linkType: hard
 
@@ -7475,7 +7475,7 @@ __metadata:
     "@joshdb/ts-config": 1.1.0-next.89c3b7b.0
     "@mdx-js/rollup": ^2.3.0
     "@solidjs/meta": ^0.28.2
-    "@solidjs/router": ^0.8.0
+    "@solidjs/router": ^0.8.2
     "@tailwindcss/typography": ^0.5.9
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.15.3
@@ -7497,8 +7497,8 @@ __metadata:
     solid-icons: ^1.0.4
     solid-js: ^1.6.15
     solid-jsx: ^0.9.1
-    solid-markdown: ^1.2.0
-    solid-transition-group: ^0.1.1
+    solid-markdown: ^1.2.1
+    solid-transition-group: ^0.2.2
     tailwindcss: ^3.2.7
     typedoc-json-parser: ^7.2.0
     typescript: ^4.9.5
