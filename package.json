@@ -31,7 +31,7 @@
     "solid-icons": "^1.0.4",
     "solid-js": "^1.7.3",
     "solid-jsx": "^0.9.1",
-    "solid-markdown": "^1.2.1",
+    "solid-markdown": "^1.2.2",
     "solid-transition-group": "^0.2.2",
     "typedoc-json-parser": "^7.2.0"
   },
