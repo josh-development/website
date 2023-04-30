@@ -25,7 +25,7 @@
     "@solidjs/router": "^0.8.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/markdown-it": "^12.2.3",
-    "highlight.js": "^11.7.0",
+    "highlight.js": "^11.8.0",
     "markdown-it": "^13.0.1",
     "remark-gfm": "^3.0.1",
     "solid-icons": "^1.0.4",
@@ -33,7 +33,7 @@
     "solid-jsx": "^0.9.1",
     "solid-markdown": "^1.2.2",
     "solid-transition-group": "^0.2.2",
-    "typedoc-json-parser": "^7.2.0"
+    "typedoc-json-parser": "^7.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
