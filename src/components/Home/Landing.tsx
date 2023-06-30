@@ -24,7 +24,7 @@ export default function HomeLanding() {
                     way to manage your data.
                 </p>
                 <div class='space-x-2'>
-                    <a href='/docs' class='transition shadow-lg hover:opacity-80 dark:shadow px-6 py-4 rounded-lg inline-block bg-josh text-white'>
+                    <a href='/docs' class='transition shadow-lg hover:opacity-80 duration-300 dark:shadow px-6 py-4 rounded-lg inline-block bg-gradient-to-r from-green-500 to-green-600 text-white'>
                         <div class='flex'>
                             <BookIcon class='mt-[0.2rem] mr-2' /> Documentation
                         </div>
