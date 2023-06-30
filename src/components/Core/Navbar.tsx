@@ -1,14 +1,21 @@
-import { FiGithub, FiMenu, FiMoon, FiSun, FiX } from 'solid-icons/fi';
-import { SiDiscord as DiscordIcon } from 'solid-icons/si';
 import { createSignal, Show } from 'solid-js';
+
+import GithubIcon from "~icons/ri/github-fill"
+import DiscordIcon from '~icons/ic/baseline-discord'
+
+import MoonIcon from "~icons/fe/moon"
+import SunIcon from "~icons/fe/sunny-o"
+import MenuIcon from "~icons/fe/text-align-justify"
+import XIcon from "~icons/fe/close"
+
 
 const icons = [
   {
-    icon: (size = 24) => <FiGithub size={size} />,
+    icon: (size = 24) => <GithubIcon height={size} width={size} />,
     href: 'https://github.com/josh-development'
   },
   {
-    icon: (size = 24) => <DiscordIcon class="dark:invert" size={size} />,
+    icon: (size = 24) => <DiscordIcon height={size} width={size} />,
     href: 'https://discord.evie.dev'
   }
 ];
@@ -67,16 +74,16 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
             class='dark:text-white border-l dark:border-zinc-700 pl-4 p-1 focus:outline-none focus:ring-none focus:ring-offset-2 focus:ring-gray-800'
           >
             <Show when={!darkMode}>
-              <FiMoon size={24}></FiMoon>
+              <MoonIcon width={24} height={24}></MoonIcon>
             </Show>
             <Show when={darkMode}>
-              <FiSun size={24}></FiSun>
+              <SunIcon width={24} height={24}></SunIcon>
             </Show>
           </button>
         </div>
 
         <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center md:hidden cursor-pointer mr-1'>
-          <FiMenu onClick={() => setShowMenu(true)} size={24} class='dark:text-white text-black'></FiMenu>
+          <MenuIcon onClick={() => setShowMenu(true)} height={24} width={24} class='dark:text-white text-black'></MenuIcon>
         </div>
       </div>
       <div
@@ -84,7 +91,7 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
         class={`transition md:hidden w-screen h-screen bg-josh mx-auto fixed top-0 left-0 py-5 px-5 ${showMenu() ? 'translate-x-0' : 'translate-x-[100vw]'}`}
       >
         <div>
-          <FiX class='ml-auto text-white' onClick={() => setShowMenu(false)} size={32}></FiX>
+          <XIcon class='ml-auto text-white' onClick={() => setShowMenu(false)} width={24} height={24}></XIcon>
         </div>
         <div class='text-center'>
           {links.map((link) => (

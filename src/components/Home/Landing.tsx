@@ -1,4 +1,5 @@
-import { FiBook as BookIcon, FiGithub as GithubIcon } from "solid-icons/fi"
+import GithubIcon from "~icons/tabler/brand-github"
+import BookIcon from "~icons/fe/book"
 
 import CoreCode from "../Core/Code"
 import HomeSubtitle from "./Subtitle"
