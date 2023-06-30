@@ -17,3 +17,17 @@
   /* step */
   animation: animate-cursor 1s infinite steps(1);
 }
+
+.glass {
+  background: rgba(88, 88, 88, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.9px);
+  -webkit-backdrop-filter: blur(15.9px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+}
+
+/* 
+.blob {
+    background: radial-gradient(#45975a, #45975902, rgba(0, 0, 0, 0));
+} */
