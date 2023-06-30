@@ -31,7 +31,7 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
 
   return (
     <nav>
-      <div class='flex justify-between px-10 pt-4'>
+      <div class='flex justify-between px-5 pt-6 md:px-10 md:pt-4'>
         <div class='hidden md:flex flex-row items-center space-x-6 w-1/3'>
           {links.map((link) => (
             <a
@@ -75,13 +75,13 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
           </button>
         </div>
 
-        <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center md:hidden cursor-pointer'>
+        <div class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center md:hidden cursor-pointer mr-1'>
           <FiMenu onClick={() => setShowMenu(true)} size={24} class='dark:text-white text-black'></FiMenu>
         </div>
       </div>
       <div
         style='z-index:2'
-        class={`transition md:hidden w-screen h-screen bg-josh mx-auto fixed top-0 left-0 py-6 px-6 ${showMenu() ? 'translate-x-0' : 'translate-x-[100vw]'}`}
+        class={`transition md:hidden w-screen h-screen bg-josh mx-auto fixed top-0 left-0 py-5 px-5 ${showMenu() ? 'translate-x-0' : 'translate-x-[100vw]'}`}
       >
         <div>
           <FiX class='ml-auto text-white' onClick={() => setShowMenu(false)} size={32}></FiX>

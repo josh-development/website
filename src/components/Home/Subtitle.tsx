@@ -54,7 +54,7 @@ export default function HomeSubtitle() {
                     {subtitle()}
                 </span>
             </span>
-            <span class='h-6 bg-zinc-800 dark:bg-gray-300 animate-cursor w-0.5 ml-0.5'></span>
+            <span class='h-5 mt-1.5 bg-zinc-800 dark:bg-gray-300 animate-cursor w-0.5 ml-0.5'></span>
         </a>
     )
 }
