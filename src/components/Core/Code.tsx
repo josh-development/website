@@ -1,8 +1,10 @@
 import HighlightJS from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
+import javascript from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";
 
 HighlightJS.registerLanguage("typescript", typescript);
+HighlightJS.registerLanguage("javascript", javascript);
 HighlightJS.registerLanguage("json", json);
 
 import "highlight.js/styles/tokyo-night-dark.css";
