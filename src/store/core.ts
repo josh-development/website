@@ -1,9 +1,9 @@
-import { createResource } from 'solid-js';
-
-export function fetchCore(): Promise<unknown> {
-	return fetch(
-		'https://raw.githubusercontent.com/josh-development/docs/main/core/main.json'
+import { ProjectParser } from 'typedoc-json-parser'
+export async function fetchProject(name: string) {
+	const data = await fetch(
+		`https://raw.githubusercontent.com/josh-development/docs/main/${name}/main.json`
 	)
 		.then((res) => res.json())
-		.catch(() => {});
+		const project = new ProjectParser({ data });
+		return project;
 }

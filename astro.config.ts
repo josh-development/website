@@ -10,7 +10,8 @@ export default defineConfig({
   output: 'hybrid',
   integrations: [solid(), tailwind()],
   experimental: {
-    assets: true
+    assets: true,
+    redirects: true,
   },
   adapter: netlify(),
   vite: {
@@ -19,5 +20,9 @@ export default defineConfig({
         compiler: 'solid'
       })
     ]
+  },
+  redirects: {
+    '/docs/api': '/docs',
+    '/docs/guides': '/docs',
   }
 });

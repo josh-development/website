@@ -1,72 +1,47 @@
+import type { ProjectParser } from "typedoc-json-parser";
 import JSONDisplay from "./JSONDisplay";
 import RenderProp from "./RenderProp";
+import RenderMethod from "./RenderMethod";
+import RenderConstructor from "./RenderConstructor";
 
-const blacklist = {
-  classes: ["JoshError"],
-  props: ["Josh.middlewares", "Josh.provider", "Josh.providerDataFailedError"],
-};
-
-export default function Docs({ data }: { data: unknown }) {
+export default function Docs({ data }: { data: ProjectParser }) {
   return (
     <>
       <h2 class="dark:text-gray-300 my-7 text-xl">
         {data.name} v{data.version}
       </h2>
       {data.classes
-        .filter((c: unknown) => !blacklist.classes.includes(c.name))
-        .map((c: any) => (
+        .map((c) => (
           <>
             {/* Constructor */}
-            <RenderProp
-              data={{
-                name: `new ${c.name}`,
-                parameters: c.construct.parameters,
-                description:
-                  c.construct.comment?.description || c.comment?.description,
-                blockTags: c.construct.comment?.blockTags?.length
-                  ? c.construct.comment?.blockTags
-                  : c.comment?.blockTags,
-              }}
+            <RenderConstructor
+              data={c}
             />
             {/* Props */}
             {c.properties
-              .filter((p) => !blacklist.props.includes(`${c.name}.${p.name}`))
               .map((p: any) => (
                 <>
                   <RenderProp
-                    data={{
-                      name: p.name,
-                      parameters: null,
-                      description: p.comment?.description,
-                      blockTags: p.comment?.blockTags,
-                    }}
+                    data={p}
                   />
                 </>
               ))}
             {/* Methods */}
             {c.methods
-              .filter(
-                (m: any) => !blacklist.props.includes(`${c.name}.${m.name}`)
-              )
-              .map((m: any) => (
+              .map((m) => (
                 <>
-                  <RenderProp
-                    data={{
-                      name: m.name,
-                      parameters: m.parameters,
-                      description: m.signatures?.[0]?.comment?.description,
-                      blockTags: m.signatures?.[0]?.comment?.blockTags,
-                    }}
+                  <RenderMethod
+                    data={m}
                   />
                 </>
               ))}
-            {/* Debug Info */}
-            <div class="mt-8 w-full sm:mt-0">{JSONDisplay(c)}</div>
           </>
         ))}
-      {/* <div class="mt-8 w-full sm:mt-0">
+            <details class="mt-8 w-full sm:mt-0">
+                <summary class="text-gray-500 dark:text-gray-400">Debug JSON</summary>
                 {JSONDisplay(data)}
-            </div> */}
+            </details>
+
     </>
   );
 }
