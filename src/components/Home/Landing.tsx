@@ -30,7 +30,7 @@ export default function HomeLanding() {
 				<div class="space-x-2">
 					<a
 						href="/docs"
-						class="transition shadow-lg hover:opacity-80 duration-300 dark:shadow px-6 py-4 rounded-lg inline-block bg-gradient-to-r from-green-500 to-green-600 text-white"
+						class="transition shadow-lg hover:opacity-80 duration-300 dark:shadow px-6 py-4 rounded-lg inline-block bg-gradient-to-r from-josh-500 to-josh-700 text-white"
 					>
 						<div class="flex">
 							<BookIcon class="mt-[0.2rem] mr-2" /> Documentation
@@ -40,7 +40,7 @@ export default function HomeLanding() {
 						target="_blank"
 						rel="noreferrer noopener"
 						href="https://github.com/josh-development/core"
-						class="transition text-white hover:opacity-80 bg-zinc-700 shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block"
+						class="transition text-white hover:opacity-80 bg-zinc-700 shadow-lg dark:shadow px-6 py-4 rounded-lg inline-block bg-gradient-to-l from-zinc-700 to-zinc-800"
 					>
 						<div class="flex">
 							<GithubIcon class="mt-[0.2rem] mr-2" /> Source

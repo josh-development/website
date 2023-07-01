@@ -13,5 +13,15 @@
   },
   "formatter": {
     "enabled":true
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "javascript": {
+    "formatter": {
+      "trailingComma": "none",
+      "quoteStyle": "single",
+      "semicolons": "always"
+    }
   }
 }

@@ -1,9 +1,11 @@
 ---
 import { SEO } from "astro-seo";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+
 import CoreNavbar from "../components/Core/Navbar";
 import CoreFooter from "../components/Core/Footer";
 import bannerImage from "../assets/images/banner.webp";
+
 import "../assets/styles/layouts/default.css";
 
 interface Props {
@@ -55,7 +57,10 @@ const theme = () => {
     />
   </head>
   <body class={theme()}>
-    <div class={"flex flex-col transition dark:bg-zinc-900 bg-zinc-200 " + cls}>
+    <div
+      class={"flex flex-col transition dark:bg-zinc-900 bg-zinc-200 dark:text-white " +
+        cls}
+    >
       <CoreNavbar client:load darkMode={theme() === "dark"} />
       <slot />
       <CoreFooter client:load />

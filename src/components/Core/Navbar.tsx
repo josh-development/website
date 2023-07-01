@@ -43,12 +43,23 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
 						<a
 							// activeClass='border-gray-400'
 							// inactiveClass='border-transparent'
-							class="border-b transition dark:text-white py-2"
+							class="transition border-b-2 hover:border-josh-500 p-2 hover:bg-zinc-800"
 							href={link.href}
 						>
 							{link.text}
 						</a>
 					))}
+					{/* <a
+						class="transition border-b border-zinc-500 p-2 hover:border-josh-300 border-zinc-200"
+						href="#"
+					>
+						Nova's Balls
+					</a> */}
+					<a class="hover:pb-0.5 transition-all pb-0 hover:bg-gradient-to-r from-josh-400 to-josh-600 w-36 h-8 mt-2.5" href="/">
+						<div class="w-full h-full bg-zinc-900 text-center">
+							Test
+						</div>
+					</a>
 				</div>
 				<div class="space-x-3 w-1/3 text-center items-center md:justify-center flex">
 					<h1 class="text-2xl leading-6 font-ledger text-gray-800 dark:text-white ">
@@ -92,9 +103,8 @@ export default function CoreNavbar({ darkMode }: { darkMode: boolean }) {
 			</div>
 			<div
 				style="z-index:2"
-				class={`transition md:hidden w-screen h-screen bg-josh mx-auto fixed top-0 left-0 py-5 px-5 ${
-					showMenu() ? "translate-x-0" : "translate-x-[100vw]"
-				}`}
+				class={`transition md:hidden w-screen h-screen bg-josh mx-auto fixed top-0 left-0 py-5 px-5 ${showMenu() ? "translate-x-0" : "translate-x-[100vw]"
+					}`}
 			>
 				<div>
 					<XIcon
