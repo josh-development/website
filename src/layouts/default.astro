@@ -1,68 +1,64 @@
 ---
-import { SEO } from "astro-seo";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
-
-import CoreNavbar from "../components/Core/Navbar";
-import CoreFooter from "../components/Core/Footer";
-
-import bannerImage from "../assets/images/banner.webp";
-import "../assets/styles/layouts/default.css";
+import { SEO } from 'astro-seo';
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
+import CoreNavbar from '../components/Core/Navbar';
+import CoreFooter from '../components/Core/Footer';
+import bannerImage from '../assets/images/banner.webp';
+import '../assets/styles/layouts/default.css';
 
 interface Props {
-    title?: string;
-    class?: string;
+  title?: string;
+
+  class?: string;
 }
 
 const { title, class: cls } = Astro.props;
 const defaults = {
-    title: "Home",
-    description:
-        "JOSH is the JavaScript Object Storage Helper - a simple, effective, and efficient database wrapper written in Typescript",
+  title: 'Home',
+  description: 'JOSH is the JavaScript Object Storage Helper - a simple, effective, and efficient database wrapper written in Typescript'
 };
 
 const theme = () => {
-    if (Astro.cookies.has("theme")) {
-        return Astro.cookies.get("theme").value;
-    }
-    return "dark"; // default dark, save my eyes
+  if (Astro.cookies.has('theme')) {
+    return Astro.cookies.get('theme').value;
+  }
+
+  return 'dark'; // default dark, save my eyes
 };
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <SEO
-            title={`JoshDB | ${title || defaults.title}`}
-            description={defaults.description}
-            openGraph={{
-                basic: {
-                    title: `JoshDB | ${title || defaults.title}`,
-                    type: "website",
-                    image: bannerImage.src,
-                },
-            }}
-            twitter={{
-                description: defaults.description,
-                image: bannerImage.src,
-            }}
-            extend={{
-                link: [],
-                meta: [],
-            }}
-        />
-        <GoogleFontsOptimizer
-            url="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@200;400;500;700&family=Varela+Round:wght@200;400;500;700&family=Ledger:wght@200;400;500;700&display=swap"
-        />
-    </head>
-    <body class={theme()}>
-        <div
-            class={"flex flex-col transition dark:bg-zinc-900 bg-zinc-200 " +
-                cls}
-        >
-            <CoreNavbar client:load darkMode={theme() === "dark"} />
-            <slot />
-            <CoreFooter client:load />
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO
+      title={`JoshDB | ${title || defaults.title}`}
+      description={defaults.description}
+      openGraph={{
+        basic: {
+          title: `JoshDB | ${title || defaults.title}`,
+          type: 'website',
+          image: bannerImage.src
+        }
+      }}
+      twitter={{
+        description: defaults.description,
+        image: bannerImage.src
+      }}
+      extend={{
+        link: [],
+        meta: []
+      }}
+    />
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@200;400;500;700&family=Varela+Round:wght@200;400;500;700&family=Ledger:wght@200;400;500;700&display=swap"
+    />
+  </head>
+  <body class={theme()}>
+    <div class={'flex flex-col transition dark:bg-zinc-900 bg-zinc-200 ' + cls}>
+      <CoreNavbar client:load darkMode={theme() === 'dark'} />
+      <slot />
+      <CoreFooter client:load />
+    </div>
+  </body>
 </html>
