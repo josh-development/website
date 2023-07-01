@@ -1,0 +1,28 @@
+---
+import DefaultLayout from "../../../layouts/default.astro";
+import DocsMain from "../../../components/Docs/Main";
+
+import "../../../assets/styles/pages/index.css";
+import { fetchProject } from "../../../store/core";
+
+export function getStaticPaths() {
+  return [
+    {params: {project: 'core'}},
+    ...['json','map','maria','mongo','postgresql','redis','sqlite'].map((project) => ({params: {project: 'providers/' + project}})),
+    ...['provider','serialize'].map((project) => ({params: {project: 'utilities/' + project}})),
+  ];
+}
+
+const { project } = Astro.params;
+
+const data = await fetchProject(project).catch(e => e);
+---
+
+<DefaultLayout class="min-h-screen" title="Docs">
+  {data instanceof Error ?
+  <>
+  Error fetching docs for {project}:
+  <pre>{data.message}</pre>
+  </>
+  :<DocsMain data={data} />}
+</DefaultLayout>

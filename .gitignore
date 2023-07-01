@@ -5,8 +5,7 @@ node_modules/
 # Ignore build artifacts
 dist/
 build/
-coverage/
-.turbo/
+.astro/
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot
@@ -21,3 +20,10 @@ gh
 # Ignore Yarn files
 .yarn/install-state.gz
 .yarn/build-state.yml
+
+# Enviroment Variables
+.env
+.env.production
+
+# Netlify
+.netflify

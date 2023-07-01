@@ -1,8 +1,7 @@
 {
   "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "streetsidesoftware.code-spell-checker",
-    "unifiedjs.vscode-mdx"
-  ]
+    "astro-build.astro-vscode",
+    "rome.rome"
+  ],
+  "unwantedRecommendations": []
 }

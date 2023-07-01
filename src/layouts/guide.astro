@@ -1,0 +1,15 @@
+---
+import DefaultLayout from "./default.astro";
+
+import "../assets/styles/pages/markdown.css";
+
+const {frontmatter} = Astro.props;
+---
+
+<DefaultLayout class="min-h-screen" title={frontmatter.title}>
+  <div class="px-10 py-4">
+      <div class="mt-10 sm:mt-0 md">
+        <slot />
+      </div>
+    </div>
+</DefaultLayout>

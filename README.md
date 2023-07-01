@@ -1,16 +1,13 @@
-<div align="center">
+# Astro + Solid.js Example
 
-# Josh Website
+```
+npm create astro@latest -- --template framework-solid
+```
 
-**Source code for the Josh project website.**
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/framework-solid)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/framework-solid)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/framework-solid/devcontainer.json)
 
-[![GitHub](https://img.shields.io/github/license/josh-development/website)](https://github.com/josh-development/website/blob/main/LICENSE.md)
+This example showcases Astro working with [Solid](https://www.solidjs.com/).
 
-</div>
-
-## Running Locally
-
-After forking/cloning this repository to a folder locally:
-
-1. Install dependencies with `yarn`
-1. Run `yarn start` to start the vite development server.
+Write your Solid components as `.jsx` or `.tsx` files in your project.

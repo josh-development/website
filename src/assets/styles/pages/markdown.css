@@ -1,0 +1,17 @@
+/* Fixes tailwind not styling anything */
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+  font-size: revert;
+  font-weight: revert;
+}
+
+.md a {
+  color: #3182ce;
+}
+
+.md blockquote {
+  margin-left: 1em;
+  border-left-color: forestgreen;
+  border-left-style: solid;
+  border-left-width: .1em;
+  padding-left: 0.5em;
+}
