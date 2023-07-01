@@ -24,3 +24,6 @@ gh
 # Enviroment Variables
 .env
 .env.production
+
+# Netlify
+.netflify

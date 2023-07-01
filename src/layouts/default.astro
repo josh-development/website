@@ -1,29 +1,29 @@
 ---
-import { SEO } from 'astro-seo';
-import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
-import CoreNavbar from '../components/Core/Navbar';
-import CoreFooter from '../components/Core/Footer';
-import bannerImage from '../assets/images/banner.webp';
-import '../assets/styles/layouts/default.css';
+import { SEO } from "astro-seo";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import CoreNavbar from "../components/Core/Navbar";
+import CoreFooter from "../components/Core/Footer";
+import bannerImage from "../assets/images/banner.webp";
+import "../assets/styles/layouts/default.css";
 
 interface Props {
   title?: string;
-
   class?: string;
 }
 
 const { title, class: cls } = Astro.props;
 const defaults = {
-  title: 'Home',
-  description: 'JOSH is the JavaScript Object Storage Helper - a simple, effective, and efficient database wrapper written in Typescript'
+  title: "Home",
+  description:
+    "JOSH is the JavaScript Object Storage Helper - a simple, effective, and efficient database wrapper written in Typescript",
 };
 
 const theme = () => {
-  if (Astro.cookies.has('theme')) {
-    return Astro.cookies.get('theme').value;
+  if (Astro.cookies.has("theme")) {
+    return Astro.cookies.get("theme").value;
   }
 
-  return 'dark'; // default dark, save my eyes
+  return "dark"; // default dark, save my eyes
 };
 ---
 
@@ -37,17 +37,17 @@ const theme = () => {
       openGraph={{
         basic: {
           title: `JoshDB | ${title || defaults.title}`,
-          type: 'website',
-          image: bannerImage.src
-        }
+          type: "website",
+          image: bannerImage.src,
+        },
       }}
       twitter={{
         description: defaults.description,
-        image: bannerImage.src
+        image: bannerImage.src,
       }}
       extend={{
         link: [],
-        meta: []
+        meta: [],
       }}
     />
     <GoogleFontsOptimizer
@@ -55,8 +55,8 @@ const theme = () => {
     />
   </head>
   <body class={theme()}>
-    <div class={'flex flex-col transition dark:bg-zinc-900 bg-zinc-200 ' + cls}>
-      <CoreNavbar client:load darkMode={theme() === 'dark'} />
+    <div class={"flex flex-col transition dark:bg-zinc-900 bg-zinc-200 " + cls}>
+      <CoreNavbar client:load darkMode={theme() === "dark"} />
       <slot />
       <CoreFooter client:load />
     </div>

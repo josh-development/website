@@ -1,0 +1,17 @@
+{
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+      "a11y": {
+        "useButtonType": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled":true
+  }
+}

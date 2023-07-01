@@ -1,13 +1,13 @@
 export type GithubMembers = {
-  login: string;
+	login: string;
 
-  id: number;
+	id: number;
 
-  avatar_url: string;
+	avatar_url: string;
 
-  url: string;
+	url: string;
 
-  html_url: string;
+	html_url: string;
 
-  type: string;
+	type: string;
 }[];
