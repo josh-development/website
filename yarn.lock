@@ -1246,12 +1246,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/meta@npm:^0.28.5":
-  version: 0.28.5
-  resolution: "@solidjs/meta@npm:0.28.5"
+"@solidjs/meta@npm:^0.28.6":
+  version: 0.28.6
+  resolution: "@solidjs/meta@npm:0.28.6"
   peerDependencies:
     solid-js: ">=1.4.0"
-  checksum: ef908d904c130abbd15e988b592343423b4f8f00f7f357146f1eb6efe8491b344f79e07fe0e2362bdf75c3ce4a8b79f2b27c96bf078e05b9b40a7e6410e26560
+  checksum: 31486ebfe899a8f5e1a814fa7b16a1a351ac03fb52569d5df9f95e4b2058cd782af7c71b3bb8cf80088055c83e4a767fcb7e72b42086a3aa29fd7437d2a74135
   languageName: node
   linkType: hard
 
@@ -7713,7 +7713,7 @@ __metadata:
     "@joshdb/eslint-config": 1.1.0-next.a699598.0
     "@joshdb/ts-config": 1.1.0-next.a699598.0
     "@mdx-js/rollup": ^2.3.0
-    "@solidjs/meta": ^0.28.5
+    "@solidjs/meta": ^0.28.6
     "@solidjs/router": ^0.8.2
     "@tailwindcss/typography": ^0.5.9
     "@types/markdown-it": ^12.2.3
