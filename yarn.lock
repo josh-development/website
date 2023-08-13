@@ -1279,12 +1279,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "@solidjs/router@npm:0.8.2"
+"@solidjs/router@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "@solidjs/router@npm:0.8.3"
   peerDependencies:
     solid-js: ^1.5.3
-  checksum: 641552d5a32e870c85a2ec2257583c0fcfd283a05927daa847ca13ad99a41584ad089477f7caec465630b010fe7bdfbd564a77571fd74044bf330184ca0a6f57
+  checksum: ad3aafcaa009588e350d8f29841d97300d63e3fce04a5451e59d631066e0f6def61855bfd4305fbfbc5026aa8222ad3113c09184ce3c8e20649c3d4fcf0d4acb
   languageName: node
   linkType: hard
 
@@ -6644,6 +6644,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"solid-js@npm:^1.7.11":
+  version: 1.7.11
+  resolution: "solid-js@npm:1.7.11"
+  dependencies:
+    csstype: ^3.1.0
+    seroval: ^0.5.0
+  checksum: 692f6499adea139aa7f61770277162b0460c7f2de373bfbfa20ee208d970e8b25bdfc07fce70ef03150d766dae506998878168a9a313b51789211153669abbc6
+  languageName: node
+  linkType: hard
+
 "solid-js@npm:^1.7.3":
   version: 1.7.3
   resolution: "solid-js@npm:1.7.3"
@@ -6651,16 +6661,6 @@ __metadata:
     csstype: ^3.1.0
     seroval: ^0.5.0
   checksum: 052a3148b6d0960312793781435005c16a7a80c2271e2bf2370ec22ec57ffd77e3e4a41335c1bd785ab36500adef86da79536445983efbed404db860e11593d4
-  languageName: node
-  linkType: hard
-
-"solid-js@npm:^1.7.9":
-  version: 1.7.9
-  resolution: "solid-js@npm:1.7.9"
-  dependencies:
-    csstype: ^3.1.0
-    seroval: ^0.5.0
-  checksum: 99eaf995a87068e634e75346e12b3e28b4da13ccbf38411d12058ab0ffa1e8cafd7217413babec3fde9d0526f5c823f97f6fbc298b72bf8159e15d70fcaa0fa7
   languageName: node
   linkType: hard
 
@@ -7671,7 +7671,7 @@ __metadata:
     "@joshdb/ts-config": 1.1.0-next.a699598.0
     "@mdx-js/rollup": ^2.3.0
     "@solidjs/meta": ^0.28.6
-    "@solidjs/router": ^0.8.2
+    "@solidjs/router": ^0.8.3
     "@tailwindcss/typography": ^0.5.9
     "@types/markdown-it": ^12.2.3
     "@types/node": ^18.17.3
@@ -7691,7 +7691,7 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^5.0.1
     solid-icons: ^1.0.11
-    solid-js: ^1.7.9
+    solid-js: ^1.7.11
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.2
     solid-transition-group: ^0.2.3
