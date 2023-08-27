@@ -979,9 +979,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@joshdb/eslint-config@npm:1.1.0-next.d7d912b.0":
-  version: 1.1.0-next.d7d912b.0
-  resolution: "@joshdb/eslint-config@npm:1.1.0-next.d7d912b.0"
+"@joshdb/eslint-config@npm:1.1.0-next.f8eeab5.0":
+  version: 1.1.0-next.f8eeab5.0
+  resolution: "@joshdb/eslint-config@npm:1.1.0-next.f8eeab5.0"
   dependencies:
     "@sapphire/eslint-config": ^4.4.2
     "@typescript-eslint/eslint-plugin": ^5.60.1
@@ -991,7 +991,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     prettier: ^2.8.8
     typescript: ^5.1.6
-  checksum: 362e248dff3a600dfefa6421ac592485d90834ac90c636dce8f6e4d508680c4f543781a3e39accc1e94eb5ba2d6585bd5562114eae85b4e3d27e17c4c52fb17a
+  checksum: 3e795f7fd2d3b4831310ce78a2926e9d0253c10443804a648921ac6133d27f20801899dc5b16a38401faea7a55f9e33996088c02fb0b92464a00f07aee08d324
   languageName: node
   linkType: hard
 
@@ -7511,7 +7511,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.7.1
     "@commitlint/config-conventional": ^17.7.0
-    "@joshdb/eslint-config": 1.1.0-next.d7d912b.0
+    "@joshdb/eslint-config": 1.1.0-next.f8eeab5.0
     "@joshdb/ts-config": 1.1.0-next.a699598.0
     "@mdx-js/rollup": ^2.3.0
     "@solidjs/meta": ^0.28.6
