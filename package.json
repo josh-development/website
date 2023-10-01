@@ -26,7 +26,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/markdown-it": "^12.2.3",
     "highlight.js": "^11.8.0",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^13.0.2",
     "remark-gfm": "^3.0.1",
     "solid-icons": "^1.0.12",
     "solid-js": "^1.7.12",
