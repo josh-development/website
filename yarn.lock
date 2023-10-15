@@ -3986,10 +3986,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^11.8.0":
-  version: 11.8.0
-  resolution: "highlight.js@npm:11.8.0"
-  checksum: d2578a57aee7315946ff19379053fd0a28b127baabf7617ab1d28d62cdc4eaf3d75053569cb8479a5afdc7a68f1ba9a6c1d612d8ae399b4b9aa43093b4fb6831
+"highlight.js@npm:^11.9.0":
+  version: 11.9.0
+  resolution: "highlight.js@npm:11.9.0"
+  checksum: 4043d31c5de9d27d13387d9a9e5e1939557254b7b85f0fab85d9cae0e420e131a3456ebf6148552020a1d8a216d671d583f2433d6c4de6179b8a66487a8325cb
   languageName: node
   linkType: hard
 
@@ -6723,6 +6723,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"seroval@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "seroval@npm:0.10.4"
+  checksum: 6822f73316d5616ba55074238f7f66c3b82ccf2423e7587a4e90f5586ab28d07eaf972034e2d57e2e821a716db95b58e35712319ac5a3c6183dea4bcc44abd06
+  languageName: node
+  linkType: hard
+
 "seroval@npm:^0.5.0":
   version: 0.5.1
   resolution: "seroval@npm:0.5.1"
@@ -6833,16 +6840,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.7.12":
-  version: 1.7.12
-  resolution: "solid-js@npm:1.7.12"
-  dependencies:
-    csstype: ^3.1.0
-    seroval: ^0.5.0
-  checksum: b1a1de28183d841d43ecf718304e00700956c1744731ddee649f8c3f7ad85654528751e6413c01edb0839fca0800534d713660f807d8f06f5fe4a13b94159a1c
-  languageName: node
-  linkType: hard
-
 "solid-js@npm:^1.7.3":
   version: 1.7.3
   resolution: "solid-js@npm:1.7.3"
@@ -6850,6 +6847,16 @@ __metadata:
     csstype: ^3.1.0
     seroval: ^0.5.0
   checksum: 052a3148b6d0960312793781435005c16a7a80c2271e2bf2370ec22ec57ffd77e3e4a41335c1bd785ab36500adef86da79536445983efbed404db860e11593d4
+  languageName: node
+  linkType: hard
+
+"solid-js@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "solid-js@npm:1.8.1"
+  dependencies:
+    csstype: ^3.1.0
+    seroval: ^0.10.4
+  checksum: 88c252f831a27053d75c3cfba1a3b928daddea200fee78609286ccd2982297784398e7b32f9a97fdb3e58076054a7d58cb7154fd345b5bf00df60ed577639eba
   languageName: node
   linkType: hard
 
@@ -7883,7 +7890,7 @@ __metadata:
     eslint: ^8.51.0
     eslint-config-prettier: ^8.10.0
     eslint-plugin-prettier: ^4.2.1
-    highlight.js: ^11.8.0
+    highlight.js: ^11.9.0
     husky: ^8.0.3
     lint-staged: ^13.3.0
     markdown-it: ^13.0.2
@@ -7893,7 +7900,7 @@ __metadata:
     remark-gfm: ^3.0.1
     rimraf: ^5.0.5
     solid-icons: ^1.0.12
-    solid-js: ^1.7.12
+    solid-js: ^1.8.1
     solid-jsx: ^0.9.1
     solid-markdown: ^1.2.2
     solid-transition-group: ^0.2.3
