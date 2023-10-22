@@ -38,8 +38,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
-    "@joshdb/eslint-config": "1.1.0-next.f5c0ada.0",
-    "@joshdb/ts-config": "1.1.0-next.f5c0ada.0",
+    "@joshdb/eslint-config": "1.1.0-next.feca273.0",
+    "@joshdb/ts-config": "1.1.0-next.feca273.0",
     "@types/node": "^18.18.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
