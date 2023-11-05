@@ -27,7 +27,7 @@
     "@types/markdown-it": "^12.2.3",
     "highlight.js": "^11.9.0",
     "markdown-it": "^13.0.2",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.0",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.5",
     "solid-jsx": "^0.9.1",
