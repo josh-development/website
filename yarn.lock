@@ -5620,21 +5620,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "minimatch@npm:9.0.0"
-  dependencies:
-    brace-expansion: ^2.0.1
-  checksum: 7bd57899edd1d1b0560f50b5b2d1ea4ad2a366c5a2c8e0a943372cf2f200b64c256bae45a87a80915adbce27fa36526264296ace0da57b600481fe5ea3e372e5
-  languageName: node
-  linkType: hard
-
 "minimatch@npm:^9.0.1":
   version: 9.0.1
   resolution: "minimatch@npm:9.0.1"
   dependencies:
     brace-expansion: ^2.0.1
   checksum: 97f5f5284bb57dc65b9415dec7f17a0f6531a33572193991c60ff18450dcfad5c2dad24ffeaf60b5261dccd63aae58cc3306e2209d57e7f88c51295a532d8ec3
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^9.0.3":
+  version: 9.0.4
+  resolution: "minimatch@npm:9.0.4"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: cf717f597ec3eed7dabc33153482a2e8d49f4fd3c26e58fd9c71a94c5029a0838728841b93f46bf1263b65a8010e2ee800d0dc9b004ab8ba8b6d1ec07cc115b5
   languageName: node
   linkType: hard
 
@@ -6797,15 +6797,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^0.14.1":
-  version: 0.14.1
-  resolution: "shiki@npm:0.14.1"
+"shiki@npm:^0.14.7":
+  version: 0.14.7
+  resolution: "shiki@npm:0.14.7"
   dependencies:
     ansi-sequence-parser: ^1.1.0
     jsonc-parser: ^3.2.0
     vscode-oniguruma: ^1.7.0
     vscode-textmate: ^8.0.0
-  checksum: b19ea337cc84da69d99ca39d109f82946e0c56c11cc4c67b3b91cc14a9479203365fd0c9e0dd87e908f493ab409dc6f1849175384b6ca593ce7da884ae1edca2
+  checksum: 2aec3b3519df977c4391df9e1825cb496e9a4d7e11395f05a0da77e4fa2f7c3d9d6e6ee94029ac699533017f2b25637ee68f6d39f05f311535c2704d0329b520
   languageName: node
   linkType: hard
 
@@ -7416,13 +7416,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.5.3":
-  version: 2.5.3
-  resolution: "tslib@npm:2.5.3"
-  checksum: 88902b309afaf83259131c1e13da1dceb0ad1682a213143a1346a649143924d78cf3760c448b84d796938fd76127183894f8d85cbb3bf9c4fddbfcc140c0003c
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^2.6.0, tslib@npm:^2.6.2":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
@@ -7485,36 +7478,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-json-parser@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "typedoc-json-parser@npm:8.2.0"
+"typedoc-json-parser@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "typedoc-json-parser@npm:9.0.1"
   dependencies:
     "@favware/colorette-spinner": ^1.0.1
     "@sapphire/node-utilities": ^1.0.0
     colorette: ^2.0.20
     commander: ^11.0.0
     js-yaml: ^4.1.0
-    tslib: ^2.5.3
-    typedoc: ^0.24.8
+    tslib: ^2.6.2
+    typedoc: ^0.25.1
+    typescript: ^5.2.2
   bin:
     typedoc-json-parser: ./dist/bin/index.js
-  checksum: fb9b83f7b42d60382dd0d1494d9c4e95caa1a35d06456993b34833fcab79cff3298827ff030fe7cf0ee96d69dc302a649e1a290d1a86280cb3f92dbde17a7972
+  checksum: 2de3614b23f667163c2e821fdf1c545253d40af737aeaa8269a946e35bd2bda21ad7b33e88c414dff9d298cbf2999bae81d11704b76f57f2b7b7f051081519c8
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.24.8":
-  version: 0.24.8
-  resolution: "typedoc@npm:0.24.8"
+"typedoc@npm:^0.25.1":
+  version: 0.25.12
+  resolution: "typedoc@npm:0.25.12"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.3.0
-    minimatch: ^9.0.0
-    shiki: ^0.14.1
+    minimatch: ^9.0.3
+    shiki: ^0.14.7
   peerDependencies:
-    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x
+    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x
   bin:
     typedoc: bin/typedoc
-  checksum: a46a14497f789fb3594e6c3af2e45276934ac46df40b7ed15a504ee51dc7a8013a2ffb3a54fd73abca6a2b71f97d3ec9ad356fa9aa81d29743e4645a965a2ae0
+  checksum: 6022dd921f78361b62ec9cbb8b847cbcf00e0f2bc45799409d5f6d74edbca8d82d31bf9a7d17a4e1c3c1916ba8265c2266bded50902533faaec53d5cdb558e80
   languageName: node
   linkType: hard
 
@@ -7945,7 +7939,7 @@ __metadata:
     solid-markdown: ^1.2.2
     solid-transition-group: ^0.2.3
     tailwindcss: ^3.4.3
-    typedoc-json-parser: ^8.2.0
+    typedoc-json-parser: ^9.0.1
     typescript: ^5.4.4
     vite: ^4.5.3
     vite-plugin-solid: ^2.10.2
