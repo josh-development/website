@@ -7037,12 +7037,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-jsx@npm:^0.9.1":
-  version: 0.9.1
-  resolution: "solid-jsx@npm:0.9.1"
+"solid-jsx@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "solid-jsx@npm:1.1.4"
   peerDependencies:
-    solid-js: ^1.4.0
-  checksum: 1406ad2c9cbec445aeae741b15ac77d65277e320c0d292bc1dfd1a0a46495dd86cb427f20797c686d324223b936c8bf5bf4a2e707b63c92bc173c4c16883f969
+    solid-js: ">=1.4.0"
+  checksum: 2e64c20c4b0e54c379e27fec3e10bd98c2b847ce3dd4bf6e9c0b1d93e1bacc82f68c4867c406081609563131590c1186a437d916372187ceac792c917a1d57ff
   languageName: node
   linkType: hard
 
@@ -8095,7 +8095,7 @@ __metadata:
     rimraf: ^5.0.10
     solid-icons: ^1.1.0
     solid-js: ^1.8.5
-    solid-jsx: ^0.9.1
+    solid-jsx: ^1.1.4
     solid-markdown: ^1.2.2
     solid-transition-group: ^0.2.3
     tailwindcss: ^3.4.18
