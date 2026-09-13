@@ -30,7 +30,7 @@
     "remark-gfm": "^3.0.1",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.5",
-    "solid-jsx": "^0.9.1",
+    "solid-jsx": "^1.1.4",
     "solid-markdown": "^1.2.2",
     "solid-transition-group": "^0.2.3",
     "typedoc-json-parser": "^8.2.0"
