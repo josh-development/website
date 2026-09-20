@@ -2222,9 +2222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.6.0":
-  version: 10.6.0
-  resolution: "autoprefixer@npm:10.6.0"
+"autoprefixer@npm:^10.6.1":
+  version: 10.6.1
+  resolution: "autoprefixer@npm:10.6.1"
   dependencies:
     browserslist: ^4.28.9
     caniuse-lite: ^1.0.30001810
@@ -2235,7 +2235,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: bd5d2310cab2a6c4a6d0eb8e84563e0f08714f60acc7cd1edc25c153a8f6f5d0e6faaae29eb463f91f7a3895fb4ec5ed21bd30850be7a5474bcf0d2e4b0208b2
+  checksum: 49a5ebfa5efeea4d9d4a606f2406100b2905bd0b54babd5b5509437db791993bafe6f3d11eed81f2624291fe69e70811f9721a2d4b9379418e369759952f2060
   languageName: node
   linkType: hard
 
@@ -8082,7 +8082,7 @@ __metadata:
     "@types/node": ^18.19.130
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
-    autoprefixer: ^10.6.0
+    autoprefixer: ^10.6.1
     eslint: ^8.57.1
     eslint-config-prettier: ^8.10.2
     eslint-plugin-prettier: ^4.2.5
