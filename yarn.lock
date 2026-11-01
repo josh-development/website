@@ -2222,9 +2222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.6.1":
-  version: 10.6.1
-  resolution: "autoprefixer@npm:10.6.1"
+"autoprefixer@npm:^10.6.2":
+  version: 10.6.2
+  resolution: "autoprefixer@npm:10.6.2"
   dependencies:
     browserslist: ^4.28.9
     caniuse-lite: ^1.0.30001810
@@ -2235,7 +2235,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 49a5ebfa5efeea4d9d4a606f2406100b2905bd0b54babd5b5509437db791993bafe6f3d11eed81f2624291fe69e70811f9721a2d4b9379418e369759952f2060
+  checksum: ac9d01e6c7612a60a8062e834ff495b34408d6c643370be6c99e389c936c8a3e49ab400f85648e5a4fa56fa94564ff1fb332826e0ae814256a417c7068416cf6
   languageName: node
   linkType: hard
 
@@ -5885,12 +5885,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.18":
-  version: 3.3.19
-  resolution: "nanoid@npm:3.3.19"
+"nanoid@npm:^3.3.20":
+  version: 3.3.20
+  resolution: "nanoid@npm:3.3.20"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 9e7a9c78d81b3778844df795aa17da6fde77825eacee6c6e5776cac0055326d54cc1bfee71ad0a9a1f11556c93a243a63648228e6c6b24ae7d4f75f6d4466a99
+  checksum: e5061282c25412663f527abe382b3dc7165585f18b5edb7c6500a5f56d9570b1de8b26500c231ae5e28e299f20d3877f839268ed5c302f997b5627237a04dcf9
   languageName: node
   linkType: hard
 
@@ -6432,14 +6432,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.28":
-  version: 8.5.28
-  resolution: "postcss@npm:8.5.28"
+"postcss@npm:^8.5.32":
+  version: 8.5.32
+  resolution: "postcss@npm:8.5.32"
   dependencies:
-    nanoid: ^3.3.18
+    nanoid: ^3.3.20
     picocolors: ^1.1.1
-    source-map-js: ^1.2.1
-  checksum: 914a3a7af573aa2b672c0e286e0c7665a0e8c7e7a2370a0247c4531c189559e1909bac90d973bc2ff0ab64173780ec7ccde28be20298c887d16ed65d95098f6a
+    source-map-js: ^1.2.2
+  checksum: b2d96a22dda6ab9cecf9df46950e2868ed7a1131b06a679af797f0914ccbaafd3a0e0bcc991cbe2faa09e4206ab4b92f67819fed7c0ac2f5242bbecac5805d1a
   languageName: node
   linkType: hard
 
@@ -7108,6 +7108,13 @@ __metadata:
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
   checksum: 4eb0cd997cdf228bc253bcaff9340afeb706176e64868ecd20efbe6efea931465f43955612346d6b7318789e5265bdc419bc7669c1cebe3db0eb255f57efa76b
+  languageName: node
+  linkType: hard
+
+"source-map-js@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "source-map-js@npm:1.2.2"
+  checksum: d4f3adc1921e145fe84574b5852d7f5bf11e93d6c008a250ffe66a3e698331f066008cc3ba63e720dde07fe74871f1610d2e74532d33b27126e82e57c00df3bf
   languageName: node
   linkType: hard
 
@@ -7979,16 +7986,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-solid@npm:^2.11.14":
-  version: 2.11.14
-  resolution: "vite-plugin-solid@npm:2.11.14"
+"vite-plugin-solid@npm:^2.11.15":
+  version: 2.11.15
+  resolution: "vite-plugin-solid@npm:2.11.15"
   dependencies:
     "@babel/core": ^7.23.3
     "@types/babel__core": ^7.20.4
     babel-preset-solid: ^1.8.4
     merge-anything: ^5.1.7
     solid-refresh: ^0.6.3
-    vitefu: ^1.0.4
+    vitefu: ^1.1.1
   peerDependencies:
     "@testing-library/jest-dom": ^5.16.6 || ^5.17.0 || ^6.0.0 || ^7.0.0
     solid-js: ^1.7.2
@@ -7996,7 +8003,7 @@ __metadata:
   peerDependenciesMeta:
     "@testing-library/jest-dom":
       optional: true
-  checksum: bcdcc341f45ea9205bd218d2fe46d14ef08b5e70d7c0fae669b0ff8dc0dd4a1c2caa1bf70d531e69b5a7c091c09f43020bc56e2be9174eaeb0da319bd3939434
+  checksum: 1e0cea493a1543910cbd4aa9b981b4c16fc210526ea141fdb88d4d47d03785f4c0890bca5d86de35a9e06c8d27bffee536b788eb0973d54151e05569ba04bdfe
   languageName: node
   linkType: hard
 
@@ -8040,15 +8047,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitefu@npm:^1.0.4":
-  version: 1.0.6
-  resolution: "vitefu@npm:1.0.6"
+"vitefu@npm:^1.1.1":
+  version: 1.1.3
+  resolution: "vitefu@npm:1.1.3"
   peerDependencies:
-    vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+    vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: bb5053dc8a21dad1320297fbaaf1056754da40839b864eef2c57fb75dd9e37e9748ca5f234196beae0ac7881323f05548ff66ebffdc75c9e8eab0ccd87d52037
+  checksum: 5b51d5d34617fb0dd3692903c9e72e4083453305d09b2c0bb345251be0899ea571c2f1d7d4bc1139b6b00591503baf3aea40d13ef15afdede5536777cd4862e1
   languageName: node
   linkType: hard
 
@@ -8082,7 +8089,7 @@ __metadata:
     "@types/node": ^18.19.130
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
-    autoprefixer: ^10.6.1
+    autoprefixer: ^10.6.2
     eslint: ^8.57.1
     eslint-config-prettier: ^8.10.2
     eslint-plugin-prettier: ^4.2.5
@@ -8090,7 +8097,7 @@ __metadata:
     husky: ^8.0.3
     lint-staged: ^13.3.0
     markdown-it: ^13.0.2
-    postcss: ^8.5.28
+    postcss: ^8.5.32
     prettier: ^2.8.8
     pretty-quick: ^3.3.1
     remark-gfm: ^3.0.1
@@ -8104,7 +8111,7 @@ __metadata:
     typedoc-json-parser: ^8.2.0
     typescript: ^5.9.3
     vite: ^4.5.14
-    vite-plugin-solid: ^2.11.14
+    vite-plugin-solid: ^2.11.15
   languageName: unknown
   linkType: soft
 
